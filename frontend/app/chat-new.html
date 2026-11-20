@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#121613">
+  <link rel="icon" href="/static/app/favicon.svg" type="image/svg+xml">
+  <title>开始对话 · StoryRole</title>
+  <link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar" id="sidebar"></aside>
+    <main class="main">
+      <div class="page new-chat-page">
+        <a class="back-link" href="/chats" id="back-to-chats"></a>
+        <header class="page-header">
+          <div>
+            <h1 class="page-title">开始对话</h1>
+            <p class="page-desc">选一个角色和一个场景，然后说第一句话。</p>
+          </div>
+        </header>
+
+        <section class="start-chat-card" aria-label="开始新对话">
+          <div class="start-chat-fields">
+            <label class="field">
+              <span class="field-label">角色</span>
+              <select class="select" id="character-select" aria-label="角色"></select>
+            </label>
+            <label class="field">
+              <span class="field-label">场景</span>
+              <select class="select" id="scene-select" aria-label="场景"></select>
+            </label>
+          </div>
+          <p class="start-chat-note" id="start-chat-note"></p>
+
+          <div class="start-chat-compose">
+            <textarea id="first-message" maxlength="4000" placeholder="写下你想说的第一句话…" aria-label="第一句话"></textarea>
+            <div class="start-chat-actions">
+              <p class="chat-error" id="new-chat-error" role="alert"></p>
+              <button class="btn btn-primary" type="button" id="first-send">发送</button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+  <script src="/static/app/common.js"></script>
+  <script src="/static/app/chat-new.js"></script>
+</body>
+</html>

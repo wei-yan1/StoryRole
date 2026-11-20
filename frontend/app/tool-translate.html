@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#121613">
+  <link rel="icon" href="/static/app/favicon.svg" type="image/svg+xml">
+  <title>翻译 · StoryRole</title>
+  <link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar" id="sidebar"></aside>
+    <main class="main">
+      <div class="page">
+        <header class="page-header">
+          <div>
+            <a class="chat-back" href="/tools" id="back-link"></a>
+            <h1 class="page-title" style="font-size:34px">翻译</h1>
+            <p class="page-desc">保持原文语气，把一段话换一种语言。适合角色台词、资料摘录和对外沟通。</p>
+          </div>
+        </header>
+        <div class="tool-workspace">
+          <section class="card tool-panel">
+            <h2>原文</h2>
+            <p class="lead">粘贴或输入要翻译的内容。</p>
+            <div class="tool-form">
+              <div class="row" style="align-items:flex-end">
+                <div class="field" style="flex:1"><label class="field-label" for="translate-source">源语言</label><select class="select" id="translate-source"><option value="Chinese">中文</option><option value="English">English</option><option value="Japanese">日本語</option><option value="Korean">한국어</option><option value="French">Français</option><option value="German">Deutsch</option><option value="Spanish">Español</option></select></div>
+                <span class="faint" style="padding-bottom:12px">→</span>
+                <div class="field" style="flex:1"><label class="field-label" for="translate-target">目标语言</label><select class="select" id="translate-target"><option value="English">English</option><option value="Chinese">中文</option><option value="Japanese">日本語</option><option value="Korean">한국어</option><option value="French">Français</option><option value="German">Deutsch</option><option value="Spanish">Español</option></select></div>
+              </div>
+              <div class="field"><label class="field-label" for="translate-text">文本</label><textarea class="textarea" id="translate-text" maxlength="5000" placeholder="输入要翻译的文本…"></textarea></div>
+              <button class="btn btn-primary btn-lg" type="button" id="translate-send">开始翻译</button>
+              <p class="note-line" id="translate-status"></p>
+            </div>
+          </section>
+          <section class="card tool-panel">
+            <div class="section-head"><h2>译文</h2><button class="btn btn-sm hidden" type="button" id="translate-copy">复制</button></div>
+            <div class="tool-output" style="margin-top:14px">
+              <div class="result-box" id="translate-result"><span class="faint" style="font-size:11px">译文会出现在这里</span></div>
+              <p class="result-meta" id="translate-meta"></p>
+            </div>
+          </section>
+        </div>
+        <section class="tool-notes">
+          <div class="section-head"><h2 class="section-title">翻译时保留什么</h2></div>
+          <div class="tool-note-grid tool-note-grid-2">
+            <div class="tool-note"><span class="tool-note-kicker">语气</span><h3>先定说话的人</h3><p>同一句话由角色说和由旁白说，译文会不一样。需要保留口吻时，在原文前补一句“这是罗辑在对你说”之类的上下文。</p></div>
+            <div class="tool-note"><span class="tool-note-kicker">边界</span><h3>不会改原文</h3><p>翻译结果是独立文本，不会写回小说原文或角色人设；需要保留的版本，请复制到自己的资料里。</p></div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+  <script src="/static/app/common.js"></script>
+  <script src="/static/app/tool-translate.js"></script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#202720">
+  <link rel="icon" href="/static/app/favicon.svg" type="image/svg+xml">
+  <title>登录 · StoryRole</title>
+  <link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+  <main class="auth-shell">
+    <section class="auth-visual">
+      <div class="auth-copy">
+        <div class="auth-brand">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m12 3 1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3Z"/><path d="m19 16 .9 2.1L22 19l-2.1.9L19 22l-.9-2.1L16 19l2.1-.9L19 16Z"/></svg>
+          </span>
+          <span class="auth-brand-name">StoryRole</span>
+        </div>
+        <h1 class="auth-display">先读一个故事，<br><em>再和里面的人聊聊。</em></h1>
+        <p class="auth-sub">把一本小说放上书架，进入它的角色中间。每个角色只知道自己那本书里的事，也只记得你们之间说过的话。</p>
+        <div class="auth-chat-demo" aria-hidden="true">
+          <div class="demo-message">
+            <span class="avatar avatar-sm" style="background:linear-gradient(145deg,#405b4b,#2d4337)">林</span>
+            <span class="demo-bubble">故事读到哪里了？</span>
+          </div>
+          <div class="demo-message is-user">
+            <span class="demo-bubble">刚翻到他们第一次见面。</span>
+          </div>
+          <div class="demo-message">
+            <span class="avatar avatar-sm" style="background:linear-gradient(145deg,#8a6a34,#654c22)">沈</span>
+            <span class="demo-bubble">那你应该还来得及，决定要不要相信他。</span>
+          </div>
+        </div>
+      </div>
+      <footer class="auth-foot">
+        <span>小说优先</span><span>角色独立</span><span>对话有据</span>
+      </footer>
+    </section>
+
+    <section class="auth-form-side">
+      <div class="auth-form-wrap">
+        <h2 id="auth-title">欢迎回来</h2>
+        <p class="lead" id="auth-lead">登录后回到你的书架。</p>
+        <div class="auth-tabs" role="tablist">
+          <button class="auth-tab is-current" type="button" data-auth-tab="login">登录</button>
+          <button class="auth-tab" type="button" data-auth-tab="register">创建账号</button>
+        </div>
+        <form class="auth-form" id="auth-form" autocomplete="on">
+          <div class="field">
+            <label class="field-label" for="auth-username">账号</label>
+            <input class="input" id="auth-username" name="username" autocomplete="username" minlength="2" maxlength="64" required placeholder="输入你的用户名">
+          </div>
+          <div class="field">
+            <label class="field-label" for="auth-password">密码</label>
+            <input class="input" id="auth-password" name="password" type="password" autocomplete="current-password" minlength="8" maxlength="128" required placeholder="至少 8 位">
+          </div>
+          <div class="auth-error" id="auth-error" role="alert"></div>
+          <button class="btn btn-primary btn-lg" id="auth-submit" type="submit">登录</button>
+        </form>
+        <p class="auth-note">账号只用于保存你的小说、角色和对话。聊天内容与上传文件仅属于当前账号。</p>
+      </div>
+    </section>
+  </main>
+  <script src="/static/app/common.js"></script>
+  <script src="/static/app/login.js"></script>
+</body>
+</html>

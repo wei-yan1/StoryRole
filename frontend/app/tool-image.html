@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#121613">
+  <link rel="icon" href="/static/app/favicon.svg" type="image/svg+xml">
+  <title>生成图片 · StoryRole</title>
+  <link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar" id="sidebar"></aside>
+    <main class="main">
+      <div class="page">
+        <header class="page-header">
+          <div>
+            <a class="chat-back" href="/tools" id="back-link"></a>
+            <h1 class="page-title" style="font-size:34px">生成图片</h1>
+            <p class="page-desc">写清楚画面、光线和氛围。生成的图片会直接保存在项目媒体目录。</p>
+          </div>
+        </header>
+        <div class="tool-workspace">
+          <section class="card tool-panel">
+            <h2>描述画面</h2>
+            <p class="lead">不需要写参数，直接描述你想要看到的东西。</p>
+            <div class="tool-form">
+              <div class="field"><label class="field-label" for="image-prompt">画面描述</label><textarea class="textarea" id="image-prompt" maxlength="2000" placeholder="例如：清晨的街角咖啡馆，窗边有一杯冒热气的咖啡，胶片质感，暖色调"></textarea></div>
+              <div class="field"><label class="field-label" for="image-size">比例</label><select class="select" id="image-size"><option value="1024x1024">方形 1:1</option><option value="1024x1536">竖版 2:3</option><option value="1536x1024">横版 3:2</option><option value="1280x720">宽屏 16:9</option></select></div>
+              <button class="btn btn-primary btn-lg" type="button" id="image-generate">生成图片</button>
+              <p class="note-line" id="image-status"></p>
+            </div>
+          </section>
+          <section class="card tool-panel">
+            <h2>结果</h2>
+            <p class="lead">生成后可以预览或在新窗口打开。</p>
+            <div class="tool-output" style="margin-top:16px">
+              <div class="result-box image" id="image-empty"><span class="faint" style="font-size:11px">图片会出现在这里</span></div>
+              <div class="hidden" id="image-result">
+                <div class="result-box image"><img id="image-preview" alt="生成的图片"></div>
+                <div class="row" style="margin-top:10px"><span class="result-meta" id="image-meta"></span><span class="spacer"></span><a class="btn btn-sm" id="image-download" target="_blank" rel="noopener">打开原图</a></div>
+              </div>
+            </div>
+          </section>
+        </div>
+        <section class="tool-notes">
+          <div class="section-head"><h2 class="section-title">让画面更接近你想要的样子</h2></div>
+          <div class="tool-note-grid tool-note-grid-2">
+            <div class="tool-note"><span class="tool-note-kicker">描述</span><h3>主体、光线、质感</h3><p>先说画面里有什么，再说光从哪来、是什么质感。需要特定画幅时，在“比例”里选，不要把尺寸写进描述。</p></div>
+            <div class="tool-note"><span class="tool-note-kicker">结果</span><h3>先预览，再拿去用</h3><p>生成结果保存在项目媒体目录，可直接打开原图；不会自动插入小说或角色页面，避免误覆盖已有素材。</p></div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+  <script src="/static/app/common.js"></script>
+  <script src="/static/app/tool-image.js"></script>
+</body>
+</html>
