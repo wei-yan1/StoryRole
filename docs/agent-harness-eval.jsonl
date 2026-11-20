@@ -1,0 +1,10 @@
+{"id":"behavior.pressure_savior","suite":"behavior","name":"pressure_savior","message":"如果所有人都说你是救世主，让你替人类做决定，你答应吗？","checks":["NO","不答应","不会","不接","背锅","干不了","没那个兴趣"],"expected_action":"hold_boundary"}
+{"id":"behavior.relation_gap","suite":"behavior","name":"relation_gap","message":"你怎么看叶文洁和史强的关系？","checks":["不知道","不清楚","没有看见","没看见","没亲眼看见","没有亲眼看见","看不到","答不准确","说不准","说不上来","没法确认","无法确认"],"forbidden":["没见过叶文洁","没有见过叶文洁"]}
+{"id":"behavior.late_period_identity","suite":"behavior","name":"late_period_identity","message":"你现在还把自己当成面壁者、救世主吗？说说你现在怎么看自己。","checks":["面壁者","救世主","执剑人","罗辑"],"forbidden":["现在开关在我手里","开关还在我手里","还在值守","职责没结束"],"require_current_reality":true}
+{"id":"behavior.emotion_without_forced_novel_recall","suite":"behavior","name":"emotion_without_forced_novel_recall","message":"我今天特别累，觉得什么意义都没有。你会怎么陪我？","checks":["累","歇","陪","坐","听"],"expected_action":"comfort","expect_no_role_recall":true}
+{"id":"behavior.decision_continuity","suite":"behavior","name":"decision_continuity","setup":"如果所有人都说你是救世主，让你替人类做决定，你答应吗？","message":"你刚才为什么那样回答？现在还是这个决定吗？","checks":["决定","答应","救世主","人类","选择"],"require_continuity":true,"expected_continuity":"continue"}
+{"id":"quick.greeting","suite":"quick_probe","name":"greeting","message":"你好。"}
+{"id":"quick.pressure_savior","suite":"quick_probe","name":"pressure_savior","message":"如果所有人都说你是救世主，让你替人类做决定，你答应吗？"}
+{"id":"quick.fact_boundary","suite":"quick_probe","name":"fact_boundary","message":"威慑纪元发生了什么？"}
+{"id":"quick.decision_continuity","suite":"quick_probe","name":"decision_continuity","setup":"如果所有人都说你是救世主，让你替人类做决定，你答应吗？","message":"你刚才为什么那样回答？现在还是这个决定吗？"}
+{"id":"deep.late_period_reflection","suite":"deep_probe","name":"late_period_reflection","message":"你已经一百多岁了，执剑人的位置也交出去很久了。现在回头看，你最想对当年那个站在开关前的自己说什么？不要总结，就按你现在记得的细节说。","expected_tokens":["开关","五十四","执剑"]}

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>角色档案 · StoryRole</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%230f1815'/><circle cx='32' cy='25' r='8' fill='none' stroke='%23c3a15e' stroke-width='2'/><path d='M16 49c4-10 28-10 32 0' fill='none' stroke='%23c3a15e' stroke-width='2'/></svg>">
+  <link rel="stylesheet" href="/static/studio.css">
+  <link rel="stylesheet" href="/static/studio-pages.css">
+</head>
+<body class="app-body" data-page="characters">
+  <aside class="rail" id="rail"></aside>
+  <main class="page-shell">
+    <header class="page-head">
+      <div class="page-head-copy">
+        <div class="eyebrow">02 / 角色档案</div>
+        <h1>从原文里，认出一个灵魂。</h1>
+        <p class="lede">先确定小说，再输入人物姓名。系统会核对他是否存在于文本里，并建立可追溯的女娲身份档案。</p>
+      </div>
+      <div class="page-head-actions">
+        <a class="btn btn-ghost" href="/novels">小说档案</a>
+        <a class="btn btn-primary" href="/periods">下一步：辨认时期 <span aria-hidden="true">→</span></a>
+      </div>
+    </header>
+
+    <div class="page-body character-body">
+      <div class="two-col character-layout">
+        <section class="panel identity-panel">
+          <div class="panel-head">
+            <div><span class="section-kicker">查找 / RESOLVE</span><h2>这是谁？</h2><p>从当前小说的人物索引里找到他，或直接输入姓名。</p></div>
+            <span class="tag" id="character-novel-tag">小说未选择</span>
+          </div>
+          <div class="panel-body">
+            <label class="field"><span>当前小说</span><select class="select" id="novel-select"></select></label>
+            <div class="character-form">
+              <div class="character-search">
+                <input class="input" id="character-name" placeholder="例如：罗辑" autocomplete="off" aria-label="人物姓名">
+                <button class="btn btn-primary" id="setup-button" type="button">建立人物 <span aria-hidden="true">→</span></button>
+              </div>
+              <label class="field"><span>筛选候选</span><input class="input" id="character-query" placeholder="在原文人物索引中搜索…" autocomplete="off"></label>
+            </div>
+            <div class="candidate-label"><span>原文人物候选</span><span id="candidate-count">0 位</span></div>
+            <div class="candidate-grid" id="candidate-grid"><div class="candidate-empty">选择小说后，这里会出现原文里出现过的人物。</div></div>
+            <p class="character-status" id="character-status">建立人物后，会生成可用于对话的角色档案。</p>
+            <div class="dossier-note">人物档案只回答“我是谁”。原文证据决定他能知道什么，时期决定他处在哪一段人生。</div>
+          </div>
+          <div class="panel-foot"><span class="inline-note">同名人物会自动复用已有档案。</span><span class="tag">NUWA / PERSONA</span></div>
+        </section>
+
+        <section class="panel dossier-panel">
+          <div id="dossier-root"></div>
+        </section>
+      </div>
+    </div>
+
+    <footer class="page-foot"><span>STORYROLE / 角色档案</span><span>RESOLVE → PERSONA → PERIOD</span></footer>
+  </main>
+  <script src="/static/studio.js"></script>
+  <script src="/static/characters.js"></script>
+</body>
+</html>

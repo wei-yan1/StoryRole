@@ -1,0 +1,82 @@
+{
+  "novel_id": "54a5fd53434a493abafc4005fb0c70a4",
+  "character": "罗辑",
+  "cutoff": 44,
+  "graph": {
+    "events": 4838,
+    "facts": 7,
+    "entities": 96,
+    "visibility": 6871,
+    "ego_nodes": 43,
+    "ego_edges": 299
+  },
+  "load_store_ms": 183.776,
+  "ego_summary": {
+    "p50_ms": 0.433,
+    "p95_ms": 0.478,
+    "max_ms": 0.511
+  },
+  "queries": [
+    {
+      "query": "你还记得罗辑经历过什么吗",
+      "route": "recall",
+      "scope": {
+        "p50_ms": 1.719,
+        "p95_ms": 2.093,
+        "max_ms": 2.37
+      },
+      "retrieve": {
+        "p50_ms": 8.114,
+        "p95_ms": 8.484,
+        "max_ms": 16.539
+      },
+      "ego": {
+        "p50_ms": 5.286,
+        "p95_ms": 5.749,
+        "max_ms": 6.558
+      }
+    },
+    {
+      "query": "我怎么看叶文洁和史强的关系",
+      "route": "probe",
+      "scope": {
+        "p50_ms": 1.711,
+        "p95_ms": 1.907,
+        "max_ms": 1.936
+      },
+      "retrieve": {
+        "p50_ms": 9.524,
+        "p95_ms": 9.808,
+        "max_ms": 9.982
+      },
+      "ego": {
+        "p50_ms": 5.304,
+        "p95_ms": 5.989,
+        "max_ms": 7.581
+      }
+    },
+    {
+      "query": "你好",
+      "route": "reject",
+      "scope": {
+        "p50_ms": 1.719,
+        "p95_ms": 1.972,
+        "max_ms": 2.22
+      },
+      "retrieve": {
+        "p50_ms": 0.0,
+        "p95_ms": 0.0,
+        "max_ms": 0.001
+      },
+      "ego": {
+        "p50_ms": 5.17,
+        "p95_ms": 5.614,
+        "max_ms": 5.809
+      }
+    }
+  ],
+  "verdict": {
+    "retrieval_is_subsecond": true,
+    "next_bottleneck": "model / deep pipeline, not the graph query"
+  }
+}

@@ -1,0 +1,701 @@
+{
+  "novel_id": "54a5fd53434a493abafc4005fb0c70a4",
+  "character_id": 1,
+  "character": "罗辑",
+  "thread_id": 11,
+  "thread_name": "rolerag-live-http",
+  "answer": "记得。可记得不等于愿意当录音机。能确认的也就那些碎片：叶老师给我两条公理和两个名词，没来得及讲完；大史把我带进地下、套上防弹衣、塞上专机；那个酒店认识的女人死了，我先替自己开脱，后来才觉得混账；白蓉、虚构人物、心理医生，也都是真的。再往后？我说不准，也不想编一本工工整整的传记。",
+  "profile_version": 22,
+  "period_id": 7,
+  "mode": "deep",
+  "engine": "rolerag",
+  "route": "recall",
+  "evidence_count": 8,
+  "cutoff": 44,
+  "boundary_source": "period_terms",
+  "boundary_confidence": 0.75,
+  "profile_injected": true,
+  "persona_fidelity": {
+    "ok": true,
+    "persona_score": 1.0,
+    "persona_violations": [],
+    "persona_instruction": ""
+  },
+  "persona_score": 0.72,
+  "persona_rewritten": true,
+  "graph_persisted": null,
+  "graph_write_mode": null,
+  "graph_persist_error": null,
+  "planner_backend": "rule_fallback",
+  "planner_intent": "plot_or_fact",
+  "ego_evidence_count": 0,
+  "latency_ms": 125882.5,
+  "trace_id": "fdc33fe08bd24e93a00f1f2e45d89491",
+  "degraded": true,
+  "degradations": [
+    "selected_period_has_no_retrieved_evidence",
+    "evidence_analysis_fallback"
+  ],
+  "execution_plan": {
+    "plan_version": "storyrole-plan-v1",
+    "compiler": "rule",
+    "nodes": [
+      {
+        "node_id": "timeline",
+        "agent": "timeline-guard",
+        "depends_on": [],
+        "timeout_ms": 2000,
+        "required": false,
+        "params": {}
+      },
+      {
+        "node_id": "memory",
+        "agent": "memory",
+        "depends_on": [],
+        "timeout_ms": 1000,
+        "required": false,
+        "params": {}
+      },
+      {
+        "node_id": "relationship",
+        "agent": "relationship-state",
+        "depends_on": [],
+        "timeout_ms": 2000,
+        "required": false,
+        "params": {}
+      },
+      {
+        "node_id": "deep-plan",
+        "agent": "deep-question-planner",
+        "depends_on": [],
+        "timeout_ms": 20000,
+        "required": true,
+        "params": {}
+      },
+      {
+        "node_id": "novel",
+        "agent": "novel-retriever",
+        "depends_on": [
+          "deep-plan",
+          "timeline"
+        ],
+        "timeout_ms": 35000,
+        "required": true,
+        "params": {}
+      },
+      {
+        "node_id": "evidence",
+        "agent": "evidence-analysis",
+        "depends_on": [
+          "novel"
+        ],
+        "timeout_ms": 25000,
+        "required": true,
+        "params": {}
+      },
+      {
+        "node_id": "cognition",
+        "agent": "role-cognition",
+        "depends_on": [
+          "evidence"
+        ],
+        "timeout_ms": 25000,
+        "required": true,
+        "params": {}
+      },
+      {
+        "node_id": "context",
+        "agent": "context-curator",
+        "depends_on": [
+          "novel",
+          "memory"
+        ],
+        "timeout_ms": 15000,
+        "required": true,
+        "params": {}
+      },
+      {
+        "node_id": "answer",
+        "agent": "answer-generation",
+        "depends_on": [
+          "context",
+          "cognition"
+        ],
+        "timeout_ms": 55000,
+        "required": true,
+        "params": {}
+      },
+      {
+        "node_id": "guard",
+        "agent": "consistency-guard",
+        "depends_on": [
+          "answer"
+        ],
+        "timeout_ms": 20000,
+        "required": true,
+        "params": {}
+      }
+    ],
+    "constraints": {
+      "no_future_facts": true,
+      "max_model_calls": 8,
+      "max_total_time_ms": 30000,
+      "max_cost": 1.0
+    }
+  },
+  "evidence_graph_trace_id": "fdc33fe08bd24e93a00f1f2e45d89491",
+  "web_mode": "off",
+  "web_evidence_count": 0,
+  "trace_summary": {
+    "duration_ms": 125958.092,
+    "input_tokens": 30777,
+    "output_tokens": 3520,
+    "total_tokens": 34297,
+    "model_call_count": 4,
+    "usage_complete": true
+  },
+  "trace_agents": [
+    {
+      "agent_id": "character-conversation",
+      "calls": 1,
+      "total_tokens": 18079,
+      "input_tokens": 17829,
+      "output_tokens": 250,
+      "duration_ms": 125908.963,
+      "model_duration_ms": 2682.688300003065,
+      "errors": 0,
+      "avg_latency_ms": 125908.963
+    },
+    {
+      "agent_id": "query-planner",
+      "calls": 0,
+      "total_tokens": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "duration_ms": 15.139,
+      "model_duration_ms": 0.0,
+      "errors": 0,
+      "avg_latency_ms": 0
+    },
+    {
+      "agent_id": "relationship-state",
+      "calls": 0,
+      "total_tokens": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "duration_ms": 29.953,
+      "model_duration_ms": 0.0,
+      "errors": 0,
+      "avg_latency_ms": 0
+    },
+    {
+      "agent_id": "timeline-guard",
+      "calls": 0,
+      "total_tokens": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "duration_ms": 30.012,
+      "model_duration_ms": 0.0,
+      "errors": 0,
+      "avg_latency_ms": 0
+    },
+    {
+      "agent_id": "deep-question-planner",
+      "calls": 1,
+      "total_tokens": 1181,
+      "input_tokens": 372,
+      "output_tokens": 809,
+      "duration_ms": 6338.926,
+      "model_duration_ms": 5447.770800004946,
+      "errors": 0,
+      "avg_latency_ms": 6338.926
+    },
+    {
+      "agent_id": "context-curator",
+      "calls": 0,
+      "total_tokens": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "duration_ms": 30.081,
+      "model_duration_ms": 0.0,
+      "errors": 0,
+      "avg_latency_ms": 0
+    },
+    {
+      "agent_id": "evidence-analysis",
+      "calls": 0,
+      "total_tokens": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "duration_ms": 0.0,
+      "model_duration_ms": 0.0,
+      "errors": 0,
+      "avg_latency_ms": 0
+    },
+    {
+      "agent_id": "role-cognition",
+      "calls": 1,
+      "total_tokens": 10112,
+      "input_tokens": 8835,
+      "output_tokens": 1277,
+      "duration_ms": 9752.571,
+      "model_duration_ms": 9718.320399988443,
+      "errors": 0,
+      "avg_latency_ms": 9752.571
+    },
+    {
+      "agent_id": "memory-decision",
+      "calls": 0,
+      "total_tokens": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "duration_ms": 15.822,
+      "model_duration_ms": 0.0,
+      "errors": 0,
+      "avg_latency_ms": 0
+    },
+    {
+      "agent_id": "consistency-guard",
+      "calls": 1,
+      "total_tokens": 4925,
+      "input_tokens": 3741,
+      "output_tokens": 1184,
+      "duration_ms": 9360.531,
+      "model_duration_ms": 9304.060199996457,
+      "errors": 0,
+      "avg_latency_ms": 9360.531
+    }
+  ],
+  "trace_steps": [
+    {
+      "id": 554,
+      "trace_id": "fdc33fe08bd24e93a00f1f2e45d89491",
+      "parent_step_id": null,
+      "step_name": "a2a:character-conversation",
+      "status": "completed",
+      "metadata": {
+        "agent_id": "character-conversation"
+      },
+      "error": null,
+      "duration_ms": 125908.963,
+      "started_at": "2026-11-14T09:33:47.366522Z",
+      "ended_at": "2026-11-14T09:35:53.262986Z"
+    },
+    {
+      "id": 555,
+      "trace_id": "fdc33fe08bd24e93a00f1f2e45d89491",
+      "parent_step_id": null,
+      "step_name": "profile_load",
+      "status": "completed",
+      "metadata": {},
+      "error": null,
+      "duration_ms": 55.07,
+      "started_at": "2026-11-14T09:33:47.432732Z",
+      "ended_at": "2026-11-14T09:33:47.487321Z"
+    },
+    {
+      "id": 556,
+      "trace_id": "fdc33fe08bd24e93a00f1f2e45d89491",
+      "parent_step_id": null,
+      "step_name": "query_planning",
+      "status": "completed",
+      "metadata": {
+        "backend": "laya"
+      },
+      "error": null,
+      "duration_ms": 56.857,
+      "started_at": "2026-11-14T09:33:47.555000Z",
+      "ended_at": "2026-11-14T09:33:47.600564Z"
+    },
+    {
+      "id": 557,
+      "trace_id": "fdc33fe08bd24e93a00f1f2e45d89491",
+      "parent_step_id": null,
+      "step_name": "a2a:query-planner",
+      "status": "completed",
+      "metadata": {
+        "agent_id": "query-planner"
+      },
+      "error": null,
+      "duration_ms": 15.139,
+      "started_at": "2026-11-14T09:33:47.570646Z",
+      "ended_at": "2026-11-14T09:33:47.586861Z"
+    },
+    {
+      "id": 558,
+      "trace_id": "fdc33fe08bd24e93a00f1f2e45d89491",
+      "parent_step_id": null,
+      "step_name": "rolerag_retrieval",
+      "status": "completed",
+      "metadata": {
+        "mode": "deep"
+      },
+      "error": null,
+      "duration_ms": 1163.76,
+      "started_at": "2026-11-14T09:33:47.631726Z",
+      "ended_at": "2026-11-14T09:33:48.777697Z"
+    },
+    {
+      "id": 559,
+      "trace_id": "fdc33fe08bd24e93a00f1f2e45d89491",
+      "parent_step_id": null,
+      "step_name": "memory_retrieval",
+      "status": "completed",
+      "metadata": {},
+      "error": null,
+      "duration_ms": 1591.573,
+      "started_at": "2026-11-14T09:33:48.809725Z",
+      "ended_at": "2026-11-14T09:33:50.384379Z"
+    },
+    {
+      "id": 560,
+      "trace_id": "fdc33fe08bd24e93a00f1f2e45d89491",
+      "parent_step_id": null,
+      "step_name": "web_retrieval",
+      "status": "completed",
+      "metadata": {},
+      "error": null,
+      "duration_ms": 14.707,
+      "started_at": "2026-11-14T09:33:50.398233Z",
+      "ended_at": "2026-11-14T09:33:50.412347Z"
+    },
+    {
+      "id": 561,
+      "trace_id": "fdc33fe08bd24e93a00f1f2e45d89491",
+      "parent_step_id": null,
+      "step_name": "state_checks",
+      "status": "completed",
+      "metadata": {},
+      "error": null,
+      "duration_ms": 74.01,
+      "started_at": "2026-11-14T09:33:50.427092Z",
+      "ended_at": "2026-11-14T09:33:50.501072Z"
+    },
+    {
+      "id": 562,
+      "trace_id": "fdc33fe08bd24e93a00f1f2e45d89491",
+      "parent_step_id": null,
+      "step_name": "a2a:relationship-state",
+      "status": "completed",
+      "metadata": {
+        "agent_id": "relationship-state"
+      },
+      "error": null,
+      "duration_ms": 29.953,
+      "started_at": "2026-11-14T09:33:50.441935Z",
+      "ended_at": "2026-11-14T09:33:50.471901Z"
+    },
+    {
+      "id": 563,
+      "trace_id": "fdc33fe08bd24e93a00f1f2e45d89491",
+      "parent_step_id": null,
+      "step_name": "a2a:timeline-guard",
+      "status": "completed",
+      "metadata": {
+        "agent_id": "timeline-guard"
+      },
+      "error": null,
+      "duration_ms": 30.012,
+      "started_at": "2026-11-14T09:33:50.457194Z",
+      "ended_at": "2026-11-14T09:33:50.486685Z"
+    },
+    {
+      "id": 564,
+      "trace_id": "fdc33fe08bd24e93a00f1f2e45d89491",
+      "parent_step_id": null,
+      "step_name": "deep_question_planning",
+      "status": "completed",
+      "metadata": {},
+      "error": null,
+      "duration_ms": 6369.958,
+      "started_at": "2026-11-14T09:33:50.515197Z",
+      "ended_at": "2026-11-14T09:33:56.904435Z"
+    },
+    {
+      "id": 565,
+      "trace_id": "fdc33fe08bd24e93a00f1f2e45d89491",
+      "parent_step_id": null,
+      "step_name": "a2a:deep-question-planner",
+      "status": "completed",
+      "metadata": {
+        "agent_id": "deep-question-planner"
+      },
+      "error": null,
+      "duration_ms": 6338.926,
+      "started_at": "2026-11-14T09:33:50.530259Z",
+      "ended_at": "2026-11-14T09:33:56.870484Z"
+    },
+    {
+      "id": 566,
+      "trace_id": "fdc33fe08bd24e93a00f1f2e45d89491",
+      "parent_step_id": null,
+      "step_name": "novel_retrieval",
+      "status": "completed",
+      "metadata": {
+        "query_count": 3
+      },
+      "error": null,
+      "duration_ms": 21832.947,
+      "started_at": "2026-11-14T09:33:56.917887Z",
+      "ended_at": "2026-11-14T09:34:18.763531Z"
+    },
+    {
+      "id": 567,
+      "trace_id": "fdc33fe08bd24e93a00f1f2e45d89491",
+      "parent_step_id": null,
+      "step_name": "evidence_rerank",
+      "status": "completed",
+      "metadata": {},
+      "error": null,
+      "duration_ms": 32.313,
+      "started_at": "2026-11-14T09:34:18.795351Z",
+      "ended_at": "2026-11-14T09:34:18.812741Z"
+    },
+    {
+      "id": 568,
+      "trace_id": "fdc33fe08bd24e93a00f1f2e45d89491",
+      "parent_step_id": null,
+      "step_name": "context_curation",
+      "status": "completed",
+      "metadata": {},
+      "error": null,
+      "duration_ms": 76.239,
+      "started_at": "2026-11-14T09:34:18.827499Z",
+      "ended_at": "2026-11-14T09:34:18.903006Z"
+    },
+    {
+      "id": 569,
+      "trace_id": "fdc33fe08bd24e93a00f1f2e45d89491",
+      "parent_step_id": null,
+      "step_name": "a2a:context-curator",
+      "status": "completed",
+      "metadata": {
+        "agent_id": "context-curator"
+      },
+      "error": null,
+      "duration_ms": 30.081,
+      "started_at": "2026-11-14T09:34:18.856768Z",
+      "ended_at": "2026-11-14T09:34:18.888974Z"
+    },
+    {
+      "id": 570,
+      "trace_id": "fdc33fe08bd24e93a00f1f2e45d89491",
+      "parent_step_id": null,
+      "step_name": "evidence_analysis",
+      "status": "completed",
+      "metadata": {},
+      "error": null,
+      "duration_ms": 62488.312,
+      "started_at": "2026-11-14T09:34:18.918596Z",
+      "ended_at": "2026-11-14T09:35:21.418783Z"
+    },
+    {
+      "id": 571,
+      "trace_id": "fdc33fe08bd24e93a00f1f2e45d89491",
+      "parent_step_id": null,
+      "step_name": "a2a:evidence-analysis",
+      "status": "running",
+      "metadata": {
+        "agent_id": "evidence-analysis"
+      },
+      "error": null,
+      "duration_ms": null,
+      "started_at": "2026-11-14T09:34:56.398685Z",
+      "ended_at": null
+    },
+    {
+      "id": 572,
+      "trace_id": "fdc33fe08bd24e93a00f1f2e45d89491",
+      "parent_step_id": null,
+      "step_name": "role_cognition",
+      "status": "completed",
+      "metadata": {},
+      "error": null,
+      "duration_ms": 17576.971,
+      "started_at": "2026-11-14T09:35:21.439091Z",
+      "ended_at": "2026-11-14T09:35:39.016003Z"
+    },
+    {
+      "id": 573,
+      "trace_id": "fdc33fe08bd24e93a00f1f2e45d89491",
+      "parent_step_id": null,
+      "step_name": "a2a:role-cognition",
+      "status": "completed",
+      "metadata": {
+        "agent_id": "role-cognition"
+      },
+      "error": null,
+      "duration_ms": 9752.571,
+      "started_at": "2026-11-14T09:35:29.249283Z",
+      "ended_at": "2026-11-14T09:35:39.001473Z"
+    },
+    {
+      "id": 574,
+      "trace_id": "fdc33fe08bd24e93a00f1f2e45d89491",
+      "parent_step_id": null,
+      "step_name": "answer_generation",
+      "status": "completed",
+      "metadata": {
+        "mode": "deep"
+      },
+      "error": null,
+      "duration_ms": 2749.181,
+      "started_at": "2026-11-14T09:35:39.047356Z",
+      "ended_at": "2026-11-14T09:35:41.793239Z"
+    },
+    {
+      "id": 575,
+      "trace_id": "fdc33fe08bd24e93a00f1f2e45d89491",
+      "parent_step_id": null,
+      "step_name": "memory_decision",
+      "status": "completed",
+      "metadata": {},
+      "error": null,
+      "duration_ms": 61.911,
+      "started_at": "2026-11-14T09:35:41.823600Z",
+      "ended_at": "2026-11-14T09:35:41.870044Z"
+    },
+    {
+      "id": 576,
+      "trace_id": "fdc33fe08bd24e93a00f1f2e45d89491",
+      "parent_step_id": null,
+      "step_name": "a2a:memory-decision",
+      "status": "completed",
+      "metadata": {
+        "agent_id": "memory-decision"
+      },
+      "error": null,
+      "duration_ms": 15.822,
+      "started_at": "2026-11-14T09:35:41.840466Z",
+      "ended_at": "2026-11-14T09:35:41.855612Z"
+    },
+    {
+      "id": 577,
+      "trace_id": "fdc33fe08bd24e93a00f1f2e45d89491",
+      "parent_step_id": null,
+      "step_name": "persona_fidelity",
+      "status": "completed",
+      "metadata": {},
+      "error": null,
+      "duration_ms": 9388.94,
+      "started_at": "2026-11-14T09:35:41.884886Z",
+      "ended_at": "2026-11-14T09:35:51.274063Z"
+    },
+    {
+      "id": 578,
+      "trace_id": "fdc33fe08bd24e93a00f1f2e45d89491",
+      "parent_step_id": null,
+      "step_name": "a2a:consistency-guard",
+      "status": "completed",
+      "metadata": {
+        "agent_id": "consistency-guard"
+      },
+      "error": null,
+      "duration_ms": 9360.531,
+      "started_at": "2026-11-14T09:35:41.916979Z",
+      "ended_at": "2026-11-14T09:35:51.260277Z"
+    },
+    {
+      "id": 579,
+      "trace_id": "fdc33fe08bd24e93a00f1f2e45d89491",
+      "parent_step_id": null,
+      "step_name": "persistence",
+      "status": "completed",
+      "metadata": {},
+      "error": null,
+      "duration_ms": 1924.908,
+      "started_at": "2026-11-14T09:35:51.288709Z",
+      "ended_at": "2026-11-14T09:35:53.213407Z"
+    }
+  ],
+  "trace_model_invocations": [
+    {
+      "id": 215,
+      "trace_id": "fdc33fe08bd24e93a00f1f2e45d89491",
+      "operation": "deep_question_planning",
+      "provider": "dashscope",
+      "model": "deepseek-v4.1-flash-1017",
+      "status": "completed",
+      "duration_ms": 5447.770800004946,
+      "input_tokens": 372,
+      "output_tokens": 809,
+      "cached_tokens": null,
+      "total_tokens": 1181,
+      "cost": "0.00721600",
+      "cache_hit": false,
+      "prompt_hash": "e82d234fe38d5ecaec77c2ccaf3b466b32de13482671844448911fda090ed3a4",
+      "metadata": {},
+      "started_at": "2026-11-14T09:33:51.390937Z",
+      "ended_at": "2026-11-14T09:33:56.849226Z",
+      "error": null,
+      "owner_id": 2,
+      "agent_id": "deep-question-planner"
+    },
+    {
+      "id": 221,
+      "trace_id": "fdc33fe08bd24e93a00f1f2e45d89491",
+      "operation": "role_cognition",
+      "provider": "dashscope",
+      "model": "deepseek-v4.1-flash-1017",
+      "status": "completed",
+      "duration_ms": 9718.320399988443,
+      "input_tokens": 8835,
+      "output_tokens": 1277,
+      "cached_tokens": null,
+      "total_tokens": 10112,
+      "cost": "0.02788600",
+      "cache_hit": false,
+      "prompt_hash": "4dc378bcd6632518b3121241edc640334b9031bdd25998977687b154e4732658",
+      "metadata": {},
+      "started_at": "2026-11-14T09:35:29.256363Z",
+      "ended_at": "2026-11-14T09:35:38.984603Z",
+      "error": null,
+      "owner_id": 2,
+      "agent_id": "role-cognition"
+    },
+    {
+      "id": 222,
+      "trace_id": "fdc33fe08bd24e93a00f1f2e45d89491",
+      "operation": "storyrole_answer_generation",
+      "provider": "dashscope",
+      "model": "deepseek-v4.1-flash-1017",
+      "status": "completed",
+      "duration_ms": 2682.688300003065,
+      "input_tokens": 17829,
+      "output_tokens": 250,
+      "cached_tokens": null,
+      "total_tokens": 18079,
+      "cost": "0.03765800",
+      "cache_hit": false,
+      "prompt_hash": "ce06d030e2f3ddd12c12c92ba37eb0d7c6725722dc36bf5dc7f096247137a499",
+      "metadata": {},
+      "started_at": "2026-11-14T09:35:39.056470Z",
+      "ended_at": "2026-11-14T09:35:41.761692Z",
+      "error": null,
+      "owner_id": 2,
+      "agent_id": "character-conversation"
+    },
+    {
+      "id": 223,
+      "trace_id": "fdc33fe08bd24e93a00f1f2e45d89491",
+      "operation": "consistency_guard",
+      "provider": "dashscope",
+      "model": "deepseek-v4.1-flash-1017",
+      "status": "completed",
+      "duration_ms": 9304.060199996457,
+      "input_tokens": 3741,
+      "output_tokens": 1184,
+      "cached_tokens": null,
+      "total_tokens": 4925,
+      "cost": "0.01695400",
+      "cache_hit": false,
+      "prompt_hash": "7bd9d2a9f181228222afadd4fb4c29ec0ba563a3badbbe5d23bd8d66f48d8131",
+      "metadata": {},
+      "started_at": "2026-11-14T09:35:41.924369Z",
+      "ended_at": "2026-11-14T09:35:51.238251Z",
+      "error": null,
+      "owner_id": 2,
+      "agent_id": "consistency-guard"
+    }
+  ]
+}

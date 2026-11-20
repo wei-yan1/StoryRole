@@ -112,7 +112,7 @@ async def prepare_history(
         if os.getenv("DASHSCOPE_BASE_URL"):
             os.environ.setdefault("OPENAI_BASE_URL", os.environ["DASHSCOPE_BASE_URL"])
         model = init_chat_model(
-            os.getenv("STORYROLE_CHAT_MODEL", os.getenv("TEST_CHAT_MODEL", "qwen3.7-plus")),
+            os.getenv("STORYROLE_CHAT_MODEL", os.getenv("TEST_CHAT_MODEL", "deepseek-v4.1-flash-1017")),
             model_provider="openai",
         )
         response = await observe_async_call(

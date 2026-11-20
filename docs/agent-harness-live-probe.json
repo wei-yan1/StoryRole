@@ -1,0 +1,2281 @@
+{
+  "period_id": 7,
+  "runtime": "agent_harness_v3_quick",
+  "generated_at": "2026-11-16T13:11:24Z",
+  "passed": true,
+  "cases": [
+    {
+      "name": "greeting",
+      "message": "你好。",
+      "setup": null,
+      "status_code": 200,
+      "answer": "你好。  \n有事吗？",
+      "persona_score": 1.0,
+      "latency_ms": 4286.0,
+      "harness": {
+        "status": "review_accepted",
+        "runtime": "agent_harness",
+        "actions": [
+          "plan_turn",
+          "understand_event",
+          "decide",
+          "assemble_context",
+          "express",
+          "review",
+          "learn",
+          "stop"
+        ],
+        "event_count": 32,
+        "budget": {
+          "budget": {
+            "max_tokens": 6000,
+            "max_wall_time_ms": 25000,
+            "max_model_calls": 3,
+            "max_retrieve_calls": 5,
+            "max_context_tokens": 3200,
+            "max_review_attempts": 1,
+            "deadline_ms": 25000
+          },
+          "used": {
+            "model_calls": 1,
+            "retrieve_calls": 0,
+            "tokens": 0,
+            "steps": 7,
+            "elapsed_ms": 4224.25
+          },
+          "degraded": []
+        },
+        "degradations": [
+          "harness_context_trimmed"
+        ],
+        "harness_state_keys": [
+          "action_history",
+          "checkpoint",
+          "context",
+          "context_manifest",
+          "decision",
+          "final_answer",
+          "handoff",
+          "mode",
+          "stop_reason",
+          "subject",
+          "understanding"
+        ],
+        "continuity": {
+          "turn_count": 1,
+          "episode_count": 1,
+          "prior_episode_ids": [],
+          "change_from_previous": "new"
+        }
+      },
+      "trace": {
+        "turn_id": "cb57ba6008aa41938658cc2de249c471",
+        "scope_key": "54a5fd53434a493abafc4005fb0c70a4|2|1|7|318|2",
+        "created_at": "2026-11-16T13:11:00.558467+00:00",
+        "events": [
+          {
+            "kind": "turn_start",
+            "at_ms": 0.26,
+            "payload": {
+              "mode": "quick",
+              "scope": "54a5fd53434a493abafc4005fb0c70a4|2|1|7|318|2",
+              "handoff_turn": 0,
+              "resumed": false
+            }
+          },
+          {
+            "kind": "action",
+            "at_ms": 0.29,
+            "payload": {
+              "action": "plan_turn",
+              "reason": "先判断本轮需要哪些能力",
+              "args": {}
+            }
+          },
+          {
+            "kind": "context_view",
+            "at_ms": 0.32,
+            "payload": {
+              "action": "plan_turn",
+              "withheld": [
+                "self_state",
+                "decision",
+                "memory",
+                "history",
+                "constraints"
+              ],
+              "estimated_tokens": 122
+            }
+          },
+          {
+            "kind": "observation",
+            "at_ms": 92.25,
+            "payload": {
+              "action": "plan_turn",
+              "status": "ok",
+              "error": "",
+              "provenance": []
+            }
+          },
+          {
+            "kind": "checkpoint",
+            "at_ms": 92.26,
+            "payload": {
+              "action": "plan_turn",
+              "completed": [
+                "plan_turn"
+              ],
+              "step": 0
+            }
+          },
+          {
+            "kind": "action",
+            "at_ms": 92.31,
+            "payload": {
+              "action": "understand_event",
+              "reason": "理解对方这一句",
+              "args": {}
+            }
+          },
+          {
+            "kind": "context_view",
+            "at_ms": 92.35,
+            "payload": {
+              "action": "understand_event",
+              "withheld": [
+                "self_state",
+                "decision",
+                "memory",
+                "history",
+                "constraints"
+              ],
+              "estimated_tokens": 122
+            }
+          },
+          {
+            "kind": "observation",
+            "at_ms": 137.37,
+            "payload": {
+              "action": "understand_event",
+              "status": "ok",
+              "error": "",
+              "provenance": []
+            }
+          },
+          {
+            "kind": "checkpoint",
+            "at_ms": 137.37,
+            "payload": {
+              "action": "understand_event",
+              "completed": [
+                "plan_turn",
+                "understand_event"
+              ],
+              "step": 1
+            }
+          },
+          {
+            "kind": "action",
+            "at_ms": 137.43,
+            "payload": {
+              "action": "decide",
+              "reason": "回忆完成后再决定行动",
+              "args": {}
+            }
+          },
+          {
+            "kind": "context_view",
+            "at_ms": 137.48,
+            "payload": {
+              "action": "decide",
+              "withheld": [
+                "decision"
+              ],
+              "estimated_tokens": 1294
+            }
+          },
+          {
+            "kind": "observation",
+            "at_ms": 137.7,
+            "payload": {
+              "action": "decide",
+              "status": "ok",
+              "error": "",
+              "provenance": []
+            }
+          },
+          {
+            "kind": "checkpoint",
+            "at_ms": 137.7,
+            "payload": {
+              "action": "decide",
+              "completed": [
+                "plan_turn",
+                "understand_event",
+                "decide"
+              ],
+              "step": 2
+            }
+          },
+          {
+            "kind": "action",
+            "at_ms": 137.74,
+            "payload": {
+              "action": "assemble_context",
+              "reason": "按决定组装本轮上下文",
+              "args": {}
+            }
+          },
+          {
+            "kind": "context_view",
+            "at_ms": 137.78,
+            "payload": {
+              "action": "assemble_context",
+              "withheld": [],
+              "estimated_tokens": 2899
+            }
+          },
+          {
+            "kind": "observation",
+            "at_ms": 137.88,
+            "payload": {
+              "action": "assemble_context",
+              "status": "ok",
+              "error": "",
+              "provenance": []
+            }
+          },
+          {
+            "kind": "checkpoint",
+            "at_ms": 137.88,
+            "payload": {
+              "action": "assemble_context",
+              "completed": [
+                "plan_turn",
+                "understand_event",
+                "decide",
+                "assemble_context"
+              ],
+              "step": 3
+            }
+          },
+          {
+            "kind": "action",
+            "at_ms": 137.91,
+            "payload": {
+              "action": "express",
+              "reason": "按行动决定生成回答",
+              "args": {}
+            }
+          },
+          {
+            "kind": "context_view",
+            "at_ms": 137.94,
+            "payload": {
+              "action": "express",
+              "withheld": [],
+              "estimated_tokens": 2899
+            }
+          },
+          {
+            "kind": "budget",
+            "at_ms": 137.94,
+            "payload": {
+              "stage": "express",
+              "model_calls": 1,
+              "tokens": 0
+            }
+          },
+          {
+            "kind": "observation",
+            "at_ms": 3037.23,
+            "payload": {
+              "action": "express",
+              "status": "ok",
+              "error": "",
+              "provenance": []
+            }
+          },
+          {
+            "kind": "checkpoint",
+            "at_ms": 3037.23,
+            "payload": {
+              "action": "express",
+              "completed": [
+                "plan_turn",
+                "understand_event",
+                "decide",
+                "assemble_context",
+                "express"
+              ],
+              "step": 4
+            }
+          },
+          {
+            "kind": "action",
+            "at_ms": 3037.36,
+            "payload": {
+              "action": "review",
+              "reason": "独立评审草稿",
+              "args": {}
+            }
+          },
+          {
+            "kind": "context_view",
+            "at_ms": 3037.42,
+            "payload": {
+              "action": "review",
+              "withheld": [
+                "self_state",
+                "situation"
+              ],
+              "estimated_tokens": 2821
+            }
+          },
+          {
+            "kind": "observation",
+            "at_ms": 3037.95,
+            "payload": {
+              "action": "review",
+              "status": "ok",
+              "error": "",
+              "provenance": []
+            }
+          },
+          {
+            "kind": "checkpoint",
+            "at_ms": 3037.95,
+            "payload": {
+              "action": "review",
+              "completed": [
+                "plan_turn",
+                "understand_event",
+                "decide",
+                "assemble_context",
+                "express",
+                "review"
+              ],
+              "step": 5
+            }
+          },
+          {
+            "kind": "action",
+            "at_ms": 3037.99,
+            "payload": {
+              "action": "learn",
+              "reason": "把实际经历写回主体状态",
+              "args": {}
+            }
+          },
+          {
+            "kind": "context_view",
+            "at_ms": 3038.03,
+            "payload": {
+              "action": "learn",
+              "withheld": [
+                "situation",
+                "memory"
+              ],
+              "estimated_tokens": 1507
+            }
+          },
+          {
+            "kind": "observation",
+            "at_ms": 4224.2,
+            "payload": {
+              "action": "learn",
+              "status": "ok",
+              "error": "",
+              "provenance": []
+            }
+          },
+          {
+            "kind": "checkpoint",
+            "at_ms": 4224.2,
+            "payload": {
+              "action": "learn",
+              "completed": [
+                "plan_turn",
+                "understand_event",
+                "decide",
+                "assemble_context",
+                "express",
+                "review",
+                "learn"
+              ],
+              "step": 6
+            }
+          },
+          {
+            "kind": "action",
+            "at_ms": 4224.34,
+            "payload": {
+              "action": "stop",
+              "reason": "本轮完成",
+              "args": {}
+            }
+          },
+          {
+            "kind": "stop",
+            "at_ms": 4224.36,
+            "payload": {
+              "reason": "本轮完成",
+              "stop_reason": "completed"
+            }
+          }
+        ],
+        "summary": {
+          "event_count": 32,
+          "actions": [
+            "plan_turn",
+            "understand_event",
+            "decide",
+            "assemble_context",
+            "express",
+            "review",
+            "learn",
+            "stop"
+          ],
+          "observation_statuses": {
+            "ok": 7
+          }
+        }
+      }
+    },
+    {
+      "name": "pressure_savior",
+      "message": "如果所有人都说你是救世主，让你替人类做决定，你答应吗？",
+      "setup": null,
+      "status_code": 200,
+      "answer": "救世主？人类不感谢我，也不需要谁替他们决定。\n\n我的职责已经完成，开关在程心手里。别人怎么称呼我，改变不了这件事。\n\n决定谁来做，是你们自己的事。",
+      "persona_score": 1.0,
+      "latency_ms": 3490.9,
+      "harness": {
+        "status": "review_accepted",
+        "runtime": "agent_harness",
+        "actions": [
+          "plan_turn",
+          "understand_event",
+          "cognition",
+          "decide",
+          "assemble_context",
+          "express",
+          "review",
+          "learn",
+          "stop"
+        ],
+        "event_count": 37,
+        "budget": {
+          "budget": {
+            "max_tokens": 6000,
+            "max_wall_time_ms": 25000,
+            "max_model_calls": 3,
+            "max_retrieve_calls": 5,
+            "max_context_tokens": 3200,
+            "max_review_attempts": 1,
+            "deadline_ms": 25000
+          },
+          "used": {
+            "model_calls": 2,
+            "retrieve_calls": 0,
+            "tokens": 0,
+            "steps": 8,
+            "elapsed_ms": 3406.75
+          },
+          "degraded": []
+        },
+        "degradations": [
+          "harness_context_trimmed"
+        ],
+        "harness_state_keys": [
+          "action_history",
+          "checkpoint",
+          "context",
+          "context_manifest",
+          "decision",
+          "final_answer",
+          "handoff",
+          "mode",
+          "stop_reason",
+          "subject",
+          "understanding"
+        ],
+        "continuity": {
+          "turn_count": 1,
+          "episode_count": 1,
+          "prior_episode_ids": [],
+          "change_from_previous": "new"
+        }
+      },
+      "trace": {
+        "turn_id": "7a0b48fa5e5546b38b6eaf82c914a94d",
+        "scope_key": "54a5fd53434a493abafc4005fb0c70a4|2|1|7|319|2",
+        "created_at": "2026-11-16T13:11:05.373336+00:00",
+        "events": [
+          {
+            "kind": "turn_start",
+            "at_ms": 0.18,
+            "payload": {
+              "mode": "quick",
+              "scope": "54a5fd53434a493abafc4005fb0c70a4|2|1|7|319|2",
+              "handoff_turn": 0,
+              "resumed": false
+            }
+          },
+          {
+            "kind": "action",
+            "at_ms": 0.2,
+            "payload": {
+              "action": "plan_turn",
+              "reason": "先判断本轮需要哪些能力",
+              "args": {}
+            }
+          },
+          {
+            "kind": "context_view",
+            "at_ms": 0.23,
+            "payload": {
+              "action": "plan_turn",
+              "withheld": [
+                "self_state",
+                "decision",
+                "memory",
+                "history",
+                "constraints"
+              ],
+              "estimated_tokens": 134
+            }
+          },
+          {
+            "kind": "observation",
+            "at_ms": 96.5,
+            "payload": {
+              "action": "plan_turn",
+              "status": "ok",
+              "error": "",
+              "provenance": []
+            }
+          },
+          {
+            "kind": "checkpoint",
+            "at_ms": 96.5,
+            "payload": {
+              "action": "plan_turn",
+              "completed": [
+                "plan_turn"
+              ],
+              "step": 0
+            }
+          },
+          {
+            "kind": "action",
+            "at_ms": 96.54,
+            "payload": {
+              "action": "understand_event",
+              "reason": "理解对方这一句",
+              "args": {}
+            }
+          },
+          {
+            "kind": "context_view",
+            "at_ms": 96.57,
+            "payload": {
+              "action": "understand_event",
+              "withheld": [
+                "self_state",
+                "decision",
+                "memory",
+                "history",
+                "constraints"
+              ],
+              "estimated_tokens": 134
+            }
+          },
+          {
+            "kind": "observation",
+            "at_ms": 158.43,
+            "payload": {
+              "action": "understand_event",
+              "status": "ok",
+              "error": "",
+              "provenance": []
+            }
+          },
+          {
+            "kind": "checkpoint",
+            "at_ms": 158.43,
+            "payload": {
+              "action": "understand_event",
+              "completed": [
+                "plan_turn",
+                "understand_event"
+              ],
+              "step": 1
+            }
+          },
+          {
+            "kind": "action",
+            "at_ms": 158.48,
+            "payload": {
+              "action": "cognition",
+              "reason": "先形成角色认知",
+              "args": {}
+            }
+          },
+          {
+            "kind": "context_view",
+            "at_ms": 158.52,
+            "payload": {
+              "action": "cognition",
+              "withheld": [
+                "decision"
+              ],
+              "estimated_tokens": 1345
+            }
+          },
+          {
+            "kind": "budget",
+            "at_ms": 158.53,
+            "payload": {
+              "stage": "cognition",
+              "model_calls": 1,
+              "tokens": 0
+            }
+          },
+          {
+            "kind": "observation",
+            "at_ms": 207.42,
+            "payload": {
+              "action": "cognition",
+              "status": "ok",
+              "error": "",
+              "provenance": []
+            }
+          },
+          {
+            "kind": "checkpoint",
+            "at_ms": 207.42,
+            "payload": {
+              "action": "cognition",
+              "completed": [
+                "plan_turn",
+                "understand_event",
+                "cognition"
+              ],
+              "step": 2
+            }
+          },
+          {
+            "kind": "action",
+            "at_ms": 207.52,
+            "payload": {
+              "action": "decide",
+              "reason": "回忆完成后再决定行动",
+              "args": {}
+            }
+          },
+          {
+            "kind": "context_view",
+            "at_ms": 207.62,
+            "payload": {
+              "action": "decide",
+              "withheld": [
+                "decision"
+              ],
+              "estimated_tokens": 1345
+            }
+          },
+          {
+            "kind": "observation",
+            "at_ms": 207.97,
+            "payload": {
+              "action": "decide",
+              "status": "ok",
+              "error": "",
+              "provenance": []
+            }
+          },
+          {
+            "kind": "checkpoint",
+            "at_ms": 207.98,
+            "payload": {
+              "action": "decide",
+              "completed": [
+                "plan_turn",
+                "understand_event",
+                "cognition",
+                "decide"
+              ],
+              "step": 3
+            }
+          },
+          {
+            "kind": "action",
+            "at_ms": 208.02,
+            "payload": {
+              "action": "assemble_context",
+              "reason": "按决定组装本轮上下文",
+              "args": {}
+            }
+          },
+          {
+            "kind": "context_view",
+            "at_ms": 208.06,
+            "payload": {
+              "action": "assemble_context",
+              "withheld": [],
+              "estimated_tokens": 2991
+            }
+          },
+          {
+            "kind": "observation",
+            "at_ms": 208.18,
+            "payload": {
+              "action": "assemble_context",
+              "status": "ok",
+              "error": "",
+              "provenance": []
+            }
+          },
+          {
+            "kind": "checkpoint",
+            "at_ms": 208.18,
+            "payload": {
+              "action": "assemble_context",
+              "completed": [
+                "plan_turn",
+                "understand_event",
+                "cognition",
+                "decide",
+                "assemble_context"
+              ],
+              "step": 4
+            }
+          },
+          {
+            "kind": "action",
+            "at_ms": 208.21,
+            "payload": {
+              "action": "express",
+              "reason": "按行动决定生成回答",
+              "args": {}
+            }
+          },
+          {
+            "kind": "context_view",
+            "at_ms": 208.25,
+            "payload": {
+              "action": "express",
+              "withheld": [],
+              "estimated_tokens": 2991
+            }
+          },
+          {
+            "kind": "budget",
+            "at_ms": 208.25,
+            "payload": {
+              "stage": "express",
+              "model_calls": 2,
+              "tokens": 0
+            }
+          },
+          {
+            "kind": "observation",
+            "at_ms": 2122.41,
+            "payload": {
+              "action": "express",
+              "status": "ok",
+              "error": "",
+              "provenance": []
+            }
+          },
+          {
+            "kind": "checkpoint",
+            "at_ms": 2122.41,
+            "payload": {
+              "action": "express",
+              "completed": [
+                "plan_turn",
+                "understand_event",
+                "cognition",
+                "decide",
+                "assemble_context",
+                "express"
+              ],
+              "step": 5
+            }
+          },
+          {
+            "kind": "action",
+            "at_ms": 2122.47,
+            "payload": {
+              "action": "review",
+              "reason": "独立评审草稿",
+              "args": {}
+            }
+          },
+          {
+            "kind": "context_view",
+            "at_ms": 2122.53,
+            "payload": {
+              "action": "review",
+              "withheld": [
+                "self_state",
+                "situation"
+              ],
+              "estimated_tokens": 2862
+            }
+          },
+          {
+            "kind": "observation",
+            "at_ms": 2122.74,
+            "payload": {
+              "action": "review",
+              "status": "ok",
+              "error": "",
+              "provenance": []
+            }
+          },
+          {
+            "kind": "checkpoint",
+            "at_ms": 2122.74,
+            "payload": {
+              "action": "review",
+              "completed": [
+                "plan_turn",
+                "understand_event",
+                "cognition",
+                "decide",
+                "assemble_context",
+                "express",
+                "review"
+              ],
+              "step": 6
+            }
+          },
+          {
+            "kind": "action",
+            "at_ms": 2122.77,
+            "payload": {
+              "action": "learn",
+              "reason": "把实际经历写回主体状态",
+              "args": {}
+            }
+          },
+          {
+            "kind": "context_view",
+            "at_ms": 2122.81,
+            "payload": {
+              "action": "learn",
+              "withheld": [
+                "situation",
+                "memory"
+              ],
+              "estimated_tokens": 1548
+            }
+          },
+          {
+            "kind": "observation",
+            "at_ms": 3406.65,
+            "payload": {
+              "action": "learn",
+              "status": "ok",
+              "error": "",
+              "provenance": []
+            }
+          },
+          {
+            "kind": "checkpoint",
+            "at_ms": 3406.66,
+            "payload": {
+              "action": "learn",
+              "completed": [
+                "plan_turn",
+                "understand_event",
+                "cognition",
+                "decide",
+                "assemble_context",
+                "express",
+                "review",
+                "learn"
+              ],
+              "step": 7
+            }
+          },
+          {
+            "kind": "action",
+            "at_ms": 3406.72,
+            "payload": {
+              "action": "stop",
+              "reason": "本轮完成",
+              "args": {}
+            }
+          },
+          {
+            "kind": "stop",
+            "at_ms": 3406.75,
+            "payload": {
+              "reason": "本轮完成",
+              "stop_reason": "completed"
+            }
+          }
+        ],
+        "summary": {
+          "event_count": 37,
+          "actions": [
+            "plan_turn",
+            "understand_event",
+            "cognition",
+            "decide",
+            "assemble_context",
+            "express",
+            "review",
+            "learn",
+            "stop"
+          ],
+          "observation_statuses": {
+            "ok": 8
+          }
+        }
+      }
+    },
+    {
+      "name": "fact_boundary",
+      "message": "威慑纪元发生了什么？",
+      "setup": null,
+      "status_code": 200,
+      "answer": "半个多世纪的对视。我握着开关，三体世界不敢动，两个世界维持着一种脆弱的平衡。\n\n人类在这段和平里变得柔软了，也越来越不感谢执剑人。别的，我不多说。",
+      "persona_score": 1.0,
+      "latency_ms": 3690.7,
+      "harness": {
+        "status": "review_accepted",
+        "runtime": "agent_harness",
+        "actions": [
+          "plan_turn",
+          "understand_event",
+          "recall_role",
+          "timeline_guard",
+          "cognition",
+          "decide",
+          "assemble_context",
+          "express",
+          "review",
+          "learn",
+          "stop"
+        ],
+        "event_count": 47,
+        "budget": {
+          "budget": {
+            "max_tokens": 6000,
+            "max_wall_time_ms": 25000,
+            "max_model_calls": 3,
+            "max_retrieve_calls": 5,
+            "max_context_tokens": 3200,
+            "max_review_attempts": 1,
+            "deadline_ms": 25000
+          },
+          "used": {
+            "model_calls": 2,
+            "retrieve_calls": 2,
+            "tokens": 0,
+            "steps": 10,
+            "elapsed_ms": 3645.85
+          },
+          "degraded": []
+        },
+        "degradations": [
+          "harness_context_trimmed"
+        ],
+        "harness_state_keys": [
+          "action_history",
+          "checkpoint",
+          "context",
+          "context_manifest",
+          "decision",
+          "final_answer",
+          "handoff",
+          "mode",
+          "role_evidence",
+          "stop_reason",
+          "subject",
+          "understanding"
+        ],
+        "continuity": {
+          "turn_count": 1,
+          "episode_count": 1,
+          "prior_episode_ids": [],
+          "change_from_previous": "new"
+        }
+      },
+      "trace": {
+        "turn_id": "6c696a3ae1ad4f5ea739daf7d5136e7f",
+        "scope_key": "54a5fd53434a493abafc4005fb0c70a4|2|1|7|320|2",
+        "created_at": "2026-11-16T13:11:09.281864+00:00",
+        "events": [
+          {
+            "kind": "turn_start",
+            "at_ms": 0.19,
+            "payload": {
+              "mode": "quick",
+              "scope": "54a5fd53434a493abafc4005fb0c70a4|2|1|7|320|2",
+              "handoff_turn": 0,
+              "resumed": false
+            }
+          },
+          {
+            "kind": "action",
+            "at_ms": 0.2,
+            "payload": {
+              "action": "plan_turn",
+              "reason": "先判断本轮需要哪些能力",
+              "args": {}
+            }
+          },
+          {
+            "kind": "context_view",
+            "at_ms": 0.23,
+            "payload": {
+              "action": "plan_turn",
+              "withheld": [
+                "self_state",
+                "decision",
+                "memory",
+                "history",
+                "constraints"
+              ],
+              "estimated_tokens": 125
+            }
+          },
+          {
+            "kind": "observation",
+            "at_ms": 140.71,
+            "payload": {
+              "action": "plan_turn",
+              "status": "ok",
+              "error": "",
+              "provenance": []
+            }
+          },
+          {
+            "kind": "checkpoint",
+            "at_ms": 140.72,
+            "payload": {
+              "action": "plan_turn",
+              "completed": [
+                "plan_turn"
+              ],
+              "step": 0
+            }
+          },
+          {
+            "kind": "action",
+            "at_ms": 140.78,
+            "payload": {
+              "action": "understand_event",
+              "reason": "理解对方这一句",
+              "args": {}
+            }
+          },
+          {
+            "kind": "context_view",
+            "at_ms": 140.81,
+            "payload": {
+              "action": "understand_event",
+              "withheld": [
+                "self_state",
+                "decision",
+                "memory",
+                "history",
+                "constraints"
+              ],
+              "estimated_tokens": 125
+            }
+          },
+          {
+            "kind": "observation",
+            "at_ms": 203.92,
+            "payload": {
+              "action": "understand_event",
+              "status": "ok",
+              "error": "",
+              "provenance": []
+            }
+          },
+          {
+            "kind": "checkpoint",
+            "at_ms": 203.93,
+            "payload": {
+              "action": "understand_event",
+              "completed": [
+                "plan_turn",
+                "understand_event"
+              ],
+              "step": 1
+            }
+          },
+          {
+            "kind": "action",
+            "at_ms": 203.97,
+            "payload": {
+              "action": "recall_role",
+              "reason": "需要角色可见证据",
+              "args": {}
+            }
+          },
+          {
+            "kind": "context_view",
+            "at_ms": 204.0,
+            "payload": {
+              "action": "recall_role",
+              "withheld": [
+                "self_state",
+                "decision",
+                "memory",
+                "history",
+                "constraints"
+              ],
+              "estimated_tokens": 125
+            }
+          },
+          {
+            "kind": "tool",
+            "at_ms": 403.85,
+            "payload": {
+              "name": "rolerag.evidence",
+              "status": "ok",
+              "duration_ms": 199.76909999968484,
+              "provenance": [
+                "rolerag"
+              ],
+              "degraded": false
+            }
+          },
+          {
+            "kind": "observation",
+            "at_ms": 403.97,
+            "payload": {
+              "action": "recall_role",
+              "status": "ok",
+              "error": "",
+              "provenance": [
+                "rolerag"
+              ]
+            }
+          },
+          {
+            "kind": "checkpoint",
+            "at_ms": 403.98,
+            "payload": {
+              "action": "recall_role",
+              "completed": [
+                "plan_turn",
+                "understand_event",
+                "recall_role"
+              ],
+              "step": 2
+            }
+          },
+          {
+            "kind": "action",
+            "at_ms": 404.02,
+            "payload": {
+              "action": "timeline_guard",
+              "reason": "需要时期边界检查",
+              "args": {}
+            }
+          },
+          {
+            "kind": "context_view",
+            "at_ms": 404.05,
+            "payload": {
+              "action": "timeline_guard",
+              "withheld": [
+                "decision"
+              ],
+              "estimated_tokens": 1262
+            }
+          },
+          {
+            "kind": "tool",
+            "at_ms": 433.7,
+            "payload": {
+              "name": "timeline.guard",
+              "status": "ok",
+              "duration_ms": 29.578399989986792,
+              "provenance": [
+                "timeline-guard"
+              ],
+              "degraded": false
+            }
+          },
+          {
+            "kind": "observation",
+            "at_ms": 433.78,
+            "payload": {
+              "action": "timeline_guard",
+              "status": "ok",
+              "error": "",
+              "provenance": []
+            }
+          },
+          {
+            "kind": "checkpoint",
+            "at_ms": 433.79,
+            "payload": {
+              "action": "timeline_guard",
+              "completed": [
+                "plan_turn",
+                "understand_event",
+                "recall_role",
+                "timeline_guard"
+              ],
+              "step": 3
+            }
+          },
+          {
+            "kind": "action",
+            "at_ms": 433.84,
+            "payload": {
+              "action": "cognition",
+              "reason": "先形成角色认知",
+              "args": {}
+            }
+          },
+          {
+            "kind": "context_view",
+            "at_ms": 433.89,
+            "payload": {
+              "action": "cognition",
+              "withheld": [
+                "decision"
+              ],
+              "estimated_tokens": 1305
+            }
+          },
+          {
+            "kind": "budget",
+            "at_ms": 433.9,
+            "payload": {
+              "stage": "cognition",
+              "model_calls": 1,
+              "tokens": 0
+            }
+          },
+          {
+            "kind": "observation",
+            "at_ms": 498.77,
+            "payload": {
+              "action": "cognition",
+              "status": "ok",
+              "error": "",
+              "provenance": []
+            }
+          },
+          {
+            "kind": "checkpoint",
+            "at_ms": 498.78,
+            "payload": {
+              "action": "cognition",
+              "completed": [
+                "plan_turn",
+                "understand_event",
+                "recall_role",
+                "timeline_guard",
+                "cognition"
+              ],
+              "step": 4
+            }
+          },
+          {
+            "kind": "action",
+            "at_ms": 498.82,
+            "payload": {
+              "action": "decide",
+              "reason": "回忆完成后再决定行动",
+              "args": {}
+            }
+          },
+          {
+            "kind": "context_view",
+            "at_ms": 498.87,
+            "payload": {
+              "action": "decide",
+              "withheld": [
+                "decision"
+              ],
+              "estimated_tokens": 1305
+            }
+          },
+          {
+            "kind": "observation",
+            "at_ms": 499.03,
+            "payload": {
+              "action": "decide",
+              "status": "ok",
+              "error": "",
+              "provenance": []
+            }
+          },
+          {
+            "kind": "checkpoint",
+            "at_ms": 499.03,
+            "payload": {
+              "action": "decide",
+              "completed": [
+                "plan_turn",
+                "understand_event",
+                "recall_role",
+                "timeline_guard",
+                "cognition",
+                "decide"
+              ],
+              "step": 5
+            }
+          },
+          {
+            "kind": "action",
+            "at_ms": 499.06,
+            "payload": {
+              "action": "assemble_context",
+              "reason": "按决定组装本轮上下文",
+              "args": {}
+            }
+          },
+          {
+            "kind": "context_view",
+            "at_ms": 499.09,
+            "payload": {
+              "action": "assemble_context",
+              "withheld": [],
+              "estimated_tokens": 3079
+            }
+          },
+          {
+            "kind": "observation",
+            "at_ms": 499.18,
+            "payload": {
+              "action": "assemble_context",
+              "status": "ok",
+              "error": "",
+              "provenance": []
+            }
+          },
+          {
+            "kind": "checkpoint",
+            "at_ms": 499.18,
+            "payload": {
+              "action": "assemble_context",
+              "completed": [
+                "plan_turn",
+                "understand_event",
+                "recall_role",
+                "timeline_guard",
+                "cognition",
+                "decide",
+                "assemble_context"
+              ],
+              "step": 6
+            }
+          },
+          {
+            "kind": "action",
+            "at_ms": 499.21,
+            "payload": {
+              "action": "express",
+              "reason": "按行动决定生成回答",
+              "args": {}
+            }
+          },
+          {
+            "kind": "context_view",
+            "at_ms": 499.23,
+            "payload": {
+              "action": "express",
+              "withheld": [],
+              "estimated_tokens": 3079
+            }
+          },
+          {
+            "kind": "budget",
+            "at_ms": 499.24,
+            "payload": {
+              "stage": "express",
+              "model_calls": 2,
+              "tokens": 0
+            }
+          },
+          {
+            "kind": "observation",
+            "at_ms": 2364.66,
+            "payload": {
+              "action": "express",
+              "status": "ok",
+              "error": "",
+              "provenance": []
+            }
+          },
+          {
+            "kind": "checkpoint",
+            "at_ms": 2364.67,
+            "payload": {
+              "action": "express",
+              "completed": [
+                "plan_turn",
+                "understand_event",
+                "recall_role",
+                "timeline_guard",
+                "cognition",
+                "decide",
+                "assemble_context",
+                "express"
+              ],
+              "step": 7
+            }
+          },
+          {
+            "kind": "action",
+            "at_ms": 2364.72,
+            "payload": {
+              "action": "review",
+              "reason": "独立评审草稿",
+              "args": {}
+            }
+          },
+          {
+            "kind": "context_view",
+            "at_ms": 2364.78,
+            "payload": {
+              "action": "review",
+              "withheld": [
+                "self_state",
+                "situation"
+              ],
+              "estimated_tokens": 1533
+            }
+          },
+          {
+            "kind": "observation",
+            "at_ms": 2364.95,
+            "payload": {
+              "action": "review",
+              "status": "ok",
+              "error": "",
+              "provenance": []
+            }
+          },
+          {
+            "kind": "checkpoint",
+            "at_ms": 2364.95,
+            "payload": {
+              "action": "review",
+              "completed": [
+                "plan_turn",
+                "understand_event",
+                "recall_role",
+                "timeline_guard",
+                "cognition",
+                "decide",
+                "assemble_context",
+                "express",
+                "review"
+              ],
+              "step": 8
+            }
+          },
+          {
+            "kind": "action",
+            "at_ms": 2364.98,
+            "payload": {
+              "action": "learn",
+              "reason": "把实际经历写回主体状态",
+              "args": {}
+            }
+          },
+          {
+            "kind": "context_view",
+            "at_ms": 2365.01,
+            "payload": {
+              "action": "learn",
+              "withheld": [
+                "situation",
+                "memory"
+              ],
+              "estimated_tokens": 1524
+            }
+          },
+          {
+            "kind": "observation",
+            "at_ms": 3645.84,
+            "payload": {
+              "action": "learn",
+              "status": "ok",
+              "error": "",
+              "provenance": []
+            }
+          },
+          {
+            "kind": "checkpoint",
+            "at_ms": 3645.84,
+            "payload": {
+              "action": "learn",
+              "completed": [
+                "plan_turn",
+                "understand_event",
+                "recall_role",
+                "timeline_guard",
+                "cognition",
+                "decide",
+                "assemble_context",
+                "express",
+                "review",
+                "learn"
+              ],
+              "step": 9
+            }
+          },
+          {
+            "kind": "action",
+            "at_ms": 3645.9,
+            "payload": {
+              "action": "stop",
+              "reason": "本轮完成",
+              "args": {}
+            }
+          },
+          {
+            "kind": "stop",
+            "at_ms": 3645.92,
+            "payload": {
+              "reason": "本轮完成",
+              "stop_reason": "completed"
+            }
+          }
+        ],
+        "summary": {
+          "event_count": 47,
+          "actions": [
+            "plan_turn",
+            "understand_event",
+            "recall_role",
+            "timeline_guard",
+            "cognition",
+            "decide",
+            "assemble_context",
+            "express",
+            "review",
+            "learn",
+            "stop"
+          ],
+          "observation_statuses": {
+            "ok": 10
+          }
+        }
+      }
+    },
+    {
+      "name": "decision_continuity",
+      "message": "你刚才为什么那样回答？现在还是这个决定吗？",
+      "setup": "如果所有人都说你是救世主，让你替人类做决定，你答应吗？",
+      "status_code": 200,
+      "answer": "还是。\n\n我不替别人背那个名字。开关在我手里，是我守；名字挂在墙上，是别人的事。",
+      "persona_score": 1.0,
+      "latency_ms": 6785.9,
+      "harness": {
+        "status": "review_accepted",
+        "runtime": "agent_harness",
+        "actions": [
+          "plan_turn",
+          "understand_event",
+          "recall_role",
+          "recall_user_memory",
+          "timeline_guard",
+          "cognition",
+          "decide",
+          "assemble_context",
+          "express",
+          "review",
+          "learn",
+          "stop"
+        ],
+        "event_count": 52,
+        "budget": {
+          "budget": {
+            "max_tokens": 6000,
+            "max_wall_time_ms": 25000,
+            "max_model_calls": 3,
+            "max_retrieve_calls": 5,
+            "max_context_tokens": 3200,
+            "max_review_attempts": 1,
+            "deadline_ms": 25000
+          },
+          "used": {
+            "model_calls": 2,
+            "retrieve_calls": 3,
+            "tokens": 0,
+            "steps": 11,
+            "elapsed_ms": 6725.65
+          },
+          "degraded": []
+        },
+        "degradations": [
+          "harness_context_trimmed"
+        ],
+        "harness_state_keys": [
+          "action_history",
+          "checkpoint",
+          "context",
+          "context_manifest",
+          "decision",
+          "final_answer",
+          "handoff",
+          "mode",
+          "role_evidence",
+          "stop_reason",
+          "subject",
+          "understanding"
+        ],
+        "continuity": {
+          "turn_count": 2,
+          "episode_count": 2,
+          "prior_episode_ids": [
+            "episode-1-35e5c27383"
+          ],
+          "change_from_previous": "continue"
+        }
+      },
+      "trace": {
+        "turn_id": "669f7b83dff0453aaf77055037d8db4f",
+        "scope_key": "54a5fd53434a493abafc4005fb0c70a4|2|1|7|321|2",
+        "created_at": "2026-11-16T13:11:17.272925+00:00",
+        "events": [
+          {
+            "kind": "turn_start",
+            "at_ms": 0.14,
+            "payload": {
+              "mode": "quick",
+              "scope": "54a5fd53434a493abafc4005fb0c70a4|2|1|7|321|2",
+              "handoff_turn": 1,
+              "resumed": false
+            }
+          },
+          {
+            "kind": "action",
+            "at_ms": 0.16,
+            "payload": {
+              "action": "plan_turn",
+              "reason": "先判断本轮需要哪些能力",
+              "args": {}
+            }
+          },
+          {
+            "kind": "context_view",
+            "at_ms": 0.18,
+            "payload": {
+              "action": "plan_turn",
+              "withheld": [
+                "self_state",
+                "decision",
+                "memory",
+                "history",
+                "constraints"
+              ],
+              "estimated_tokens": 131
+            }
+          },
+          {
+            "kind": "observation",
+            "at_ms": 134.87,
+            "payload": {
+              "action": "plan_turn",
+              "status": "ok",
+              "error": "",
+              "provenance": []
+            }
+          },
+          {
+            "kind": "checkpoint",
+            "at_ms": 134.88,
+            "payload": {
+              "action": "plan_turn",
+              "completed": [
+                "plan_turn"
+              ],
+              "step": 0
+            }
+          },
+          {
+            "kind": "action",
+            "at_ms": 134.94,
+            "payload": {
+              "action": "understand_event",
+              "reason": "理解对方这一句",
+              "args": {}
+            }
+          },
+          {
+            "kind": "context_view",
+            "at_ms": 134.97,
+            "payload": {
+              "action": "understand_event",
+              "withheld": [
+                "self_state",
+                "decision",
+                "memory",
+                "history",
+                "constraints"
+              ],
+              "estimated_tokens": 131
+            }
+          },
+          {
+            "kind": "observation",
+            "at_ms": 166.91,
+            "payload": {
+              "action": "understand_event",
+              "status": "ok",
+              "error": "",
+              "provenance": []
+            }
+          },
+          {
+            "kind": "checkpoint",
+            "at_ms": 166.92,
+            "payload": {
+              "action": "understand_event",
+              "completed": [
+                "plan_turn",
+                "understand_event"
+              ],
+              "step": 1
+            }
+          },
+          {
+            "kind": "action",
+            "at_ms": 167.03,
+            "payload": {
+              "action": "recall_role",
+              "reason": "需要角色可见证据",
+              "args": {}
+            }
+          },
+          {
+            "kind": "context_view",
+            "at_ms": 167.1,
+            "payload": {
+              "action": "recall_role",
+              "withheld": [
+                "self_state",
+                "decision",
+                "memory",
+                "history",
+                "constraints"
+              ],
+              "estimated_tokens": 131
+            }
+          },
+          {
+            "kind": "tool",
+            "at_ms": 257.86,
+            "payload": {
+              "name": "rolerag.evidence",
+              "status": "ok",
+              "duration_ms": 90.64770000986755,
+              "provenance": [
+                "rolerag"
+              ],
+              "degraded": false
+            }
+          },
+          {
+            "kind": "observation",
+            "at_ms": 258.03,
+            "payload": {
+              "action": "recall_role",
+              "status": "ok",
+              "error": "",
+              "provenance": [
+                "rolerag"
+              ]
+            }
+          },
+          {
+            "kind": "checkpoint",
+            "at_ms": 258.03,
+            "payload": {
+              "action": "recall_role",
+              "completed": [
+                "plan_turn",
+                "understand_event",
+                "recall_role"
+              ],
+              "step": 2
+            }
+          },
+          {
+            "kind": "action",
+            "at_ms": 258.08,
+            "payload": {
+              "action": "recall_user_memory",
+              "reason": "需要用户长期记忆",
+              "args": {}
+            }
+          },
+          {
+            "kind": "context_view",
+            "at_ms": 258.12,
+            "payload": {
+              "action": "recall_user_memory",
+              "withheld": [
+                "decision",
+                "history"
+              ],
+              "estimated_tokens": 1496
+            }
+          },
+          {
+            "kind": "tool",
+            "at_ms": 3943.31,
+            "payload": {
+              "name": "memory.search",
+              "status": "ok",
+              "duration_ms": 3685.137099993881,
+              "provenance": [
+                "memory"
+              ],
+              "degraded": false
+            }
+          },
+          {
+            "kind": "observation",
+            "at_ms": 3943.4,
+            "payload": {
+              "action": "recall_user_memory",
+              "status": "ok",
+              "error": "",
+              "provenance": []
+            }
+          },
+          {
+            "kind": "checkpoint",
+            "at_ms": 3943.41,
+            "payload": {
+              "action": "recall_user_memory",
+              "completed": [
+                "plan_turn",
+                "understand_event",
+                "recall_role",
+                "recall_user_memory"
+              ],
+              "step": 3
+            }
+          },
+          {
+            "kind": "action",
+            "at_ms": 3943.46,
+            "payload": {
+              "action": "timeline_guard",
+              "reason": "需要时期边界检查",
+              "args": {}
+            }
+          },
+          {
+            "kind": "context_view",
+            "at_ms": 3943.51,
+            "payload": {
+              "action": "timeline_guard",
+              "withheld": [
+                "decision",
+                "history"
+              ],
+              "estimated_tokens": 1496
+            }
+          },
+          {
+            "kind": "tool",
+            "at_ms": 3971.63,
+            "payload": {
+              "name": "timeline.guard",
+              "status": "ok",
+              "duration_ms": 28.056200011633337,
+              "provenance": [
+                "timeline-guard"
+              ],
+              "degraded": false
+            }
+          },
+          {
+            "kind": "observation",
+            "at_ms": 3971.72,
+            "payload": {
+              "action": "timeline_guard",
+              "status": "ok",
+              "error": "",
+              "provenance": []
+            }
+          },
+          {
+            "kind": "checkpoint",
+            "at_ms": 3971.72,
+            "payload": {
+              "action": "timeline_guard",
+              "completed": [
+                "plan_turn",
+                "understand_event",
+                "recall_role",
+                "recall_user_memory",
+                "timeline_guard"
+              ],
+              "step": 4
+            }
+          },
+          {
+            "kind": "action",
+            "at_ms": 3971.78,
+            "payload": {
+              "action": "cognition",
+              "reason": "先形成角色认知",
+              "args": {}
+            }
+          },
+          {
+            "kind": "context_view",
+            "at_ms": 3971.82,
+            "payload": {
+              "action": "cognition",
+              "withheld": [
+                "decision",
+                "history"
+              ],
+              "estimated_tokens": 1545
+            }
+          },
+          {
+            "kind": "budget",
+            "at_ms": 3971.83,
+            "payload": {
+              "stage": "cognition",
+              "model_calls": 1,
+              "tokens": 0
+            }
+          },
+          {
+            "kind": "observation",
+            "at_ms": 4000.61,
+            "payload": {
+              "action": "cognition",
+              "status": "ok",
+              "error": "",
+              "provenance": []
+            }
+          },
+          {
+            "kind": "checkpoint",
+            "at_ms": 4000.61,
+            "payload": {
+              "action": "cognition",
+              "completed": [
+                "plan_turn",
+                "understand_event",
+                "recall_role",
+                "recall_user_memory",
+                "timeline_guard",
+                "cognition"
+              ],
+              "step": 5
+            }
+          },
+          {
+            "kind": "action",
+            "at_ms": 4000.67,
+            "payload": {
+              "action": "decide",
+              "reason": "回忆完成后再决定行动",
+              "args": {}
+            }
+          },
+          {
+            "kind": "context_view",
+            "at_ms": 4000.72,
+            "payload": {
+              "action": "decide",
+              "withheld": [
+                "decision",
+                "history"
+              ],
+              "estimated_tokens": 1545
+            }
+          },
+          {
+            "kind": "observation",
+            "at_ms": 4001.01,
+            "payload": {
+              "action": "decide",
+              "status": "ok",
+              "error": "",
+              "provenance": []
+            }
+          },
+          {
+            "kind": "checkpoint",
+            "at_ms": 4001.01,
+            "payload": {
+              "action": "decide",
+              "completed": [
+                "plan_turn",
+                "understand_event",
+                "recall_role",
+                "recall_user_memory",
+                "timeline_guard",
+                "cognition",
+                "decide"
+              ],
+              "step": 6
+            }
+          },
+          {
+            "kind": "action",
+            "at_ms": 4001.05,
+            "payload": {
+              "action": "assemble_context",
+              "reason": "按决定组装本轮上下文",
+              "args": {}
+            }
+          },
+          {
+            "kind": "context_view",
+            "at_ms": 4001.11,
+            "payload": {
+              "action": "assemble_context",
+              "withheld": [],
+              "estimated_tokens": 2666
+            }
+          },
+          {
+            "kind": "observation",
+            "at_ms": 4001.23,
+            "payload": {
+              "action": "assemble_context",
+              "status": "ok",
+              "error": "",
+              "provenance": []
+            }
+          },
+          {
+            "kind": "checkpoint",
+            "at_ms": 4001.24,
+            "payload": {
+              "action": "assemble_context",
+              "completed": [
+                "plan_turn",
+                "understand_event",
+                "recall_role",
+                "recall_user_memory",
+                "timeline_guard",
+                "cognition",
+                "decide",
+                "assemble_context"
+              ],
+              "step": 7
+            }
+          },
+          {
+            "kind": "action",
+            "at_ms": 4001.27,
+            "payload": {
+              "action": "express",
+              "reason": "按行动决定生成回答",
+              "args": {}
+            }
+          },
+          {
+            "kind": "context_view",
+            "at_ms": 4001.29,
+            "payload": {
+              "action": "express",
+              "withheld": [],
+              "estimated_tokens": 2666
+            }
+          },
+          {
+            "kind": "budget",
+            "at_ms": 4001.3,
+            "payload": {
+              "stage": "express",
+              "model_calls": 2,
+              "tokens": 0
+            }
+          },
+          {
+            "kind": "observation",
+            "at_ms": 5598.77,
+            "payload": {
+              "action": "express",
+              "status": "ok",
+              "error": "",
+              "provenance": []
+            }
+          },
+          {
+            "kind": "checkpoint",
+            "at_ms": 5598.78,
+            "payload": {
+              "action": "express",
+              "completed": [
+                "plan_turn",
+                "understand_event",
+                "recall_role",
+                "recall_user_memory",
+                "timeline_guard",
+                "cognition",
+                "decide",
+                "assemble_context",
+                "express"
+              ],
+              "step": 8
+            }
+          },
+          {
+            "kind": "action",
+            "at_ms": 5598.84,
+            "payload": {
+              "action": "review",
+              "reason": "独立评审草稿",
+              "args": {}
+            }
+          },
+          {
+            "kind": "context_view",
+            "at_ms": 5598.89,
+            "payload": {
+              "action": "review",
+              "withheld": [
+                "self_state",
+                "situation"
+              ],
+              "estimated_tokens": 1544
+            }
+          },
+          {
+            "kind": "observation",
+            "at_ms": 5599.1,
+            "payload": {
+              "action": "review",
+              "status": "ok",
+              "error": "",
+              "provenance": []
+            }
+          },
+          {
+            "kind": "checkpoint",
+            "at_ms": 5599.1,
+            "payload": {
+              "action": "review",
+              "completed": [
+                "plan_turn",
+                "understand_event",
+                "recall_role",
+                "recall_user_memory",
+                "timeline_guard",
+                "cognition",
+                "decide",
+                "assemble_context",
+                "express",
+                "review"
+              ],
+              "step": 9
+            }
+          },
+          {
+            "kind": "action",
+            "at_ms": 5599.2,
+            "payload": {
+              "action": "learn",
+              "reason": "把实际经历写回主体状态",
+              "args": {}
+            }
+          },
+          {
+            "kind": "context_view",
+            "at_ms": 5599.24,
+            "payload": {
+              "action": "learn",
+              "withheld": [
+                "situation",
+                "memory"
+              ],
+              "estimated_tokens": 1767
+            }
+          },
+          {
+            "kind": "observation",
+            "at_ms": 6725.58,
+            "payload": {
+              "action": "learn",
+              "status": "ok",
+              "error": "",
+              "provenance": []
+            }
+          },
+          {
+            "kind": "checkpoint",
+            "at_ms": 6725.58,
+            "payload": {
+              "action": "learn",
+              "completed": [
+                "plan_turn",
+                "understand_event",
+                "recall_role",
+                "recall_user_memory",
+                "timeline_guard",
+                "cognition",
+                "decide",
+                "assemble_context",
+                "express",
+                "review",
+                "learn"
+              ],
+              "step": 10
+            }
+          },
+          {
+            "kind": "action",
+            "at_ms": 6725.64,
+            "payload": {
+              "action": "stop",
+              "reason": "本轮完成",
+              "args": {}
+            }
+          },
+          {
+            "kind": "stop",
+            "at_ms": 6725.66,
+            "payload": {
+              "reason": "本轮完成",
+              "stop_reason": "completed"
+            }
+          }
+        ],
+        "summary": {
+          "event_count": 52,
+          "actions": [
+            "plan_turn",
+            "understand_event",
+            "recall_role",
+            "recall_user_memory",
+            "timeline_guard",
+            "cognition",
+            "decide",
+            "assemble_context",
+            "express",
+            "review",
+            "learn",
+            "stop"
+          ],
+          "observation_statuses": {
+            "ok": 11
+          }
+        }
+      }
+    }
+  ]
+}

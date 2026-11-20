@@ -159,14 +159,17 @@ STORYROLE_DECISION_BACKEND=laya_shadow  # Laya 只参与对比，不改变实际
 STORYROLE_DECISION_BACKEND=rule        # 强制使用规则
 ```
 
-Laya 通过 `app/agents/decision/laya_backend.py` 懒加载，不需要 Ollama。默认启用 Laya；未安装或加载/预测失败时会自动退回规则后端。
+Laya 0.4.35 已安装到项目 `.venv`，通过 `app/agents/decision/laya_backend.py` 懒加载，不需要 Ollama。默认启用；quick 和 deep 每轮都由 `query-planner` 先调用 Laya Router，Laya 加载/预测失败才退回规则后端。
 
 ```env
 STORYROLE_LAYA_MODEL=convaiinnovations/laya-multilingual
 STORYROLE_LAYA_DEVICE=auto
+STORYROLE_LAYA_PRELOAD=multilingual
+STORYROLE_LAYA_WARMUP=1
+STORYROLE_QUERY_PLANNER_TIMEOUT=20
 ```
 
-Laya 只负责意图、检索、记忆、关系和时间线等快速结构化决策；深度推理不由 Laya 决定，而由用户请求中的 `deep_reasoning` 开关决定。角色回答仍由 Character Conversation Agent 使用生成模型完成。
+Laya 负责意图、检索、记忆、关系、时间线和 `auto_deep` 判断，并给 quick 回合返回 `response_action`（自然回应 / 安慰 / 追问 / 设边界 / 承认不知道），quick 的内部认知会标记为 `laya_quick`。固定 `mode=quick` 或 `mode=deep` 仍由用户决定；`auto` 才读取 Laya 的 `auto_deep`。角色回答仍由 Character Conversation Agent 使用生成模型完成。
 
 
 ### 深度推理开关

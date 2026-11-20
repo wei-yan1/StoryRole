@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>小说档案 · StoryRole</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%230f1815'/><path d='M18 20h18v24H18zM36 20h10v24h-10z' fill='none' stroke='%23c3a15e' stroke-width='2'/></svg>">
+  <link rel="stylesheet" href="/static/studio.css">
+  <link rel="stylesheet" href="/static/studio-pages.css">
+</head>
+<body class="app-body" data-page="novels">
+  <aside class="rail" id="rail"></aside>
+  <main class="page-shell">
+    <header class="page-head">
+      <div class="page-head-copy">
+        <div class="eyebrow">01 / 小说档案</div>
+        <h1>先有原文，才有回声。</h1>
+        <p class="lede">把小说文本投进档案室。系统会建立章节、关键词和语义索引，之后所有人物与时期都站在这份原文上。</p>
+      </div>
+      <div class="page-head-actions">
+        <a class="btn btn-ghost" href="/storyrole">回到总览</a>
+        <a class="btn btn-primary" href="/characters">建立人物 <span aria-hidden="true">→</span></a>
+      </div>
+    </header>
+
+    <div class="page-body novel-body">
+      <div class="two-col novel-layout">
+        <section class="panel import-panel paper-stack">
+          <div class="panel-head">
+            <div><span class="section-kicker">投递口 / INTAKE</span><h2>收录原文</h2><p>支持 TXT、Markdown，可一次加入多卷文本。</p></div>
+            <span class="tag" id="import-kind">新档案</span>
+          </div>
+          <div class="panel-body">
+            <label class="drop-zone" id="drop-zone">
+              <input id="novel-files" type="file" multiple accept=".txt,.md,.markdown">
+              <span class="drop-symbol" aria-hidden="true">＋</span>
+              <strong id="file-label">把文本拖到这里，或点击选择</strong>
+              <span>一次最多加入多卷文本；导入过程会在这里显示阶段与进度。</span>
+            </label>
+            <div class="file-pills" id="selected-files"></div>
+            <div class="import-form">
+              <label class="field"><span>档案名称</span><input class="input" id="novel-name" placeholder="例如：三体 / 死神永生" autocomplete="off"></label>
+              <div class="import-actions">
+                <button class="btn btn-primary" id="import-button" type="button">建立文本索引 <span aria-hidden="true">→</span></button>
+                <button class="btn btn-ghost hidden" id="cancel-import" type="button">取消任务</button>
+                <button class="btn btn-ghost hidden" id="retry-import" type="button">重试导入</button>
+              </div>
+            </div>
+            <div class="import-progress hidden" id="import-progress">
+              <div class="import-progress-head"><strong id="progress-stage">准备任务</strong><span id="progress-count">0 / 0 个文件</span></div>
+              <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+              <div class="import-metrics" id="import-metrics"></div>
+            </div>
+            <p class="import-status" id="import-status">文本会先被解析，再建立向量与关键词索引。导入完成后可直接建立人物。</p>
+            <div id="import-next" class="hidden" style="margin-top:14px"><a class="btn btn-accent btn-sm" href="/characters">去建立人物 <span aria-hidden="true">→</span></a></div>
+          </div>
+          <div class="panel-foot"><span class="inline-note">原文只用于本工作区的检索与角色上下文。</span><span class="tag tag-forest">TXT / MD</span></div>
+        </section>
+
+        <section class="panel library-panel">
+          <div class="panel-head">
+            <div><span class="section-kicker">书架 / LIBRARY</span><h2>小说档案</h2><p>选择一本作为当前小说，继续建立人物。</p></div>
+            <span class="tag" id="library-count">0 本</span>
+          </div>
+          <div class="panel-body">
+            <div class="library-toolbar">
+              <input class="input" id="library-search" type="search" placeholder="搜索档案名称…" autocomplete="off">
+              <span class="tag">按更新时间</span>
+            </div>
+            <div class="library-list" id="novel-library"></div>
+            <div class="bundled-strip">
+              <div><strong>内置三体档案</strong><p>已经带索引与角色素材，可直接恢复使用。</p></div>
+              <button class="btn btn-ghost btn-sm" id="restore-three-body" type="button">恢复三体</button>
+            </div>
+          </div>
+          <div class="panel-foot"><span class="inline-note">点击档案行即可设为当前小说。</span><span class="tag" id="library-active">未选择</span></div>
+        </section>
+      </div>
+    </div>
+
+    <footer class="page-foot"><span>STORYROLE / 小说档案</span><span>IMPORT → CHARACTER → PERIOD → CHAT</span></footer>
+  </main>
+  <script src="/static/studio.js"></script>
+  <script src="/static/novels.js"></script>
+</body>
+</html>

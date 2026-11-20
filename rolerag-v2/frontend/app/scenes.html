@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#121613">
+  <link rel="icon" href="/static/app/favicon.svg" type="image/svg+xml">
+  <title>场景 · StoryRole</title>
+  <link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar" id="sidebar"></aside>
+    <main class="main">
+      <div class="page">
+        <header class="page-header">
+          <div>
+            <a class="chat-back" href="/characters" id="back-to-character"></a>
+            <h1 class="page-title" style="font-size:34px">场景</h1>
+            <p class="page-desc">场景决定角色在对话里记得哪一段人生。选一个场景，在右侧准备它的人设。</p>
+          </div>
+          <div class="header-actions">
+            <button class="btn" type="button" id="analyze-button">分析时间线</button>
+            <button class="btn btn-primary" type="button" id="add-scene-button">添加场景</button>
+          </div>
+        </header>
+        <div class="character-meta" id="scene-hero"></div>
+        <div id="analysis-note" class="source-note" style="margin:14px 0"></div>
+        <div class="scenes-layout">
+          <section class="card scene-rail">
+            <div class="panel-head">
+              <div><h2>场景列表</h2><p>按经历顺序排列</p></div>
+              <span class="pill" id="scene-count">0 个</span>
+            </div>
+            <div id="scene-list" class="scene-rail-list"></div>
+          </section>
+          <section class="card scene-detail" id="scene-detail">
+            <div class="stage-placeholder" id="scene-detail-empty">
+              <span class="stage-orb"></span>
+              <span class="empty-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+              <h2>选择一个场景</h2>
+              <p>每个场景是角色经历中的一个阶段。准备人设之后，这个场景才可以在对话中使用。</p>
+            </div>
+            <div id="scene-detail-content" class="hidden"></div>
+          </section>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="/static/app/common.js"></script>
+  <script src="/static/app/scenes.js"></script>
+</body>
+</html>

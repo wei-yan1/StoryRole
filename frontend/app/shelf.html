@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f2e7">
+  <link rel="icon" href="/static/app/favicon.svg" type="image/svg+xml">
+  <title>书架 · StoryRole</title>
+  <link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar" id="sidebar"></aside>
+    <main class="main">
+      <div class="page shelf-page">
+        <header class="shelf-header">
+          <div class="shelf-heading">
+            <p class="shelf-kicker">你的故事空间</p>
+            <h1 class="page-title">书架</h1>
+            <p class="page-desc">先挑一本小说，再从它的角色开始一段对话。</p>
+          </div>
+          <div class="shelf-actions">
+            <div class="search-box shelf-search">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+              <input class="input" id="novel-search" placeholder="搜索小说" aria-label="搜索小说">
+            </div>
+            <a class="btn btn-primary" href="/novels/new" id="add-novel-top">新增小说</a>
+          </div>
+        </header>
+
+        <div class="shelf-summary" id="shelf-summary">
+          <span class="shelf-summary-item"><strong id="stat-novels">—</strong><span>本小说</span></span>
+          <span class="shelf-summary-sep"></span>
+          <span class="shelf-summary-item"><strong id="stat-characters">—</strong><span>位角色</span></span>
+          <span class="shelf-summary-sep"></span>
+          <span class="shelf-summary-item"><strong id="stat-conversations">—</strong><span>段对话</span></span>
+        </div>
+
+        <div class="shelf-body">
+          <section class="shelf-main" aria-labelledby="shelf-main-title">
+            <div class="section-head shelf-section-head">
+              <h2 class="section-title" id="shelf-main-title">我的小说</h2>
+              <span class="shelf-count" id="novel-count">正在整理书架</span>
+            </div>
+            <div class="book-grid" id="book-grid">
+              <div class="book-skeleton"><span class="skeleton"></span><span class="skeleton"></span></div>
+              <div class="book-skeleton"><span class="skeleton"></span><span class="skeleton"></span></div>
+              <div class="book-skeleton"><span class="skeleton"></span><span class="skeleton"></span></div>
+            </div>
+            <div class="empty-state shelf-empty hidden" id="shelf-empty">
+              <h3>书架还是空的</h3>
+              <p>导入一本小说，系统会从中整理角色、场景与人设。之后的每次对话，都从一个具体角色开始。</p>
+              <a class="btn btn-primary" href="/novels/new">导入第一本小说</a>
+            </div>
+            <div class="shelf-footnote">
+              <span class="shelf-footnote-mark">故事从一本小说开始</span>
+              <span>支持 TXT、Markdown，导入后可以继续添加角色。</span>
+            </div>
+            <section class="shelf-recent-section" aria-labelledby="shelf-recent-title">
+              <div class="section-head">
+                <h2 class="section-title" id="shelf-recent-title">最近继续</h2>
+                <a class="section-link" href="/chats">全部对话</a>
+              </div>
+              <div class="shelf-recent-grid" id="recent-conversations">
+                <div class="skeleton" style="height:74px"></div>
+                <div class="skeleton" style="height:74px"></div>
+              </div>
+            </section>
+          </section>
+
+          <aside class="shelf-aside">
+            <div class="shelf-note">
+              <div class="shelf-note-title">怎么开始</div>
+              <ol>
+                <li><span>01</span> 选择一本小说</li>
+                <li><span>02</span> 浏览这本书里的角色</li>
+                <li><span>03</span> 打开角色，开始对话</li>
+              </ol>
+            </div>
+            <a class="aside-import-card" href="/novels/new">
+              <span class="aside-import-mark">+</span>
+              <span class="aside-import-copy"><strong>导入另一本小说</strong><span>把新的故事放上书架</span></span>
+              <span class="book-arrow">→</span>
+            </a>
+          </aside>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="/static/app/common.js"></script>
+  <script src="/static/app/shelf.js"></script>
+</body>
+</html>

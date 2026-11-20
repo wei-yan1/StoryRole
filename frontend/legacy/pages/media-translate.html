@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>文本翻译 · StoryRole</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%230f1815'/><path d='M12 18h24M24 12v6M16 18c3 8 9 13 15 16M31 18c-2 8-8 13-15 16' stroke='%23c3a15e' stroke-width='2'/><path d='M34 26h18M43 20v6M36 26c2 6 6 9 12 11M51 26c-2 6-6 9-12 11' stroke='%23c3a15e' stroke-width='1.6'/></svg>">
+  <link rel="stylesheet" href="/static/studio.css">
+  <link rel="stylesheet" href="/static/studio-pages.css">
+</head>
+<body class="app-body" data-page="media-translate" data-media="translate">
+  <aside class="rail" id="rail"></aside>
+  <main class="page-shell">
+    <header class="page-head">
+      <div class="page-head-copy">
+        <div class="eyebrow">05.04 / 文本翻译</div>
+        <h1>换一种语言，保留原本的语气。</h1>
+        <p class="lede">适合对照原文、整理海外资料，或把 OCR / 转写结果整理成另一种语言。</p>
+      </div>
+      <div class="page-head-actions"><a class="btn btn-ghost" href="/media">← 返回多模态</a></div>
+    </header>
+
+    <div class="page-body tool-body">
+      <div class="tool-layout">
+        <section class="panel tool-main">
+          <div class="panel-head"><div><span class="section-kicker">翻译 / TRANSLATE</span><h2>原文</h2><p>整段粘贴；保留段落换行。</p></div><span class="tag">TEXT → TEXT</span></div>
+          <div class="panel-body">
+            <div class="tool-form">
+              <div class="field-row">
+                <label class="field"><span>源语言</span><select class="select" id="translate-source"><option value="Chinese" selected>中文</option><option value="English">English</option><option value="Japanese">日本語</option><option value="Korean">한국어</option></select></label>
+                <label class="field"><span>目标语言</span><select class="select" id="translate-target"><option value="English" selected>English</option><option value="Chinese">中文</option><option value="Japanese">日本語</option><option value="Korean">한국어</option></select></label>
+              </div>
+              <label class="field"><span>原文内容</span><textarea class="textarea" id="translate-text" placeholder="把要翻译的段落粘贴到这里……"></textarea></label>
+              <button class="btn btn-primary" id="translate-send" type="button"><span>开始翻译</span> <span aria-hidden="true">→</span></button>
+            </div>
+            <p class="import-status" id="translate-status">翻译结果会显示在右侧。</p>
+          </div>
+          <div class="panel-foot"><span class="inline-note">翻译不会自动写回小说档案。</span><span class="tag">SOURCE / TARGET</span></div>
+        </section>
+
+        <aside class="tool-side">
+          <div class="media-model-strip"><div><strong>翻译模型</strong><small>由后端路由</small></div><div class="model-chips" id="model-chips"></div><span class="tag" id="model-status">读取中…</span></div>
+          <section class="panel tool-result" id="translate-result">
+            <div class="panel-head"><div><span class="section-kicker">结果 / OUTPUT</span><h2>译文</h2></div><button class="btn btn-ghost btn-sm" id="translate-copy" type="button" disabled>复制</button></div>
+            <div class="panel-body"><p class="result-text" id="translate-output">译文会出现在这里。</p><div class="result-meta" id="translate-meta"></div></div>
+          </section>
+          <div class="tool-aside-note"><strong>翻译口径</strong><p>先保住人物称谓、专有名词和语气，再考虑句子是否漂亮。文学文本尤其不要把口吻抹平。</p></div>
+        </aside>
+      </div>
+    </div>
+
+    <footer class="page-foot"><span>STORYROLE / 文本翻译</span><span>LITERARY · PRESERVE THE VOICE</span></footer>
+  </main>
+  <script src="/static/studio.js"></script>
+  <script src="/static/media-tool.js"></script>
+</body>
+</html>

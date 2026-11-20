@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>工作台 · StoryRole</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%230f1815'/><path d='M18 20h18v24H18zM36 20h10v24h-10z' fill='none' stroke='%23c3a15e' stroke-width='2'/></svg>">
+  <link rel="stylesheet" href="/static/studio.css">
+  <link rel="stylesheet" href="/static/studio-pages.css">
+</head>
+<body class="app-body" data-page="home">
+  <aside class="rail" id="rail"></aside>
+  <main class="page-shell">
+    <header class="page-head">
+      <div class="page-head-copy">
+        <div class="eyebrow">00 / 工作台</div>
+        <h1>把故事，接着讲下去。</h1>
+        <p class="lede">这里不是功能目录。它只回答一件事：你手头这本小说、这个人物，下一步该做什么。</p>
+      </div>
+      <div class="page-head-actions">
+        <a class="btn btn-ghost" href="/novels">管理小说档案</a>
+        <a class="btn btn-primary" href="/chat">进入对话 <span aria-hidden="true">→</span></a>
+      </div>
+    </header>
+
+    <div class="page-body home-body">
+      <section class="hero-grid home-hero">
+        <div class="home-hero-copy">
+          <div class="eyebrow">从一段文字开始</div>
+          <h2 class="display-title">让角色<br><span>从纸页里醒来。</span></h2>
+          <p class="lede-large">收录原文，建立人物档案，辨认他处在哪一段人生，然后坐下来，和他说说话。</p>
+          <div class="action-row home-actions">
+            <a class="btn btn-accent" href="/novels">收录一本小说 <span aria-hidden="true">→</span></a>
+            <a class="btn btn-ghost" href="/characters">继续建立人物</a>
+          </div>
+          <div class="home-context" id="home-context"></div>
+        </div>
+        <div class="art-plate home-art">
+          <img src="/static/assets/luoji.jpg" alt="三体世界中的巨像与落日" loading="lazy">
+          <div class="home-index">档案插图  /  01</div>
+          <div class="home-index-note">THE THREE-BODY PROBLEM<br>场景素材 · 不替代人物画像</div>
+          <div class="art-caption">
+            <div><strong>在故事结束之后</strong><small>继续与他们说话。</small></div>
+            <span class="art-index">NOCTURNE / 00</span>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-kicker">四步 / THE ROUTE</div>
+        <div class="step-grid" id="home-steps"></div>
+      </section>
+
+      <div class="home-columns">
+        <section class="panel">
+          <div class="panel-head">
+            <div><span class="section-kicker">最近档案</span><h2>你的小说书架</h2></div>
+            <a class="btn btn-quiet btn-sm" href="/novels">全部档案 →</a>
+          </div>
+          <div class="panel-body" id="recent-novels">
+            <div class="empty-state"><strong>还没有小说档案。</strong><p>从 TXT 或 Markdown 开始，建立第一本可以检索、可以交谈的小说。</p><a class="btn btn-ghost btn-sm" href="/novels">去收录原文</a></div>
+          </div>
+        </section>
+        <section class="focus-panel" id="focus-panel">
+          <span class="section-kicker">下一步 / NEXT</span>
+          <h2>先把第一本小说收进来。</h2>
+          <p>档案室需要一段原文。导入之后，系统会为它建立章节与语义索引，人物和时期才有落脚之处。</p>
+          <a class="btn btn-ghost" href="/novels">前往小说档案 <span aria-hidden="true">→</span></a>
+          <div class="focus-foot"><span id="focus-novel">当前小说 · 未选择</span><span id="focus-role">当前角色 · 未建立</span></div>
+        </section>
+      </div>
+    </div>
+
+    <footer class="page-foot"><span>STORYROLE / 角色档案室</span><span id="home-foot">LOCAL WORKSPACE · 阿里云 MaaS</span></footer>
+  </main>
+  <script src="/static/studio.js"></script>
+  <script src="/static/home.js"></script>
+</body>
+</html>

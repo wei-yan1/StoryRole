@@ -1,0 +1,94 @@
+{
+  "server": "http://127.0.0.1:8765",
+  "generated_at": "2026-11-16 18:59:22",
+  "passed": 7,
+  "total": 7,
+  "results": [
+    {
+      "name": "models",
+      "ok": true,
+      "elapsed_ms": 38,
+      "result": {
+        "models": {
+          "image": "qwen-image-3.0-pro",
+          "image_fast": "wan2.7-image",
+          "ocr": "qwen3.5-ocr",
+          "omni": "qwen3.8-max",
+          "asr": "fun-asr-flash-2026-06-15",
+          "tts": "qwen3-tts-flash",
+          "translate": "qwen-mt-plus"
+        },
+        "verified": {
+          "image": true,
+          "image_fast": false,
+          "ocr": true,
+          "omni": true,
+          "asr": true,
+          "tts": true,
+          "translate": true
+        }
+      }
+    },
+    {
+      "name": "translate",
+      "ok": true,
+      "elapsed_ms": 372,
+      "result": {
+        "model": "qwen-mt-plus",
+        "source_lang": "Chinese",
+        "target_lang": "English",
+        "text": "Hello, nice to meet you."
+      }
+    },
+    {
+      "name": "ocr",
+      "ok": true,
+      "elapsed_ms": 2075,
+      "result": {
+        "model": "qwen3.5-ocr",
+        "text": "主要标题：\n让图片，把字交出来。\n\n栏目文字：\n05.02 / 读图\n输入 / INPUT\n选择图片\n支持常见图片格式；图片只用于本次识别。\nJPG / PNG / WEBP\n识别方式\nOCR 提取文字\n描述画面\n选择一张图片\n点击上传或把文件拖入\n补充要求（可选）\n例如：只提取对白，忽略页码；或描述人物动作与场景。\n开始识别 →\n选择图片后开始识别。\n识别结果可以复制到译文工具或小说导入中。\nVISION\n读图模型\n由后端路由\n出图 qwen-image-3.0-pro\n读图 qwen3.8-max\nOCR qwen3.5-ocr\n转写 fun-asr-flash-2026-06-15\n合成 qwen3-tts-flash\n翻译 qwen-mt-plus\n接口在线\n关于 OCR\n图片越清晰、文字越正，结果越稳定。复杂表格或手写体可能需要人工校对。\nSTORYROLE / 读图\nOCR · IMAGE UNDERSTANDING"
+      }
+    },
+    {
+      "name": "describe",
+      "ok": true,
+      "elapsed_ms": 12085,
+      "result": {
+        "model": "qwen3.8-max",
+        "text": "该界面左侧为深色导航栏（小说角色档案室的工作区与工具菜单），右侧主区域是\"读图/多模态\"工作台，包含图片上传区、识别方式切换（OCR 提取文字／描述画面）、补充要求输入框和\"开始识别\"按钮，旁侧还列出了读图所用的各类模型及 OCR 说明。其用途是让用户上传图片并调用多模态模型进行文字提取或画面描述，识别结果可复制到翻译工具或小说导入中，辅助小说角色档案的整理工作。"
+      }
+    },
+    {
+      "name": "image_generate",
+      "ok": true,
+      "elapsed_ms": 43367,
+      "result": {
+        "model": "qwen-image-3.0-pro",
+        "size": "1024x1024",
+        "url": "/media/images/ac026973dfe142c68722e92ded06b36b.png",
+        "bytes": 1434289
+      }
+    },
+    {
+      "name": "speech",
+      "ok": true,
+      "elapsed_ms": 1308,
+      "result": {
+        "model": "qwen3-tts-flash",
+        "voice": "Cherry",
+        "url": "/media/audio/52032f3371854faf8a51504701b256db.wav",
+        "bytes": 126764
+      }
+    },
+    {
+      "name": "transcribe",
+      "ok": true,
+      "elapsed_ms": 708,
+      "result": {
+        "model": "fun-asr-flash-2026-06-15",
+        "text": "你好，这是StoryRo的语音测试。",
+        "format": "wav"
+      }
+    }
+  ]
+}

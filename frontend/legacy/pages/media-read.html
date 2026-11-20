@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>读图与 OCR · StoryRole</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%230f1815'/><path d='M14 12h26l10 10v30H14z' fill='none' stroke='%23c3a15e' stroke-width='2'/><path d='M39 12v12h12M21 31h22M21 38h22M21 45h13' stroke='%23c3a15e' stroke-width='1.7'/></svg>">
+  <link rel="stylesheet" href="/static/studio.css">
+  <link rel="stylesheet" href="/static/studio-pages.css">
+</head>
+<body class="app-body" data-page="media-read" data-media="read">
+  <aside class="rail" id="rail"></aside>
+  <main class="page-shell">
+    <header class="page-head">
+      <div class="page-head-copy">
+        <div class="eyebrow">05.02 / 读图</div>
+        <h1>让图片，把字交出来。</h1>
+        <p class="lede">上传截图、扫描页或照片。OCR 适合提取文字，图片描述适合理解画面里发生了什么。</p>
+      </div>
+      <div class="page-head-actions"><a class="btn btn-ghost" href="/media">← 返回多模态</a></div>
+    </header>
+
+    <div class="page-body tool-body">
+      <div class="tool-layout">
+        <section class="panel tool-main">
+          <div class="panel-head"><div><span class="section-kicker">输入 / INPUT</span><h2>选择图片</h2><p>支持常见图片格式；图片只用于本次识别。</p></div><span class="tag">JPG / PNG / WEBP</span></div>
+          <div class="panel-body">
+            <div class="tool-form">
+              <div class="field">
+                <span>识别方式</span>
+                <div class="action-row">
+                  <button class="btn btn-ghost btn-sm is-current" type="button" data-vision-mode="ocr">OCR 提取文字</button>
+                  <button class="btn btn-ghost btn-sm" type="button" data-vision-mode="describe">描述画面</button>
+                </div>
+              </div>
+              <label class="file-drop"><input id="vision-file" type="file" accept="image/*"><span class="file-icon">＋</span><span class="file-drop-copy"><strong id="vision-file-label">选择一张图片</strong><small>点击上传或把文件拖入</small></span></label>
+              <div id="vision-preview" class="hidden" style="border:1px solid var(--line);padding:8px;background:var(--paper-strong)"><img id="vision-preview-img" alt="待识别图片" style="display:block;width:100%;max-height:320px;object-fit:contain"></div>
+              <label class="field"><span>补充要求（可选）</span><textarea class="textarea" id="vision-prompt" placeholder="例如：只提取对白，忽略页码；或描述人物动作与场景。"></textarea></label>
+              <button class="btn btn-primary" id="vision-submit" type="button"><span>开始识别</span> <span aria-hidden="true">→</span></button>
+            </div>
+            <p class="import-status" id="vision-status">选择图片后开始识别。</p>
+          </div>
+          <div class="panel-foot"><span class="inline-note">识别结果可以复制到译文工具或小说导入中。</span><span class="tag">VISION</span></div>
+        </section>
+
+        <aside class="tool-side">
+          <div class="media-model-strip"><div><strong>读图模型</strong><small>由后端路由</small></div><div class="model-chips" id="model-chips"></div><span class="tag" id="model-status">读取中…</span></div>
+          <section class="panel tool-result hidden" id="vision-result">
+            <div class="panel-head"><div><span class="section-kicker">结果 / OUTPUT</span><h2>识别结果</h2></div><button class="btn btn-ghost btn-sm" id="vision-copy" type="button">复制</button></div>
+            <div class="panel-body"><p class="result-text" id="vision-text"></p><div class="result-meta" id="vision-meta"></div></div>
+          </section>
+          <div class="tool-aside-note"><strong>关于 OCR</strong><p>图片越清晰、文字越正，结果越稳定。复杂表格或手写体可能需要人工校对。</p></div>
+        </aside>
+      </div>
+    </div>
+
+    <footer class="page-foot"><span>STORYROLE / 读图</span><span>OCR · IMAGE UNDERSTANDING</span></footer>
+  </main>
+  <script src="/static/studio.js"></script>
+  <script src="/static/media-tool.js"></script>
+</body>
+</html>

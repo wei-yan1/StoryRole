@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#121613">
+  <link rel="icon" href="/static/app/favicon.svg" type="image/svg+xml">
+  <title>对话 · StoryRole</title>
+  <link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+  <div class="chat-layout">
+    <aside class="sidebar" id="sidebar"></aside>
+    <main class="chat-main">
+      <header class="chat-header">
+        <a class="icon-btn" href="/chats" title="返回对话列表" aria-label="返回对话列表" id="back-button"></a>
+        <span id="header-avatar"></span>
+        <div class="chat-header-copy">
+          <h1 class="chat-header-name" id="header-name">正在打开对话…</h1>
+          <div class="chat-header-meta" id="header-meta"></div>
+        </div>
+        <div class="chat-header-actions">
+          <a class="btn btn-sm" href="/characters" id="character-link">角色详情</a>
+          <a class="btn btn-sm btn-primary" href="/chats/new" id="new-another">新对话</a>
+        </div>
+      </header>
+
+      <div class="chat-scroll" id="chat-scroll">
+        <div class="chat-thread" id="messages">
+          <div class="skeleton" style="height:74px;margin-bottom:16px"></div>
+          <div class="skeleton" style="height:74px;margin-bottom:16px;width:72%;margin-left:auto"></div>
+          <div class="skeleton" style="height:74px;width:82%"></div>
+        </div>
+      </div>
+
+      <div class="composer-wrap">
+        <div class="composer">
+          <textarea id="chat-input" maxlength="4000" placeholder="写下你想说的话…" aria-label="输入消息"></textarea>
+          <div class="composer-bottom">
+            <select class="select" id="chat-mode" aria-label="回答方式">
+              <option value="quick">快速交谈</option>
+              <option value="deep">深入分析</option>
+            </select>
+            <label class="note-line" style="cursor:pointer"><input type="checkbox" id="chat-web" style="accent-color:var(--accent)"> 联网补充</label>
+            <span class="composer-hint">Enter 发送 · Shift + Enter 换行</span>
+            <button class="composer-send" id="send-button" type="button" aria-label="发送" disabled><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.4 20.4 21 12 3.4 3.6l.1 6.6L15 12 3.5 13.8l-.1 6.6Z"/></svg></button>
+          </div>
+        </div>
+        <p class="chat-error" id="chat-error" role="alert"></p>
+      </div>
+    </main>
+  </div>
+  <script src="/static/app/common.js"></script>
+  <script src="/static/app/chat-thread.js"></script>
+</body>
+</html>

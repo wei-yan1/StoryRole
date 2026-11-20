@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#121613">
+  <link rel="icon" href="/static/app/favicon.svg" type="image/svg+xml">
+  <title>工具 · StoryRole</title>
+  <link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar" id="sidebar"></aside>
+    <main class="main">
+      <div class="page">
+        <header class="page-header">
+          <div>
+            <h1 class="page-title">工具</h1>
+            <p class="page-desc">不离开角色工作台，也能处理图片、文字和声音。所有结果都保存在当前账号可访问的项目空间里。</p>
+          </div>
+          <div class="header-actions"><span class="pill pill-mint pill-dot" id="model-status">正在检查模型</span></div>
+        </header>
+
+        <div class="tool-grid" id="tool-grid">
+          <a class="card card-pad card-lift tool-card" href="/tools/image">
+            <span class="tool-icon" data-icon="image"></span>
+            <h3>生成图片</h3>
+            <p>用一句话描述画面，生成可以直接使用的图片。</p>
+            <span class="btn btn-sm">打开出图</span>
+          </a>
+          <a class="card card-pad card-lift tool-card" href="/tools/ocr">
+            <span class="tool-icon" data-icon="scan"></span>
+            <h3>读图与 OCR</h3>
+            <p>提取截图、扫描件里的文字，或者让模型描述一张图片。</p>
+            <span class="btn btn-sm">打开读图</span>
+          </a>
+          <a class="card card-pad card-lift tool-card" href="/tools/voice">
+            <span class="tool-icon" data-icon="mic"></span>
+            <h3>语音</h3>
+            <p>把文字变成语音，或把一段录音转写成文字。</p>
+            <span class="btn btn-sm">打开语音</span>
+          </a>
+          <a class="card card-pad card-lift tool-card" href="/tools/translate">
+            <span class="tool-icon" data-icon="translate"></span>
+            <h3>翻译</h3>
+            <p>在常见语言之间翻译文本，保留原文的语气。</p>
+            <span class="btn btn-sm">打开翻译</span>
+          </a>
+        </div>
+
+        <div class="card card-pad" style="margin-top:22px">
+          <div class="section-head"><h2 class="section-title">当前模型</h2><span class="faint" style="font-size:10px">所有工具共用同一套服务</span></div>
+          <div class="character-meta" id="model-chips" style="margin-top:0"><span class="faint" style="font-size:11px">正在读取模型配置…</span></div>
+          <p class="note-line" style="margin-top:14px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/></svg><span>多模态能力由服务端统一配置。前端只负责提交内容，不保存任何密钥。</span></p>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="/static/app/common.js"></script>
+  <script src="/static/app/tools.js"></script>
+</body>
+</html>

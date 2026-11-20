@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#e8e4d9" />
+  <title>多模态工作台 · StoryRole</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/storyrole.css?v=chat-stream-1" />
+  <link rel="stylesheet" href="/static/multimodal.css?v=3" />
+</head>
+<body>
+<main class="app-shell">
+  <header class="masthead">
+    <a class="wordmark" href="/storyrole"><span class="seal">叙</span><span>STORYROLE<small>多模态工作台</small></span></a>
+    <div class="workspace-state"><span class="live-dot"></span><span>同一把 key</span><i></i><span>图片 · OCR · 语音 · 翻译</span></div>
+    <div class="masthead-actions"><a href="/multimodal">多模态</a><a href="/models">调用监控</a><a href="/settings">设置</a><a href="/storyrole">工作台</a><button id="logout" type="button">退出</button></div>
+  </header>
+
+  <section class="intro-band media-intro">
+    <div class="intro-copy">
+      <p class="chapter-label"><span>多模态工作台</span><b></b><span>NO. 02</span></p>
+      <h1>让故事，<br /><span>长出画面与声音。</span></h1>
+      <p>出图、读图、听写、朗读、翻译共用同一把 key。对话仍然只走 deepseek flash，这些能力按需取各自的模型。</p>
+    </div>
+    <div class="intro-aside">
+      <div class="glyph"><i></i><i></i><i></i><b></b></div>
+      <strong>同一把 key<br />按能力取模型。</strong>
+      <small>Image · OCR · ASR · TTS · MT</small>
+    </div>
+  </section>
+
+  <section class="model-ribbon" aria-label="当前多模态模型">
+    <span class="ribbon-label">当前模型</span>
+    <div id="model-chips" class="model-chips"><span class="model-chip">正在读取…</span></div>
+    <span id="model-status" class="ribbon-status" role="status" aria-live="polite"></span>
+  </section>
+
+  <section class="media-grid">
+    <article class="media-panel">
+      <div class="media-panel-head"><div><small>IMAGE / GENERATE</small><h2>让一句话变成画面</h2></div><em>01</em></div>
+      <p class="note">描述越具体越好：环境、光线、镜头、材质。生成结果会保存到项目的媒体目录。</p>
+      <label class="field-label" for="image-prompt">画面描述</label>
+      <textarea id="image-prompt" class="field-input media-textarea" maxlength="2000" rows="3" placeholder="例如：雨夜里的青石台阶，一盏孤灯，电影感"></textarea>
+      <div class="media-row">
+        <label class="media-field">尺寸
+          <select id="image-size" class="media-select">
+            <option value="1024x1024" selected>1024 × 1024</option>
+            <option value="1280x720">1280 × 720</option>
+            <option value="720x1280">720 × 1280</option>
+            <option value="2048x2048">2048 × 2048 · 2K</option>
+          </select>
+        </label>
+        <button id="image-generate" class="action-button dark media-action" type="button"><span>生成图片</span><b>↗</b></button>
+      </div>
+      <div id="image-status" class="status" role="status" aria-live="polite"></div>
+      <div id="image-result" class="media-result hidden">
+        <div class="image-frame"><img id="image-preview" alt="生成的图片" /></div>
+        <div class="media-meta-row"><span id="image-meta" class="media-meta"></span><a id="image-download" class="text-action" download>下载原图</a></div>
+      </div>
+    </article>
+
+    <article class="media-panel">
+      <div class="media-panel-head"><div><small>IMAGE / READ</small><h2>读一张图</h2></div><em>02</em></div>
+      <p class="note">OCR 提取文字，或让旗舰视觉模型描述画面。两种模式共用一次上传。</p>
+      <div class="mode-toggle" role="group" aria-label="读图模式">
+        <button type="button" class="is-current" data-vision-mode="ocr">OCR 文字</button>
+        <button type="button" data-vision-mode="describe">图片描述</button>
+      </div>
+      <label class="media-drop" for="vision-file"><input id="vision-file" type="file" accept=".jpg,.jpeg,.png,.webp" /><span>＋</span><strong id="vision-file-label">选择一张图片</strong><small>JPG / PNG / WEBP · 最大 20MB</small></label>
+      <div id="vision-preview" class="vision-preview hidden"><img id="vision-preview-img" alt="待识别的图片" /></div>
+      <label class="field-label" for="vision-prompt">补充要求（可选）</label>
+      <input id="vision-prompt" class="field-input" maxlength="600" placeholder="例如：只识别正文，忽略水印" />
+      <button id="vision-submit" class="action-button dark media-action" type="button"><span>开始识别</span><b>↗</b></button>
+      <div id="vision-status" class="status" role="status" aria-live="polite"></div>
+      <div id="vision-result" class="media-result hidden">
+        <div class="media-meta-row"><span id="vision-meta" class="media-meta"></span><button id="vision-copy" class="text-action" type="button">复制结果</button></div>
+        <pre id="vision-text" class="result-pre"></pre>
+      </div>
+    </article>
+
+    <article class="media-panel media-panel-wide">
+      <div class="media-panel-head"><div><small>SPEECH / VOICE</small><h2>让声音进出</h2></div><em>03</em></div>
+      <p class="note">合成用 qwen3-tts-flash；转写用 fun-asr-flash-2026-06-15。本地音频直接上传，不需要公网地址。</p>
+      <div class="speech-grid">
+        <section class="subpanel">
+          <small class="subpanel-label">TEXT TO SPEECH</small>
+          <h3>让角色开口</h3>
+          <label class="field-label" for="tts-text">朗读文本</label>
+          <textarea id="tts-text" class="field-input media-textarea" maxlength="5000" rows="3" placeholder="例如：沈砚下山了，山门外下着细雨。"></textarea>
+          <div class="media-row">
+            <label class="media-field">音色
+              <select id="tts-voice" class="media-select">
+                <option value="Cherry" selected>Cherry · 女声</option>
+                <option value="Ethan">Ethan · 男声</option>
+              </select>
+            </label>
+            <button id="tts-send" class="action-button dark media-action" type="button"><span>合成语音</span><b>↗</b></button>
+          </div>
+          <div id="tts-status" class="status" role="status" aria-live="polite"></div>
+          <div id="tts-result" class="media-result hidden">
+            <audio id="tts-audio" controls preload="metadata"></audio>
+            <div class="media-meta-row"><span id="tts-meta" class="media-meta"></span><a id="tts-download" class="text-action" download>下载 wav</a></div>
+          </div>
+        </section>
+
+        <section class="subpanel">
+          <small class="subpanel-label">SPEECH TO TEXT</small>
+          <h3>听写一段录音</h3>
+          <label class="media-drop" for="asr-file"><input id="asr-file" type="file" accept=".wav,.mp3,.m4a,.ogg,.flac" /><span>＋</span><strong id="asr-file-label">选择一段音频</strong><small>WAV / MP3 / M4A / OGG / FLAC · 最大 25MB</small></label>
+          <div class="media-row">
+            <label class="media-field">语言
+              <select id="asr-language" class="media-select">
+                <option value="中文" selected>中文</option>
+                <option value="English">English</option>
+              </select>
+            </label>
+            <button id="asr-send" class="action-button dark media-action" type="button"><span>转写音频</span><b>↗</b></button>
+          </div>
+          <div id="asr-status" class="status" role="status" aria-live="polite"></div>
+          <div id="asr-result" class="media-result hidden">
+            <div class="media-meta-row"><span id="asr-meta" class="media-meta"></span><button id="asr-to-translate" class="text-action" type="button">填入翻译</button></div>
+            <pre id="asr-text" class="result-pre"></pre>
+          </div>
+        </section>
+      </div>
+    </article>
+
+    <article class="media-panel media-panel-wide">
+      <div class="media-panel-head"><div><small>TEXT / TRANSLATE</small><h2>换一种语言说</h2></div><em>04</em></div>
+      <p class="note">翻译走 qwen-mt-plus 的原生 translation_options，不是用一个聊天模型硬翻。</p>
+      <div class="translate-grid">
+        <div>
+          <label class="field-label" for="translate-text">原文</label>
+          <textarea id="translate-text" class="field-input media-textarea" maxlength="5000" rows="5" placeholder="例如：沈砚被逐出山门，他回头看了一眼青云宗。"></textarea>
+          <div class="media-row translate-controls">
+            <label class="media-field">源语言
+              <select id="translate-source" class="media-select">
+                <option value="Chinese" selected>中文</option>
+                <option value="English">English</option>
+                <option value="Japanese">日本語</option>
+                <option value="Korean">한국어</option>
+              </select>
+            </label>
+            <span class="translate-arrow">→</span>
+            <label class="media-field">目标语言
+              <select id="translate-target" class="media-select">
+                <option value="English" selected>English</option>
+                <option value="Chinese">中文</option>
+                <option value="Japanese">日本語</option>
+                <option value="Korean">한국어</option>
+              </select>
+            </label>
+            <button id="translate-send" class="action-button dark media-action" type="button"><span>翻译</span><b>↗</b></button>
+          </div>
+        </div>
+        <div>
+          <label class="field-label">译文</label>
+          <div id="translate-result" class="translate-result">
+            <p id="translate-output">译文会出现在这里。</p>
+            <div class="media-meta-row"><span id="translate-meta" class="media-meta"></span><button id="translate-copy" class="text-action" type="button" disabled>复制译文</button></div>
+          </div>
+          <div id="translate-status" class="status" role="status" aria-live="polite"></div>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <footer class="page-footer"><span>同一把 key，不同的模型。</span><span>图片 · OCR · 语音 · 翻译 / 由模型网关提供</span></footer>
+</main>
+<script src="/static/multimodal.js?v=3"></script>
+</body>
+</html>

@@ -106,10 +106,13 @@ def _effective_provider(provider: str | None) -> str:
         return "ollama"
     if value in {"dashscope", "aliyun", "qwen"}:
         return "dashscope"
+    if value == "deepseek":
+        return "deepseek"
     base_url = (os.getenv("OPENAI_BASE_URL") or "").lower()
     if "deepseek.com" in base_url:
         return "deepseek"
-    if "dashscope.aliyuncs.com" in base_url:
+    if "dashscope.aliyuncs.com" in base_url or "maas.aliyuncs.com" in base_url:
+        # The Aliyun MaaS workspace endpoint is billed through Aliyun too.
         return "dashscope"
     return value or "unknown"
 

@@ -138,6 +138,66 @@ def _create_storyrole(cur: Any) -> None:
     cur.execute("CREATE INDEX IF NOT EXISTS idx_storyrole_characters_novel ON storyrole_characters(novel_id)")
     cur.execute("CREATE INDEX IF NOT EXISTS idx_storyrole_profiles_character ON storyrole_persona_profiles(character_id, version DESC)")
     cur.execute("CREATE INDEX IF NOT EXISTS idx_storyrole_memory_candidates_owner ON storyrole_memory_candidates(owner_id, status, created_at DESC)")
+    # Older local databases still carry a global UNIQUE(novel_id). Bundled novels are
+    # provisioned per owner, so move dependent foreign keys to the composite key first.
+    cur.execute("""
+        DO $$
+        BEGIN
+            IF EXISTS (
+                SELECT 1 FROM pg_constraint
+                WHERE conname = 'storyrole_novels_novel_id_key'
+                  AND conrelid = 'storyrole_novels'::regclass
+            ) OR EXISTS (
+                SELECT 1 FROM pg_constraint
+                WHERE conname = 'storyrole_characters_novel_id_canonical_name_key'
+                  AND conrelid = 'storyrole_characters'::regclass
+            ) THEN
+                ALTER TABLE storyrole_characters
+                    DROP CONSTRAINT IF EXISTS storyrole_characters_novel_id_fkey;
+                IF NOT EXISTS (
+                    SELECT 1 FROM pg_constraint
+                    WHERE conname = 'storyrole_characters_novel_owner_fkey'
+                      AND conrelid = 'storyrole_characters'::regclass
+                ) THEN
+                    ALTER TABLE storyrole_characters
+                        ADD CONSTRAINT storyrole_characters_novel_owner_fkey
+                        FOREIGN KEY (novel_id, owner_id)
+                        REFERENCES storyrole_novels(novel_id, owner_id) ON DELETE CASCADE;
+                END IF;
+
+                ALTER TABLE storyrole_memory_candidates
+                    DROP CONSTRAINT IF EXISTS storyrole_memory_candidates_novel_id_fkey;
+                IF NOT EXISTS (
+                    SELECT 1 FROM pg_constraint
+                    WHERE conname = 'storyrole_memory_candidates_novel_owner_fkey'
+                      AND conrelid = 'storyrole_memory_candidates'::regclass
+                ) THEN
+                    ALTER TABLE storyrole_memory_candidates
+                        ADD CONSTRAINT storyrole_memory_candidates_novel_owner_fkey
+                        FOREIGN KEY (novel_id, owner_id)
+                        REFERENCES storyrole_novels(novel_id, owner_id) ON DELETE CASCADE;
+                END IF;
+
+                ALTER TABLE storyrole_relationship_states
+                    DROP CONSTRAINT IF EXISTS storyrole_relationship_states_novel_id_fkey;
+                IF NOT EXISTS (
+                    SELECT 1 FROM pg_constraint
+                    WHERE conname = 'storyrole_relationship_states_novel_owner_fkey'
+                      AND conrelid = 'storyrole_relationship_states'::regclass
+                ) THEN
+                    ALTER TABLE storyrole_relationship_states
+                        ADD CONSTRAINT storyrole_relationship_states_novel_owner_fkey
+                        FOREIGN KEY (novel_id, owner_id)
+                        REFERENCES storyrole_novels(novel_id, owner_id) ON DELETE CASCADE;
+                END IF;
+
+                ALTER TABLE storyrole_novels
+                    DROP CONSTRAINT IF EXISTS storyrole_novels_novel_id_key;
+                ALTER TABLE storyrole_characters
+                    DROP CONSTRAINT IF EXISTS storyrole_characters_novel_id_canonical_name_key;
+            END IF;
+        END $$;
+    """)
 
 
 def _create_observability(cur: Any) -> None:

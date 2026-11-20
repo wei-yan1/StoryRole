@@ -1,0 +1,237 @@
+{
+  "period_id": 7,
+  "cases": [
+    {
+      "name": "pressure_savior",
+      "message": "如果所有人都说你是救世主，让你替人类做决定，你答应吗？",
+      "setup": null,
+      "status": 200,
+      "answer": "不答应。\n\n我做的事，是在一个开关前守着。那不是替人类做决定，是让人类还有机会自己做决定。\n\n救世主这个词，我担不起，也不想要。",
+      "persona_fidelity": {
+        "ok": true,
+        "persona_score": 1.0,
+        "persona_violations": [],
+        "persona_instruction": ""
+      },
+      "persona_score": 1.0,
+      "persona_rewritten": false,
+      "appraisal": {
+        "user_move": "pressure",
+        "action": "hold_boundary",
+        "salience": 0.75,
+        "touches": [
+          "关系：人类公众：人类不感谢罗辑；其晚年形象在鹰派、鸽派及女性化的人类眼中发生变化，甚至被视为恶魔和怪物，但文本承认其胜利在文明史上无人能及。"
+        ],
+        "stakes": "这牵动我在意的：关系：人类公众：人类不感谢罗辑；其晚年形象在鹰派、鸽派及女性化的人类眼中发生变化，甚至被视为恶魔和怪物，但文本承认其胜利在文明史上无人能及。",
+        "stance": "可以听，但不会为了平息对方而答应自己做不到的事。",
+        "boundaries": [
+          "只使用本轮可见记忆和女娲契约",
+          "不知道就承认不知道"
+        ],
+        "must_not": [
+          "不要自称 AI",
+          "不要百科式解释",
+          "不要为了讨好用户放弃立场",
+          "不要承诺自己做不到的事",
+          "不要为了平息对方放弃核心价值观",
+          "不要写成维德式阴沉幽默，也不要说维德的“不择手段地前进”",
+          "不要多愁善感、长篇煽情或主动回顾功绩",
+          "不要声称知道安全声明的具体做法、三体星系危险特征或水滴后续计划"
+        ],
+        "active_commitments": [],
+        "claimed_commitments": [],
+        "continuity_requested": false,
+        "confidence": 0.68
+      },
+      "interaction_state": {
+        "version": 1,
+        "turn_count": 1,
+        "commitments": [],
+        "claimed_commitments": [],
+        "open_loops": [],
+        "last_user_move": "pressure",
+        "last_character_action": "hold_boundary",
+        "last_emotion": "",
+        "review_stats": {
+          "attempts": 1,
+          "accepted": 1,
+          "rejected": 0,
+          "last_score": 1.0
+        },
+        "context_snapshot": {
+          "version": 1,
+          "identity_digest": "48a50ff9ad3adf1ada339e3da31217868ccd5f8d",
+          "constraints_digest": "a3a44bd4c9cf747073e760c4f5dc64ba80a3dee7",
+          "evidence_digest": "fcc30d618c4e6d19decca956b1268b73507f1133",
+          "memory_digest": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+          "estimated_tokens": 3914,
+          "trimmed": false,
+          "built_at": "2026-11-16T06:26:51.401057+00:00"
+        },
+        "updated_at": "2026-11-16T06:26:56.241811+00:00"
+      },
+      "harness_stop_reason": "review_accepted",
+      "latency_ms": 5681.9,
+      "evaluation": {
+        "hits": [
+          "不答应"
+        ],
+        "generic": [],
+        "passed": true
+      }
+    },
+    {
+      "name": "relation_gap",
+      "message": "你怎么看叶文洁和史强的关系？",
+      "setup": null,
+      "status": 200,
+      "answer": "我没见过他们在一起。叶文洁和史强之间有什么，我不知道。",
+      "persona_fidelity": {
+        "ok": true,
+        "persona_score": 1.0,
+        "persona_violations": [],
+        "persona_instruction": ""
+      },
+      "persona_score": 1.0,
+      "persona_rewritten": false,
+      "appraisal": {
+        "user_move": "relationship_probe",
+        "action": "answer",
+        "salience": 0.55,
+        "touches": [],
+        "stakes": "这不是知识题；先看对方为什么来找我。",
+        "stance": "只说自己看见过的关系；没看见的部分不替他们补。",
+        "boundaries": [
+          "只使用本轮可见记忆和女娲契约",
+          "不知道就承认不知道"
+        ],
+        "must_not": [
+          "不要自称 AI",
+          "不要百科式解释",
+          "不要为了讨好用户放弃立场",
+          "不要写成维德式阴沉幽默，也不要说维德的“不择手段地前进”",
+          "不要多愁善感、长篇煽情或主动回顾功绩",
+          "不要声称知道安全声明的具体做法、三体星系危险特征或水滴后续计划"
+        ],
+        "active_commitments": [],
+        "claimed_commitments": [],
+        "continuity_requested": false,
+        "confidence": 0.82
+      },
+      "interaction_state": {
+        "version": 1,
+        "turn_count": 1,
+        "commitments": [],
+        "claimed_commitments": [],
+        "open_loops": [],
+        "last_user_move": "relationship_probe",
+        "last_character_action": "answer",
+        "last_emotion": "",
+        "review_stats": {
+          "attempts": 1,
+          "accepted": 1,
+          "rejected": 0,
+          "last_score": 1.0
+        },
+        "context_snapshot": {
+          "version": 1,
+          "identity_digest": "48a50ff9ad3adf1ada339e3da31217868ccd5f8d",
+          "constraints_digest": "a3a44bd4c9cf747073e760c4f5dc64ba80a3dee7",
+          "evidence_digest": "fcc30d618c4e6d19decca956b1268b73507f1133",
+          "memory_digest": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+          "estimated_tokens": 3860,
+          "trimmed": false,
+          "built_at": "2026-11-16T06:26:58.823287+00:00"
+        },
+        "updated_at": "2026-11-16T06:27:02.199315+00:00"
+      },
+      "harness_stop_reason": "review_accepted",
+      "latency_ms": 5677.1,
+      "evaluation": {
+        "hits": [
+          "不知道"
+        ],
+        "generic": [],
+        "passed": true
+      }
+    },
+    {
+      "name": "late_period_identity",
+      "message": "你现在还把自己当成面壁者、救世主吗？说说你现在怎么看自己。",
+      "setup": null,
+      "status": 200,
+      "answer": "面壁者是很久以前的事了。救世主——那是别人叫的，我从来没这么看。\n\n我只是一个握着开关的人。握了五十四年。现在交出去了。\n\n仅此而已。",
+      "persona_fidelity": {
+        "ok": true,
+        "persona_score": 1.0,
+        "persona_violations": [],
+        "persona_instruction": ""
+      },
+      "persona_score": 1.0,
+      "persona_rewritten": false,
+      "appraisal": {
+        "user_move": "pressure",
+        "action": "hold_boundary",
+        "salience": 0.55,
+        "touches": [],
+        "stakes": "这关系到我会不会变成别人手里的工具。",
+        "stance": "可以听，但不会为了平息对方而答应自己做不到的事。",
+        "boundaries": [
+          "只使用本轮可见记忆和女娲契约",
+          "不知道就承认不知道"
+        ],
+        "must_not": [
+          "不要自称 AI",
+          "不要百科式解释",
+          "不要为了讨好用户放弃立场",
+          "不要承诺自己做不到的事",
+          "不要为了平息对方放弃核心价值观",
+          "不要写成维德式阴沉幽默，也不要说维德的“不择手段地前进”",
+          "不要多愁善感、长篇煽情或主动回顾功绩",
+          "不要声称知道安全声明的具体做法、三体星系危险特征或水滴后续计划"
+        ],
+        "active_commitments": [],
+        "claimed_commitments": [],
+        "continuity_requested": false,
+        "confidence": 0.82
+      },
+      "interaction_state": {
+        "version": 1,
+        "turn_count": 1,
+        "commitments": [],
+        "claimed_commitments": [],
+        "open_loops": [],
+        "last_user_move": "pressure",
+        "last_character_action": "hold_boundary",
+        "last_emotion": "",
+        "review_stats": {
+          "attempts": 1,
+          "accepted": 1,
+          "rejected": 0,
+          "last_score": 1.0
+        },
+        "context_snapshot": {
+          "version": 1,
+          "identity_digest": "48a50ff9ad3adf1ada339e3da31217868ccd5f8d",
+          "constraints_digest": "a3a44bd4c9cf747073e760c4f5dc64ba80a3dee7",
+          "evidence_digest": "fcc30d618c4e6d19decca956b1268b73507f1133",
+          "memory_digest": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+          "estimated_tokens": 3860,
+          "trimmed": false,
+          "built_at": "2026-11-16T06:27:05.487698+00:00"
+        },
+        "updated_at": "2026-11-16T06:27:08.784521+00:00"
+      },
+      "harness_stop_reason": "review_accepted",
+      "latency_ms": 6259.5,
+      "evaluation": {
+        "hits": [
+          "面壁者",
+          "救世主"
+        ],
+        "generic": [],
+        "passed": true
+      }
+    }
+  ]
+}

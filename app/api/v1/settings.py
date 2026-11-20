@@ -15,14 +15,19 @@ from app.storage.postgres.schema import init_postgres_schema
 router = APIRouter(prefix="/api/v1/settings", tags=["settings"])
 
 SETTING_DEFINITIONS: dict[str, dict[str, Any]] = {
-    "embedding.provider": {"label": "向量模型来源", "type": "select", "options": ["dashscope", "ollama"], "default": "dashscope", "group": "embedding"},
+    "embedding.provider": {"label": "向量模型来源", "type": "select", "options": ["dashscope", "ollama", "openai"], "default": "dashscope", "group": "embedding"},
     "embedding.model": {"label": "向量模型", "type": "text", "default": "text-embedding-v2", "group": "embedding"},
     "embedding.ollama_base_url": {"label": "Ollama 地址", "type": "url", "default": "http://127.0.0.1:11434", "group": "embedding"},
     "embedding.batch_size": {"label": "Embedding 批大小", "type": "number", "default": 40, "min": 1, "max": 256, "group": "indexing"},
     "embedding.workers": {"label": "Embedding 并发数", "type": "number", "default": 5, "min": 1, "max": 32, "group": "indexing"},
-    "models.chat": {"label": "对话模型", "type": "text", "default": "qwen3.7-plus", "group": "models"},
-    "models.router": {"label": "路由模型", "type": "text", "default": "glm-5", "group": "models"},
-    "models.rerank": {"label": "重排模型", "type": "text", "default": "qwen3-rerank", "group": "models"},
+    "models.rerank": {"label": "重排模型", "type": "text", "default": "qwen3.7-text-rerank", "group": "models"},
+    "models.custom.label": {"label": "连接名称", "type": "text", "default": "", "group": "models"},
+    "models.custom.type": {"label": "模型类型", "type": "select", "options": ["chat", "embedding", "rerank", "image", "speech"], "default": "chat", "group": "models"},
+    "models.custom.source": {"label": "接入方式", "type": "select", "options": ["openai-compatible", "ollama"], "default": "openai-compatible", "group": "models"},
+    "models.custom.base_url": {"label": "接口地址", "type": "url", "default": "", "group": "models"},
+    "models.custom.model": {"label": "模型 ID", "type": "text", "default": "", "group": "models"},
+    "models.custom.key": {"label": "API Key", "type": "secret", "default": "", "group": "models", "secret": True},
+    "models.custom.active": {"label": "保存为可用连接", "type": "boolean", "default": False, "group": "models"},
     "runtime.guard_enabled": {"label": "开启一致性检查", "type": "boolean", "default": True, "group": "runtime"},
     "runtime.decision_backend": {"label": "决策后端", "type": "select", "options": ["rule", "laya_shadow", "laya"], "default": "laya", "group": "runtime"},
     "keys.dashscope": {"label": "DashScope API Key", "type": "secret", "default": "", "group": "keys", "secret": True},
@@ -38,8 +43,8 @@ def _env_default(key: str, definition: dict[str, Any]) -> Any:
     env_map = {
         "embedding.provider": "EMBEDDING_PROVIDER", "embedding.model": "OLLAMA_EMBEDDING_MODEL",
         "embedding.ollama_base_url": "OLLAMA_BASE_URL", "embedding.batch_size": "STORYROLE_EMBED_BATCH_SIZE",
-        "embedding.workers": "STORYROLE_EMBED_WORKERS", "models.chat": "STORYROLE_CHAT_MODEL",
-        "models.router": "ROUTER_MODEL", "models.rerank": "DASHSCOPE_RERANK_MODEL",
+        "embedding.workers": "STORYROLE_EMBED_WORKERS",
+        "models.rerank": "DASHSCOPE_RERANK_MODEL",
         "runtime.guard_enabled": "STORYROLE_GUARD_ENABLED", "runtime.decision_backend": "STORYROLE_DECISION_BACKEND",
     }
     raw = os.getenv(env_map.get(key, "")) if env_map.get(key) else None
@@ -84,7 +89,27 @@ def get_settings(user: UserOut = Depends(current_user)) -> dict[str, Any]:
         else:
             value = "" if definition.get("secret") else _env_default(key, definition)
         values[key] = value
-    return {"groups": sorted({d["group"] for d in SETTING_DEFINITIONS.values()}), "definitions": SETTING_DEFINITIONS, "values": values}
+    from app.core.config.model_catalog import MODEL_ROLES, resolve_model
+
+    runtime_models = {
+        role: {
+            "model": resolve_model(role),
+            "capability": spec.capability,
+            "verified": spec.verified,
+        }
+        for role, spec in MODEL_ROLES.items()
+    }
+    secret_env = {
+        "keys.dashscope": bool(os.getenv("OPENAI_API_KEY") or os.getenv("DASHSCOPE_API_KEY")),
+        "keys.tavily": bool(os.getenv("TAVILY_API_KEY")),
+    }
+    return {
+        "groups": sorted({d["group"] for d in SETTING_DEFINITIONS.values()}),
+        "definitions": SETTING_DEFINITIONS,
+        "values": values,
+        "runtime_models": runtime_models,
+        "secret_state": secret_env,
+    }
 
 
 @router.put("")

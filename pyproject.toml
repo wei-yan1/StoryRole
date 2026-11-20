@@ -24,6 +24,7 @@ dependencies = [
     "langgraph-checkpoint-sqlite>=3.0.3",
     "psycopg[binary]>=3.2.3",
     "langgraph-cli[inmem]>=0.4.12",
+    "laya>=0.4.35",
     "logger>=1.4",
     "matplotlib>=3.11.0",
     "mcp>=1.28.0",

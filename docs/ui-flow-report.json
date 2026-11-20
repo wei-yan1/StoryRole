@@ -1,0 +1,71 @@
+{
+  "username": "ui_flow_29166046",
+  "report": [
+    {
+      "name": "register/login",
+      "ok": true,
+      "detail": "http://127.0.0.1:8765/storyrole"
+    },
+    {
+      "name": "restore bundled novel",
+      "ok": true,
+      "detail": "1 library rows"
+    },
+    {
+      "name": "setup character",
+      "ok": true,
+      "detail": "已恢复已有角色画像。 | dossier=1"
+    },
+    {
+      "name": "period save + profile UI",
+      "ok": true,
+      "detail": "已处理 7 / 7 段时期画像。现在可以进入对话。 | rows=7"
+    },
+    {
+      "name": "trace drawer",
+      "ok": true,
+      "detail": "open=1"
+    },
+    {
+      "name": "chat CTA",
+      "ok": true,
+      "detail": "visible=true"
+    },
+    {
+      "name": "chat page",
+      "ok": true,
+      "detail": "chat shells=1"
+    },
+    {
+      "name": "settings save",
+      "ok": true,
+      "detail": "已保存。新的设置会在下一次请求时生效。"
+    },
+    {
+      "name": "translate UI",
+      "ok": true,
+      "detail": "Hello, nice to meet you."
+    },
+    {
+      "name": "OCR UI",
+      "ok": true,
+      "detail": "visible=true chars=87"
+    },
+    {
+      "name": "TTS UI",
+      "ok": true,
+      "detail": "visible=true src=set"
+    },
+    {
+      "name": "ASR UI",
+      "ok": true,
+      "detail": "visible=true text=沈燕下山了，山门外下着细雨。"
+    },
+    {
+      "name": "image UI (mocked response)",
+      "ok": true,
+      "detail": "visible=true src=set"
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,226 @@
+{
+  "username": "ui_smoke_29319576",
+  "report": [
+    {
+      "page": "/",
+      "status": "register + redirect OK"
+    },
+    {
+      "page": "/storyrole",
+      "label": "总览工作台",
+      "chars": 851,
+      "overflow": false,
+      "errorBanner": "",
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots\\home-1440.png"
+    },
+    {
+      "page": "/novels",
+      "label": "小说档案",
+      "chars": 596,
+      "overflow": false,
+      "errorBanner": "",
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots\\novels-1440.png"
+    },
+    {
+      "page": "/characters",
+      "label": "角色档案",
+      "chars": 561,
+      "overflow": false,
+      "errorBanner": "",
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots\\characters-1440.png"
+    },
+    {
+      "page": "/periods",
+      "label": "时期画像",
+      "chars": 417,
+      "overflow": false,
+      "errorBanner": "",
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots\\periods-1440.png"
+    },
+    {
+      "page": "/chat",
+      "label": "角色对话",
+      "chars": 432,
+      "overflow": false,
+      "errorBanner": "",
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots\\chat-1440.png"
+    },
+    {
+      "page": "/media",
+      "label": "多模态入口",
+      "chars": 799,
+      "overflow": false,
+      "errorBanner": "",
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots\\media-1440.png"
+    },
+    {
+      "page": "/media/image",
+      "label": "图片生成",
+      "chars": 630,
+      "overflow": false,
+      "errorBanner": "",
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots\\media-image-1440.png"
+    },
+    {
+      "page": "/media/read",
+      "label": "读图与 OCR",
+      "chars": 592,
+      "overflow": false,
+      "errorBanner": "",
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots\\media-read-1440.png"
+    },
+    {
+      "page": "/media/voice",
+      "label": "语音合成与转写",
+      "chars": 737,
+      "overflow": false,
+      "errorBanner": "",
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots\\media-voice-1440.png"
+    },
+    {
+      "page": "/media/translate",
+      "label": "翻译",
+      "chars": 631,
+      "overflow": false,
+      "errorBanner": "",
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots\\media-translate-1440.png"
+    },
+    {
+      "page": "/models",
+      "label": "调用监控",
+      "chars": 1059,
+      "overflow": false,
+      "errorBanner": "",
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots\\models-1440.png"
+    },
+    {
+      "page": "/settings",
+      "label": "设置",
+      "chars": 661,
+      "overflow": false,
+      "errorBanner": "",
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots\\settings-1440.png"
+    },
+    {
+      "page": "/storyrole (tablet)",
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots\\home-768.png"
+    },
+    {
+      "page": "/novels (tablet)",
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots\\novels-768.png"
+    },
+    {
+      "page": "/characters (tablet)",
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots\\characters-768.png"
+    },
+    {
+      "page": "/periods (tablet)",
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots\\periods-768.png"
+    },
+    {
+      "page": "/chat (tablet)",
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots\\chat-768.png"
+    },
+    {
+      "page": "/media (tablet)",
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots\\media-768.png"
+    },
+    {
+      "page": "/media/image (tablet)",
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots\\media-image-768.png"
+    },
+    {
+      "page": "/media/read (tablet)",
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots\\media-read-768.png"
+    },
+    {
+      "page": "/media/voice (tablet)",
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots\\media-voice-768.png"
+    },
+    {
+      "page": "/media/translate (tablet)",
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots\\media-translate-768.png"
+    },
+    {
+      "page": "/models (tablet)",
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots\\models-768.png"
+    },
+    {
+      "page": "/settings (tablet)",
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots\\settings-768.png"
+    },
+    {
+      "page": "/storyrole (mobile)",
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots\\home-390.png"
+    },
+    {
+      "page": "/novels (mobile)",
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots\\novels-390.png"
+    },
+    {
+      "page": "/characters (mobile)",
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots\\characters-390.png"
+    },
+    {
+      "page": "/periods (mobile)",
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots\\periods-390.png"
+    },
+    {
+      "page": "/chat (mobile)",
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots\\chat-390.png"
+    },
+    {
+      "page": "/media (mobile)",
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots\\media-390.png"
+    },
+    {
+      "page": "/media/image (mobile)",
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots\\media-image-390.png"
+    },
+    {
+      "page": "/media/read (mobile)",
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots\\media-read-390.png"
+    },
+    {
+      "page": "/media/voice (mobile)",
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots\\media-voice-390.png"
+    },
+    {
+      "page": "/media/translate (mobile)",
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots\\media-translate-390.png"
+    },
+    {
+      "page": "/models (mobile)",
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots\\models-390.png"
+    },
+    {
+      "page": "/settings (mobile)",
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots\\settings-390.png"
+    }
+  ],
+  "errors": []
+}

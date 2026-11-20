@@ -1,0 +1,31 @@
+{
+  "generatedAt": "2026-11-17T03:21:35.508Z",
+  "errors": [],
+  "steps": [
+    {
+      "step": "shelf loaded",
+      "href": "/novels/%E4%B8%89%E4%BD%93-%E4%B8%89%E9%83%A8%E6%9B%B2",
+      "url": "http://127.0.0.1:8765/"
+    },
+    {
+      "step": "book opens novel",
+      "url": "http://127.0.0.1:8765/novels/%E4%B8%89%E4%BD%93-%E4%B8%89%E9%83%A8%E6%9B%B2",
+      "title": "《三体》三部曲"
+    },
+    {
+      "step": "character card opens character",
+      "url": "http://127.0.0.1:8765/characters/81",
+      "title": "罗辑"
+    },
+    {
+      "step": "usage range changes",
+      "cards": 3,
+      "url": "http://127.0.0.1:8765/usage"
+    },
+    {
+      "step": "settings loaded",
+      "modelRows": 11,
+      "url": "http://127.0.0.1:8765/settings"
+    }
+  ]
+}

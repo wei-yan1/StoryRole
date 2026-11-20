@@ -1,0 +1,17 @@
+{
+  "answer": "史强曾试图杀我，他抬头时眼神突然变得锐利如刀，那笑意背后的杀气让我第一次真切感到死亡的寒意——你真以为他是在笑？",
+  "mode": "rolerag",
+  "evidence_count": 8,
+  "latency_ms": 4965,
+  "degraded": false,
+  "degradations": [],
+  "engine": "rolerag",
+  "route": "recall",
+  "style_ok": false,
+  "style_score": 0.8,
+  "attempts": 2,
+  "cutoff": 53,
+  "settled": true,
+  "profile_version": 16,
+  "trace_id": null
+}

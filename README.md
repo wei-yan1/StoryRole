@@ -1,12 +1,12 @@
 # StoryRole
 
-> 让小说人物在属于自己的时间里思考、记忆，并与你对话。
+> 从一本小说开始，进入里面的人。
 
-StoryRole 是一个面向长篇小说的时序人格对话系统。用户导入小说、创建角色、选择人物时期，随后与处在该阶段认知边界内的角色交流。系统将原文证据、女娲式时期画像、动态关系和对话记忆组织成可追踪的 Agent 流程，而不是把小说当成普通问答知识库。
+StoryRole 现在的产品入口是**书架**：用户先选择或导入一本小说，进入小说页，再从这本书的角色开始对话。角色、场景、人设和对话都围绕一本具体的小说组织，而不是把所有内容塞进一个通用聊天列表。底层仍然是面向长篇叙事的时序人格运行系统。
 
 <p align="center">
-  <img src="docs/images/storyrole-workbench.png" alt="StoryRole 工作台" width="49%" />
-  <img src="docs/images/storyrole-observability.png" alt="StoryRole 调用监控" width="49%" />
+  <img src="docs/ui-shots-v4/shelf-1440.png" alt="StoryRole 书架" width="49%" />
+  <img src="docs/ui-shots-v4/novel-1440.png" alt="StoryRole 小说与角色" width="49%" />
 </p>
 
 ## 项目定位
@@ -126,7 +126,7 @@ flowchart TB
 | --- | --- |
 | 后端 | Python 3.13+、FastAPI、Uvicorn |
 | Agent | LangChain、A2A、Laya 决策后端、MCP 扩展接口 |
-| 对话模型 | OpenAI-compatible API，可配置 DeepSeek、DashScope/Qwen 等模型服务 |
+| 对话模型 | OpenAI-compatible API；当前统一为 deepseek-v4.1-flash-1017（阿里云 MaaS / DashScope 兼容端点） |
 | 检索 | Chroma、BM25、Hybrid Fusion、DashScope Rerank |
 | Embedding | Ollama 本地模型或 DashScope，支持缓存 |
 | 存储 | PostgreSQL、Redis、JSONL 中间产物 |
@@ -159,10 +159,11 @@ REDIS_PORT=6379
 
 JWT_SECRET_KEY=replace_with_a_random_string_at_least_32_bytes_long
 DASHSCOPE_API_KEY=your_dashscope_api_key
+OPENAI_API_KEY=your_dashscope_api_key
 OPENAI_BASE_URL=https://dashscope.aliyuncs.com/compatible-mode/v1
-STORYROLE_CHAT_MODEL=qwen3.7-plus
-STORYROLE_NUWA_MODEL=qwen3.7-plus
-STORYROLE_REASONING_MODEL=qwen3.7-plus
+STORYROLE_CHAT_MODEL=deepseek-v4.1-flash-1017
+STORYROLE_NUWA_MODEL=deepseek-v4.1-flash-1017
+STORYROLE_REASONING_MODEL=deepseek-v4.1-flash-1017
 STORYROLE_DECISION_BACKEND=laya
 
 EMBEDDING_PROVIDER=ollama
@@ -170,22 +171,32 @@ OLLAMA_BASE_URL=http://127.0.0.1:11434
 OLLAMA_EMBEDDING_MODEL=bge-m3
 ```
 
-使用 Ollama 时需预先运行本地服务并拉取配置的模型。若使用 DashScope Embedding，将 `EMBEDDING_PROVIDER` 改为 `dashscope`。联网功能另需配置 `TAVILY_API_KEY`。模型名称和供应商能力以所用服务实际支持情况为准。
+使用 Ollama 时需预先运行本地服务并拉取配置的模型。若使用 DashScope Embedding，将 `EMBEDDING_PROVIDER` 改为 `dashscope`；要走统一网关的 `qwen3.7-text-embedding`，改为 `openai`（换向量模型必须重建 Chroma 索引）。联网功能另需配置 `TAVILY_API_KEY`。模型名称和供应商能力以所用服务实际支持情况为准。
 
-当前聊天 Agent 在 `DASHSCOPE_API_KEY` 与 `OPENAI_API_KEY` 同时存在时优先选择前者。若要使用 DeepSeek 等其他聊天供应商，同时保留 DashScope Rerank，请先核对运行时 Key 与 Base URL 的实际组合；不要直接将两套示例变量混在一起。
+语言模型只使用 deepseek flash：项目里的 `STORYROLE_*_MODEL`、`ROLERAG_LLM_MODEL` 全部指向 `deepseek-v4.1-flash-1017`，不要混入其他模型 id（在 OpenAI 兼容的阿里云端点上，`deepseek-flash` 这个 id 会返回 404）。
+
+同一把 key 在网关上还能调用 embedding、rerank、图片、语音等 182 个模型。用 `python scripts/list_models.py --roles` 查项目角色表，`python scripts/list_models.py --capability image` 查单类，接入方式见 `docs/model-gateway.md`；图片生成、图片理解、OCR、ASR、TTS、翻译的服务与 `/api/v1/media` 接口见 `docs/multimodal-api.md`。语言模型端点与回滚约束直接写在根目录 `.env` 的阿里云 / DeepSeek 配置段注释中。新前端在登录后从书架 `/` 进入，小说页地址形如 `/novels/三体-三部曲`，页面代码在 `frontend/app/`，页面脚本与设计系统在 `frontend/static/app/`；旧工作台和旧三体素材已归档到 `frontend/legacy/`，不再由主路由提供。
 
 ### 3. 初始化并启动
 
 ```bash
 uv run python scripts/init_postgres.py
-uv run uvicorn app.main:app --host 127.0.0.1 --port 1314 --reload
+uv run uvicorn app.main:app --host 127.0.0.1 --port 8765 --reload
 ```
 
 | 页面 | 地址 |
 | --- | --- |
-| StoryRole 工作台 | http://127.0.0.1:1314/storyrole |
-| 模型与调用监控 | http://127.0.0.1:1314/models |
-| API 文档 | http://127.0.0.1:1314/docs |
+| 书架（产品入口） | http://127.0.0.1:8765/ |
+| 新增小说 | http://127.0.0.1:8765/novels/new |
+| 小说详情（示例） | http://127.0.0.1:8765/novels/三体-三部曲 |
+| 对话收件箱 | http://127.0.0.1:8765/chats |
+| 角色库 | http://127.0.0.1:8765/characters |
+| 工具入口 | http://127.0.0.1:8765/tools |
+| 用量 | http://127.0.0.1:8765/usage |
+| 设置 | http://127.0.0.1:8765/settings |
+| API 文档 | http://127.0.0.1:8765/docs |
+
+`/novels` 与 `/library` 现在都落到书架；旧路径 `/storyrole`、`/agents`、`/periods`、`/chat`、`/models`、`/media/*`、`/multimodal` 仍保留 307 兼容跳转，但不再作为产品入口。
 
 运行测试：
 
@@ -195,7 +206,16 @@ uv run pytest -q
 
 ## 常用接口
 
+新前端统一走 `/api/app` 产品接口：登录、会话、角色、资料、工具和设置都按当前账号聚合成产品级返回，具体契约以 `app/api/web.py` 与运行中的 `/docs` 为准。底层角色对话仍由下面的 `/api/v1/storyrole` 接口执行。
+
 ```text
+GET  /api/app/summary
+GET  /api/app/conversations
+POST /api/app/characters/{character_id}/messages
+GET  /api/app/usage?days=30
+GET  /api/app/tools/models
+PUT  /api/app/settings
+
 POST /api/v1/novels/imports
 GET  /api/v1/novels/imports/{import_id}
 POST /api/v1/storyrole/novels/{novel_id}/characters/resolve
@@ -224,7 +244,7 @@ app/
   rag/                   # 解析、切分、索引、检索和重排
   services/              # 小说导入与聊天服务
   storage/               # PostgreSQL、Redis 与仓储层
-frontend/                # 工作台、模型监控、设置页及静态资源
+frontend/app/             # 15 个新页面；static/app/ 是页面脚本与设计系统；legacy/ 是旧单页归档
 configs/eval/            # 可重复评测配置
 data/                    # 原始数据、处理中间产物与本地索引
 docs/                    # 架构说明与展示截图

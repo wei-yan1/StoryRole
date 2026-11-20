@@ -1,0 +1,139 @@
+{
+  "meta": {
+    "run_id": "20261115-000025-smoke-3d54",
+    "started_at": "2026-11-15T00:00:25+08:00",
+    "finished_at": "2026-11-15T00:00:39+08:00",
+    "label": "smoke",
+    "old_url": "http://127.0.0.1:1314",
+    "new_url": "http://127.0.0.1:1315",
+    "period_id": 7,
+    "questions": [
+      {
+        "id": "q3",
+        "category": "聊天",
+        "mode": "quick"
+      }
+    ],
+    "chat_model": "deepseek-v4.1-flash-1017",
+    "base_url": "https://ws-7jebjvrt7pqdp1fj.cn-beijing.maas.aliyuncs.com/compatible-mode/v1",
+    "git_commit": "ae34770",
+    "status": "completed",
+    "stats": {
+      "old": {
+        "total": 1,
+        "success": 1,
+        "failed": 0,
+        "answer_chars": 118,
+        "avg_wall_ms": 7492.5,
+        "total_wall_ms": 7492.5,
+        "degraded": 0
+      },
+      "new": {
+        "total": 1,
+        "success": 1,
+        "failed": 0,
+        "answer_chars": 151,
+        "avg_wall_ms": 5890.8,
+        "total_wall_ms": 5890.8,
+        "degraded": 0
+      },
+      "success": 2,
+      "total": 2,
+      "degraded": 0
+    }
+  },
+  "results": [
+    {
+      "project": "old",
+      "base_url": "http://127.0.0.1:1314",
+      "question_id": "q3",
+      "category": "聊天",
+      "prompt": "不谈宇宙，也不谈面壁计划。你最近过得怎么样？有没有什么小事让你觉得日子还有点意思？",
+      "mode_requested": "quick",
+      "thread_name": "cmp-old-q3-20261115-000025-smoke-3d54",
+      "status": 200,
+      "http_status": 200,
+      "attempts": 1,
+      "wall_ms": 7492.5,
+      "answer": "最近？还能怎么样，混日子呗。大事我不谈，小事倒是有点——比如早上发现茶叶罐见底了，居然还有点舍不得；比如坐久了站起来，膝盖先替我发表意见。你说这算不算“有意思”？算吧，至少证明我还活着。至于别的，我这记性你也别指望我编出什么精彩日常来。",
+      "answer_chars": 118,
+      "meta": {
+        "engine": null,
+        "mode": "quick",
+        "period_id": 7,
+        "profile_version": 22,
+        "evidence_count": 4,
+        "latency_ms": 7256.9,
+        "degraded": false,
+        "degradations": [],
+        "profile_injected": null,
+        "graph_persisted": null,
+        "graph_write_mode": null,
+        "boundary_source": null,
+        "boundary_confidence": null,
+        "persona_score": null,
+        "persona_rewritten": null,
+        "trace_id": "aee2657f1a1f45deb7189ec54d4fa50e"
+      },
+      "trace": {
+        "status": "ok",
+        "model_invocations": [
+          {
+            "provider": "dashscope",
+            "model": "deepseek-v4.1-flash-1017",
+            "operation": "storyrole_answer_generation",
+            "input_tokens": 5427,
+            "output_tokens": 134,
+            "status": "completed"
+          }
+        ]
+      }
+    },
+    {
+      "project": "new",
+      "base_url": "http://127.0.0.1:1315",
+      "question_id": "q3",
+      "category": "聊天",
+      "prompt": "不谈宇宙，也不谈面壁计划。你最近过得怎么样？有没有什么小事让你觉得日子还有点意思？",
+      "mode_requested": "quick",
+      "thread_name": "cmp-new-q3-20261115-000025-smoke-3d54",
+      "status": 200,
+      "http_status": 200,
+      "attempts": 1,
+      "wall_ms": 5890.8,
+      "answer": "嗨，还能怎么样。日子这种东西，你不去盯着它，它也就是一天一天地磨过去。\n\n小事嘛……偶尔有点意思的，多半也没什么意义。比如一个人坐着，看光线在墙上慢慢挪，或者想起以前某个根本不重要的下午——那种时候会觉得，哦，还活着，还行。\n\n你要我说出什么振奋人心的近况，那没有。我这人你也知道，胸无大志，能混就混。",
+      "answer_chars": 151,
+      "meta": {
+        "engine": "rolerag",
+        "mode": "quick",
+        "period_id": 7,
+        "profile_version": 22,
+        "evidence_count": 3,
+        "latency_ms": 5643.2,
+        "degraded": false,
+        "degradations": [],
+        "profile_injected": true,
+        "graph_persisted": null,
+        "graph_write_mode": null,
+        "boundary_source": "period_terms",
+        "boundary_confidence": 0.75,
+        "persona_score": 1.0,
+        "persona_rewritten": false,
+        "trace_id": "231ae94e794547caa0c7f9d7d6a0399d"
+      },
+      "trace": {
+        "status": "ok",
+        "model_invocations": [
+          {
+            "provider": "dashscope",
+            "model": "deepseek-v4.1-flash-1017",
+            "operation": "storyrole_answer_generation",
+            "input_tokens": 7393,
+            "output_tokens": 152,
+            "status": "completed"
+          }
+        ]
+      }
+    }
+  ]
+}

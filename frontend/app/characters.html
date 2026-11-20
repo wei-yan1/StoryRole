@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#121613">
+  <link rel="icon" href="/static/app/favicon.svg" type="image/svg+xml">
+  <title>角色 · StoryRole</title>
+  <link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar" id="sidebar"></aside>
+    <main class="main">
+      <div class="page characters-page">
+        <header class="page-header">
+          <div>
+            <h1 class="page-title">角色</h1>
+            <p class="page-desc">每个角色都来自一本小说。点开一个角色，查看他的人设和场景，再开始对话。</p>
+          </div>
+          <div class="header-actions">
+            <a class="btn btn-primary btn-lg" href="/characters/new" id="new-character-button">新建角色</a>
+          </div>
+        </header>
+
+        <div class="list-toolbar">
+          <div class="search-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+            <input class="input" id="character-search" placeholder="搜索角色名" aria-label="搜索角色">
+          </div>
+          <span class="toolbar-note" id="character-stat">正在加载</span>
+        </div>
+
+        <div class="character-grid" id="character-grid" style="margin-top:18px">
+          <div class="skeleton" style="height:196px"></div>
+          <div class="skeleton" style="height:196px"></div>
+          <div class="skeleton" style="height:196px"></div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="/static/app/common.js"></script>
+  <script src="/static/app/characters.js"></script>
+</body>
+</html>

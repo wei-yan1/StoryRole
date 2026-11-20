@@ -1,0 +1,336 @@
+{
+  "username": "ui_flow_29166046",
+  "report": [
+    {
+      "page": "/chats",
+      "label": "对话列表",
+      "status": 200,
+      "chars": 521,
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots-v3\\chats-1440.png",
+      "sample": "StoryRole CHARACTER CHAT 对话 角色 资料 工具 用量 设置 ui ui_flow_29166046 @ui_flow_29166046"
+    },
+    {
+      "page": "/chats/new",
+      "label": "新对话",
+      "status": 200,
+      "chars": 280,
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots-v3\\chat-new-1440.png",
+      "sample": "StoryRole CHARACTER CHAT 对话 角色 资料 工具 用量 设置 ui ui_flow_29166046 @ui_flow_29166046"
+    },
+    {
+      "page": "/characters",
+      "label": "角色库",
+      "status": 200,
+      "chars": 3041,
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots-v3\\characters-1440.png",
+      "sample": "StoryRole CHARACTER CHAT 对话 角色 资料 工具 用量 设置 ui ui_flow_29166046 @ui_flow_29166046"
+    },
+    {
+      "page": "/characters/81",
+      "label": "角色详情",
+      "status": 200,
+      "chars": 1138,
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots-v3\\character-1440.png",
+      "sample": "StoryRole CHARACTER CHAT 对话 角色 资料 工具 用量 设置 ui ui_flow_29166046 @ui_flow_29166046"
+    },
+    {
+      "page": "/characters/81/scenes",
+      "label": "场景管理",
+      "status": 200,
+      "chars": 482,
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots-v3\\scenes-1440.png",
+      "sample": "StoryRole CHARACTER CHAT 对话 角色 资料 工具 用量 设置 ui ui_flow_29166046 @ui_flow_29166046"
+    },
+    {
+      "page": "/characters/new",
+      "label": "新建角色",
+      "status": 200,
+      "chars": 372,
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots-v3\\character-new-1440.png",
+      "sample": "StoryRole CHARACTER CHAT 对话 角色 资料 工具 用量 设置 ui ui_flow_29166046 @ui_flow_29166046"
+    },
+    {
+      "page": "/library",
+      "label": "资料库",
+      "status": 200,
+      "chars": 295,
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots-v3\\library-1440.png",
+      "sample": "StoryRole CHARACTER CHAT 对话 角色 资料 工具 用量 设置 ui ui_flow_29166046 @ui_flow_29166046"
+    },
+    {
+      "page": "/tools",
+      "label": "工具",
+      "status": 200,
+      "chars": 459,
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots-v3\\tools-1440.png",
+      "sample": "StoryRole CHARACTER CHAT 对话 角色 资料 工具 用量 设置 ui ui_flow_29166046 @ui_flow_29166046"
+    },
+    {
+      "page": "/tools/image",
+      "label": "生成图片",
+      "status": 200,
+      "chars": 224,
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots-v3\\tool-image-1440.png",
+      "sample": "StoryRole CHARACTER CHAT 对话 角色 资料 工具 用量 设置 ui ui_flow_29166046 @ui_flow_29166046"
+    },
+    {
+      "page": "/tools/ocr",
+      "label": "读图与 OCR",
+      "status": 200,
+      "chars": 205,
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots-v3\\tool-ocr-1440.png",
+      "sample": "StoryRole CHARACTER CHAT 对话 角色 资料 工具 用量 设置 ui ui_flow_29166046 @ui_flow_29166046"
+    },
+    {
+      "page": "/tools/voice",
+      "label": "语音",
+      "status": 200,
+      "chars": 229,
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots-v3\\tool-voice-1440.png",
+      "sample": "StoryRole CHARACTER CHAT 对话 角色 资料 工具 用量 设置 ui ui_flow_29166046 @ui_flow_29166046"
+    },
+    {
+      "page": "/tools/translate",
+      "label": "翻译",
+      "status": 200,
+      "chars": 263,
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots-v3\\tool-translate-1440.png",
+      "sample": "StoryRole CHARACTER CHAT 对话 角色 资料 工具 用量 设置 ui ui_flow_29166046 @ui_flow_29166046"
+    },
+    {
+      "page": "/usage",
+      "label": "用量",
+      "status": 200,
+      "chars": 1044,
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots-v3\\usage-1440.png",
+      "sample": "StoryRole CHARACTER CHAT 对话 角色 资料 工具 用量 设置 ui ui_flow_29166046 @ui_flow_29166046"
+    },
+    {
+      "page": "/settings",
+      "label": "设置",
+      "status": 200,
+      "chars": 543,
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots-v3\\settings-1440.png",
+      "sample": "StoryRole CHARACTER CHAT 对话 角色 资料 工具 用量 设置 ui ui_flow_29166046 @ui_flow_29166046"
+    },
+    {
+      "page": "/chats/73",
+      "label": "对话详情",
+      "status": 200,
+      "chars": 273,
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots-v3\\chat-thread-1440.png",
+      "sample": "StoryRole CHARACTER CHAT 对话 角色 资料 工具 用量 设置 ui ui_flow_29166046 @ui_flow_29166046"
+    },
+    {
+      "page": "/chats/999999",
+      "label": "无效对话兜底",
+      "status": 200,
+      "fallback": true,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots-v3\\chat-invalid.png"
+    },
+    {
+      "page": "/chats @768",
+      "status": 200,
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots-v3\\chats-768.png"
+    },
+    {
+      "page": "/chats/new @768",
+      "status": 200,
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots-v3\\chat-new-768.png"
+    },
+    {
+      "page": "/characters @768",
+      "status": 200,
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots-v3\\characters-768.png"
+    },
+    {
+      "page": "/characters/81 @768",
+      "status": 200,
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots-v3\\character-768.png"
+    },
+    {
+      "page": "/characters/81/scenes @768",
+      "status": 200,
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots-v3\\scenes-768.png"
+    },
+    {
+      "page": "/characters/new @768",
+      "status": 200,
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots-v3\\character-new-768.png"
+    },
+    {
+      "page": "/library @768",
+      "status": 200,
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots-v3\\library-768.png"
+    },
+    {
+      "page": "/tools @768",
+      "status": 200,
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots-v3\\tools-768.png"
+    },
+    {
+      "page": "/tools/image @768",
+      "status": 200,
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots-v3\\tool-image-768.png"
+    },
+    {
+      "page": "/tools/ocr @768",
+      "status": 200,
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots-v3\\tool-ocr-768.png"
+    },
+    {
+      "page": "/tools/voice @768",
+      "status": 200,
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots-v3\\tool-voice-768.png"
+    },
+    {
+      "page": "/tools/translate @768",
+      "status": 200,
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots-v3\\tool-translate-768.png"
+    },
+    {
+      "page": "/usage @768",
+      "status": 200,
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots-v3\\usage-768.png"
+    },
+    {
+      "page": "/settings @768",
+      "status": 200,
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots-v3\\settings-768.png"
+    },
+    {
+      "page": "/chats/73 @768",
+      "status": 200,
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots-v3\\chat-thread-768.png"
+    },
+    {
+      "page": "/chats @390",
+      "status": 200,
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots-v3\\chats-390.png"
+    },
+    {
+      "page": "/chats/new @390",
+      "status": 200,
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots-v3\\chat-new-390.png"
+    },
+    {
+      "page": "/characters @390",
+      "status": 200,
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots-v3\\characters-390.png"
+    },
+    {
+      "page": "/characters/81 @390",
+      "status": 200,
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots-v3\\character-390.png"
+    },
+    {
+      "page": "/characters/81/scenes @390",
+      "status": 200,
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots-v3\\scenes-390.png"
+    },
+    {
+      "page": "/characters/new @390",
+      "status": 200,
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots-v3\\character-new-390.png"
+    },
+    {
+      "page": "/library @390",
+      "status": 200,
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots-v3\\library-390.png"
+    },
+    {
+      "page": "/tools @390",
+      "status": 200,
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots-v3\\tools-390.png"
+    },
+    {
+      "page": "/tools/image @390",
+      "status": 200,
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots-v3\\tool-image-390.png"
+    },
+    {
+      "page": "/tools/ocr @390",
+      "status": 200,
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots-v3\\tool-ocr-390.png"
+    },
+    {
+      "page": "/tools/voice @390",
+      "status": 200,
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots-v3\\tool-voice-390.png"
+    },
+    {
+      "page": "/tools/translate @390",
+      "status": 200,
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots-v3\\tool-translate-390.png"
+    },
+    {
+      "page": "/usage @390",
+      "status": 200,
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots-v3\\usage-390.png"
+    },
+    {
+      "page": "/settings @390",
+      "status": 200,
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots-v3\\settings-390.png"
+    },
+    {
+      "page": "/chats/73 @390",
+      "status": 200,
+      "overflow": false,
+      "shot": "D:\\AgentCode\\two\\docs\\ui-shots-v3\\chat-thread-390.png"
+    },
+    {
+      "page": "/login",
+      "label": "登录页",
+      "status": 200,
+      "overflow": false
+    }
+  ],
+  "errors": [
+    "[console] http://127.0.0.1:8765/chats/999999 :: Failed to load resource: the server responded with a status of 404 (Not Found)"
+  ]
+}

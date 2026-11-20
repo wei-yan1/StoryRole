@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#121613">
+  <link rel="icon" href="/static/app/favicon.svg" type="image/svg+xml">
+  <title>读图与 OCR · StoryRole</title>
+  <link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar" id="sidebar"></aside>
+    <main class="main">
+      <div class="page">
+        <header class="page-header">
+          <div>
+            <a class="chat-back" href="/tools" id="back-link"></a>
+            <h1 class="page-title" style="font-size:34px">读图与 OCR</h1>
+            <p class="page-desc">从截图、扫描件或照片里取出文字；也可以让模型描述画面内容。</p>
+          </div>
+        </header>
+        <div class="tool-workspace">
+          <section class="card tool-panel">
+            <div class="segmented tool-tabs" id="vision-tabs">
+              <button type="button" class="is-current" data-mode="ocr">提取文字</button>
+              <button type="button" data-mode="vision">描述图片</button>
+            </div>
+            <h2 id="vision-title">上传一张图片</h2>
+            <p class="lead" id="vision-lead">OCR 适合截图和文档；描述模式适合照片、插画和界面截图理解。</p>
+            <div class="tool-form">
+              <label class="upload-zone" for="vision-file">
+                <input id="vision-file" type="file" accept="image/png,image/jpeg,image/webp,image/gif">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m17 8-5-5-5 5"/><path d="M12 3v12"/></svg>
+                <span class="upload-zone-copy" id="vision-file-label">选择图片</span>
+              </label>
+              <img id="vision-preview" class="preview-image hidden" alt="待识别的图片">
+              <div class="field"><label class="field-label" for="vision-prompt">补充要求（可选）</label><input class="input" id="vision-prompt" placeholder="例如：只输出正文，保留段落"></div>
+              <button class="btn btn-primary btn-lg" type="button" id="vision-submit">开始识别</button>
+              <p class="note-line" id="vision-status"></p>
+            </div>
+          </section>
+          <section class="card tool-panel">
+            <div class="section-head"><h2>识别结果</h2><button class="btn btn-sm hidden" type="button" id="vision-copy">复制</button></div>
+            <div class="tool-output" style="margin-top:14px">
+              <div class="result-box" id="vision-text"><span class="faint" style="font-size:11px">文字会出现在这里</span></div>
+              <p class="result-meta" id="vision-meta"></p>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="/static/app/common.js"></script>
+  <script src="/static/app/tool-ocr.js"></script>
+</body>
+</html>

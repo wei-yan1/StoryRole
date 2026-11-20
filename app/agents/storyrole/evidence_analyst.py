@@ -34,7 +34,7 @@ class EvidenceAnalysisAgent:
             if os.getenv("DASHSCOPE_BASE_URL"):
                 os.environ.setdefault("OPENAI_BASE_URL", os.environ["DASHSCOPE_BASE_URL"])
             model = init_chat_model(
-                os.getenv("STORYROLE_EVIDENCE_MODEL", os.getenv("STORYROLE_REASONING_MODEL", "qwen3.7-plus")),
+                os.getenv("STORYROLE_EVIDENCE_MODEL", os.getenv("STORYROLE_REASONING_MODEL", "deepseek-v4.1-flash-1017")),
                 model_provider="openai", temperature=0,
             )
             prompt = f"""

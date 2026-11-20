@@ -39,7 +39,7 @@ def _chat_model():
     from langchain.chat_models import init_chat_model
 
     return init_chat_model(
-        os.getenv("STORYROLE_CHAT_MODEL", os.getenv("TEST_CHAT_MODEL", "qwen3.7-plus")),
+        os.getenv("STORYROLE_CHAT_MODEL", os.getenv("TEST_CHAT_MODEL", "deepseek-v4.1-flash-1017")),
         model_provider="openai",
     )
 

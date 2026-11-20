@@ -1,0 +1,447 @@
+{
+  "novel_id": "test",
+  "chapters": [
+    {
+      "ordinal": 1,
+      "title": "第一章 测试书 第0节",
+      "text": "青霄门在雪线之上。玄真道人收陆知微为徒。"
+    },
+    {
+      "ordinal": 2,
+      "title": "第二章 测试书 第1节",
+      "text": "沈砚隐瞒了陆知微偷药的事。玄真逐沈砚下山。"
+    }
+  ],
+  "entities": [
+    {
+      "id": "ent:1a5f4d87d2",
+      "name": "陆知微",
+      "type": "character",
+      "aliases": [
+        "知微",
+        "陆师弟"
+      ],
+      "description": "玄真道人收陆知微为徒。",
+      "first_chapter": 1,
+      "last_chapter": 2,
+      "mention_count": 4
+    },
+    {
+      "id": "ent:586b3d875e",
+      "name": "玄真",
+      "type": "character",
+      "aliases": [
+        "师父",
+        "玄真道人"
+      ],
+      "description": "玄真道人收陆知微为徒。",
+      "first_chapter": 1,
+      "last_chapter": 2,
+      "mention_count": 3
+    },
+    {
+      "id": "ent:d44eff0475",
+      "name": "沈砚",
+      "type": "character",
+      "aliases": [
+        "沈师兄",
+        "砚儿"
+      ],
+      "description": "沈砚隐瞒了陆知微偷药的事。",
+      "first_chapter": 2,
+      "last_chapter": 2,
+      "mention_count": 2
+    },
+    {
+      "id": "ent:6900815ebe",
+      "name": "青霄门",
+      "type": "org",
+      "aliases": [
+        "山门"
+      ],
+      "description": "青霄门在雪线之上。",
+      "first_chapter": 1,
+      "last_chapter": 1,
+      "mention_count": 1
+    },
+    {
+      "id": "ent:3add120050",
+      "name": "断桥",
+      "type": "place",
+      "aliases": [],
+      "description": "",
+      "first_chapter": 0,
+      "last_chapter": 0,
+      "mention_count": 0
+    },
+    {
+      "id": "ent:0aca686472",
+      "name": "苏晚",
+      "type": "character",
+      "aliases": [
+        "苏师姐"
+      ],
+      "description": "",
+      "first_chapter": 0,
+      "last_chapter": 0,
+      "mention_count": 0
+    },
+    {
+      "id": "ent:ca0094e9b0",
+      "name": "赵七",
+      "type": "character",
+      "aliases": [
+        "赵师兄"
+      ],
+      "description": "",
+      "first_chapter": 0,
+      "last_chapter": 0,
+      "mention_count": 0
+    }
+  ],
+  "scenes": [
+    {
+      "id": "test:s001.01",
+      "novel_id": "test",
+      "chapter": 1,
+      "index": 1,
+      "title": "青霄门在雪线之上。",
+      "text": "青霄门在雪线之上。玄真道人收陆知微为徒。",
+      "location": "",
+      "atmosphere": "清寒",
+      "roster": [
+        {
+          "entity_id": "ent:6900815ebe",
+          "presence": "silent"
+        },
+        {
+          "entity_id": "ent:586b3d875e",
+          "presence": "silent"
+        },
+        {
+          "entity_id": "ent:1a5f4d87d2",
+          "presence": "silent"
+        }
+      ]
+    },
+    {
+      "id": "test:s002.01",
+      "novel_id": "test",
+      "chapter": 2,
+      "index": 1,
+      "title": "沈砚隐瞒了陆知微偷药的事。",
+      "text": "沈砚隐瞒了陆知微偷药的事。玄真逐沈砚下山。",
+      "location": "",
+      "atmosphere": "",
+      "roster": [
+        {
+          "entity_id": "ent:d44eff0475",
+          "presence": "silent"
+        },
+        {
+          "entity_id": "ent:1a5f4d87d2",
+          "presence": "silent"
+        },
+        {
+          "entity_id": "ent:586b3d875e",
+          "presence": "silent"
+        }
+      ]
+    }
+  ],
+  "events": [
+    {
+      "id": "test:e001.01.00",
+      "novel_id": "test",
+      "scene_id": "test:s001.01",
+      "chapter": 1,
+      "title": "青霄门在雪线之上。",
+      "summary": "青霄门在雪线之上。玄真道人收陆知微为徒。",
+      "importance": 0.25,
+      "cause": "",
+      "participants": [
+        {
+          "entity_id": "ent:6900815ebe",
+          "role": "witness",
+          "presence": "silent"
+        },
+        {
+          "entity_id": "ent:586b3d875e",
+          "role": "witness",
+          "presence": "silent"
+        },
+        {
+          "entity_id": "ent:1a5f4d87d2",
+          "role": "witness",
+          "presence": "silent"
+        }
+      ],
+      "effects": [],
+      "source": "novel",
+      "thread_id": null
+    },
+    {
+      "id": "test:e002.01.01",
+      "novel_id": "test",
+      "scene_id": "test:s002.01",
+      "chapter": 2,
+      "title": "沈砚隐瞒陆知微",
+      "summary": "沈砚隐瞒了陆知微偷药的事。",
+      "importance": 0.59,
+      "cause": "",
+      "participants": [
+        {
+          "entity_id": "ent:d44eff0475",
+          "role": "actor",
+          "presence": "active"
+        },
+        {
+          "entity_id": "ent:1a5f4d87d2",
+          "role": "patient",
+          "presence": "active"
+        }
+      ],
+      "effects": [
+        {
+          "subject_id": "ent:d44eff0475",
+          "target_id": "ent:1a5f4d87d2",
+          "kind": "信任",
+          "sign": -1,
+          "delta": -0.3,
+          "reason": "沈砚隐瞒了陆知微偷药的事。"
+        }
+      ],
+      "source": "novel",
+      "thread_id": null
+    },
+    {
+      "id": "test:e002.01.02",
+      "novel_id": "test",
+      "scene_id": "test:s002.01",
+      "chapter": 2,
+      "title": "玄真逐沈砚",
+      "summary": "玄真逐沈砚下山。",
+      "importance": 0.79,
+      "cause": "",
+      "participants": [
+        {
+          "entity_id": "ent:586b3d875e",
+          "role": "actor",
+          "presence": "active"
+        },
+        {
+          "entity_id": "ent:d44eff0475",
+          "role": "patient",
+          "presence": "active"
+        }
+      ],
+      "effects": [
+        {
+          "subject_id": "ent:586b3d875e",
+          "target_id": "ent:d44eff0475",
+          "kind": "归属",
+          "sign": -1,
+          "delta": -0.35,
+          "reason": "玄真逐沈砚下山。"
+        }
+      ],
+      "source": "novel",
+      "thread_id": null
+    }
+  ],
+  "facts": [
+    {
+      "id": "test:fe002.01.01",
+      "novel_id": "test",
+      "source_id": "ent:d44eff0475",
+      "target_id": "ent:1a5f4d87d2",
+      "kind": "信任",
+      "sign": -1,
+      "weight": 0.3,
+      "valid_from": 2,
+      "valid_to": null,
+      "cause": "",
+      "caused_by_event": "test:e002.01.01",
+      "confidence": 0.6
+    },
+    {
+      "id": "test:fe002.01.02",
+      "novel_id": "test",
+      "source_id": "ent:586b3d875e",
+      "target_id": "ent:d44eff0475",
+      "kind": "归属",
+      "sign": -1,
+      "weight": 0.35,
+      "valid_from": 2,
+      "valid_to": null,
+      "cause": "",
+      "caused_by_event": "test:e002.01.02",
+      "confidence": 0.6
+    }
+  ],
+  "visibility": [
+    {
+      "character_id": "ent:1a5f4d87d2",
+      "route": "witness",
+      "from_chapter": 1,
+      "certainty": 0.9,
+      "event_id": "test:e001.01.00",
+      "fact_id": null
+    },
+    {
+      "character_id": "ent:1a5f4d87d2",
+      "route": "direct",
+      "from_chapter": 2,
+      "certainty": 1.0,
+      "event_id": "test:e002.01.01",
+      "fact_id": null
+    },
+    {
+      "character_id": "ent:1a5f4d87d2",
+      "route": "direct",
+      "from_chapter": 2,
+      "certainty": 1.0,
+      "event_id": null,
+      "fact_id": "test:fe002.01.01"
+    },
+    {
+      "character_id": "ent:586b3d875e",
+      "route": "witness",
+      "from_chapter": 1,
+      "certainty": 0.9,
+      "event_id": "test:e001.01.00",
+      "fact_id": null
+    },
+    {
+      "character_id": "ent:586b3d875e",
+      "route": "direct",
+      "from_chapter": 2,
+      "certainty": 1.0,
+      "event_id": "test:e002.01.02",
+      "fact_id": null
+    },
+    {
+      "character_id": "ent:586b3d875e",
+      "route": "direct",
+      "from_chapter": 2,
+      "certainty": 1.0,
+      "event_id": null,
+      "fact_id": "test:fe002.01.02"
+    },
+    {
+      "character_id": "ent:d44eff0475",
+      "route": "direct",
+      "from_chapter": 2,
+      "certainty": 1.0,
+      "event_id": "test:e002.01.01",
+      "fact_id": null
+    },
+    {
+      "character_id": "ent:d44eff0475",
+      "route": "direct",
+      "from_chapter": 2,
+      "certainty": 1.0,
+      "event_id": "test:e002.01.02",
+      "fact_id": null
+    },
+    {
+      "character_id": "ent:d44eff0475",
+      "route": "direct",
+      "from_chapter": 2,
+      "certainty": 1.0,
+      "event_id": null,
+      "fact_id": "test:fe002.01.01"
+    },
+    {
+      "character_id": "ent:d44eff0475",
+      "route": "direct",
+      "from_chapter": 2,
+      "certainty": 1.0,
+      "event_id": null,
+      "fact_id": "test:fe002.01.02"
+    },
+    {
+      "character_id": "ent:6900815ebe",
+      "route": "witness",
+      "from_chapter": 1,
+      "certainty": 0.9,
+      "event_id": "test:e001.01.00",
+      "fact_id": null
+    }
+  ],
+  "beliefs": [],
+  "patterns": [],
+  "emotions": [],
+  "states": [
+    {
+      "character_id": "ent:1a5f4d87d2",
+      "alertness": 0.5,
+      "fatigue": 0.3,
+      "indebtedness": 0.0,
+      "shame": 0.0,
+      "interest": 0.5,
+      "hostility": 0.1,
+      "version": 0
+    },
+    {
+      "character_id": "ent:586b3d875e",
+      "alertness": 0.5,
+      "fatigue": 0.3,
+      "indebtedness": 0.0,
+      "shame": 0.0,
+      "interest": 0.5,
+      "hostility": 0.1,
+      "version": 0
+    },
+    {
+      "character_id": "ent:d44eff0475",
+      "alertness": 0.5,
+      "fatigue": 0.3,
+      "indebtedness": 0.0,
+      "shame": 0.0,
+      "interest": 0.5,
+      "hostility": 0.1,
+      "version": 0
+    },
+    {
+      "character_id": "ent:6900815ebe",
+      "alertness": 0.5,
+      "fatigue": 0.3,
+      "indebtedness": 0.0,
+      "shame": 0.0,
+      "interest": 0.5,
+      "hostility": 0.1,
+      "version": 0
+    },
+    {
+      "character_id": "ent:3add120050",
+      "alertness": 0.5,
+      "fatigue": 0.3,
+      "indebtedness": 0.0,
+      "shame": 0.0,
+      "interest": 0.5,
+      "hostility": 0.1,
+      "version": 0
+    },
+    {
+      "character_id": "ent:0aca686472",
+      "alertness": 0.5,
+      "fatigue": 0.3,
+      "indebtedness": 0.0,
+      "shame": 0.0,
+      "interest": 0.5,
+      "hostility": 0.1,
+      "version": 0
+    },
+    {
+      "character_id": "ent:ca0094e9b0",
+      "alertness": 0.5,
+      "fatigue": 0.3,
+      "indebtedness": 0.0,
+      "shame": 0.0,
+      "interest": 0.5,
+      "hostility": 0.1,
+      "version": 0
+    }
+  ]
+}

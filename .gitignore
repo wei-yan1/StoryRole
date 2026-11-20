@@ -30,6 +30,8 @@ data/indexes/*
 !data/indexes/chroma/**
 !data/indexes/chroma/chroma.sqlite3
 
+data/generated/
+
 models/*
 !models/.gitkeep
 

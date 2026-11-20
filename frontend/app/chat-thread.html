@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#121613">
+  <link rel="icon" href="/static/app/favicon.svg" type="image/svg+xml">
+  <title>对话 · StoryRole</title>
+  <link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+  <div class="chat-layout">
+    <aside class="sidebar" id="sidebar"></aside>
+    <main class="chat-main">
+      <header class="chat-header">
+        <a class="chat-back" href="/chats" id="back-button">返回对话</a>
+        <span id="header-avatar"></span>
+        <div class="chat-header-copy">
+          <h1 class="chat-header-name" id="header-name">正在打开对话…</h1>
+          <div class="chat-header-meta" id="header-meta"></div>
+        </div>
+        <div class="chat-header-actions">
+          <a class="header-text-link" href="/characters" id="character-link">角色主页</a>
+        </div>
+      </header>
+
+      <div class="chat-scroll" id="chat-scroll">
+        <div class="chat-thread" id="messages">
+          <div class="skeleton" style="height:70px;margin-bottom:16px"></div>
+          <div class="skeleton" style="height:70px;margin-bottom:16px;width:72%;margin-left:auto"></div>
+          <div class="skeleton" style="height:70px;width:82%"></div>
+        </div>
+      </div>
+
+      <div class="composer-wrap">
+        <div class="composer">
+          <textarea id="chat-input" maxlength="4000" placeholder="写一句话…" aria-label="输入消息"></textarea>
+          <div class="composer-bottom">
+            <button class="composer-send" id="send-button" type="button" disabled>发送</button>
+          </div>
+        </div>
+        <p class="chat-error" id="chat-error" role="alert"></p>
+      </div>
+    </main>
+  </div>
+  <script src="/static/app/common.js"></script>
+  <script src="/static/app/chat-thread.js"></script>
+</body>
+</html>

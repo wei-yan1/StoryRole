@@ -26,7 +26,7 @@ class ConsistencyGuardAgent:
             os.environ.setdefault("OPENAI_API_KEY", api_key)
             if os.getenv("DASHSCOPE_BASE_URL"):
                 os.environ.setdefault("OPENAI_BASE_URL", os.environ["DASHSCOPE_BASE_URL"])
-            llm = init_chat_model(os.getenv("STORYROLE_GUARD_MODEL", os.getenv("STORYROLE_CHAT_MODEL", "qwen3.7-plus")), model_provider="openai", temperature=0)
+            llm = init_chat_model(os.getenv("STORYROLE_GUARD_MODEL", os.getenv("STORYROLE_CHAT_MODEL", "deepseek-v4.1-flash-1017")), model_provider="openai", temperature=0)
             prompt = f"""
 检查下面的角色回答是否符合角色画像、小说证据和知识边界。只输出 JSON，不输出解释。
 字段：pass(boolean), score(number 0-1), violations(list), rewrite_instruction(string), final_answer(string)。

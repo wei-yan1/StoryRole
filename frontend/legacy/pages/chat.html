@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>角色对话 · StoryRole</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%230f1815'/><path d='M14 16h36v22H32l-10 8v-8H14V16Z' fill='none' stroke='%23c3a15e' stroke-width='2'/><path d='M23 25h18M23 31h12' stroke='%23c3a15e' stroke-width='2'/></svg>">
+  <link rel="stylesheet" href="/static/studio.css">
+  <link rel="stylesheet" href="/static/studio-pages.css">
+</head>
+<body class="app-body" data-page="chat">
+  <aside class="rail" id="rail"></aside>
+  <main class="page-shell">
+    <header class="page-head">
+      <div class="page-head-copy">
+        <div class="eyebrow">04 / 角色对话</div>
+        <h1>坐下来，听他说。</h1>
+        <p class="lede">对话只使用这个角色在当前时期能知道的原文证据。选择时期，决定他现在是谁，再开始说话。</p>
+      </div>
+      <div class="page-head-actions">
+        <a class="btn btn-ghost" href="/storyrole">回到总览</a>
+        <a class="btn btn-primary" href="/periods">时期画像 <span aria-hidden="true">→</span></a>
+      </div>
+    </header>
+
+    <div class="page-body chat-body">
+      <div class="empty-state panel empty-state-fill" id="chat-empty" style="padding:28px 24px;display:none">
+        <strong>还没有可以交谈的角色。</strong>
+        <p>先选择一本小说、建立人物，并为当前时期生成画像。对话只对已经拥有画像的角色开放。</p>
+        <div class="action-row"><a class="btn btn-ghost btn-sm" href="/novels">小说档案</a><a class="btn btn-primary btn-sm" href="/characters">建立人物</a></div>
+        <div class="empty-path">
+          <div><span>01</span><b>选好原文</b><small>先有一本可以检索的小说档案。</small></div>
+          <div><span>02</span><b>认出一个名字</b><small>建立角色，才能拿到“我是谁”的身份契约。</small></div>
+          <div><span>03</span><b>生成一段时期</b><small>画像决定了他在此刻能知道什么、如何回答。</small></div>
+        </div>
+      </div>
+
+      <div class="chat-layout" id="chat-layout">
+        <aside class="chat-character">
+          <span class="section-kicker">角色 / SPEAKER</span>
+          <h2 id="character-name">等待角色</h2>
+          <p class="chat-character-sub" id="character-note">从原文中建立的身份档案。</p>
+          <div class="chat-period-block">
+            <span>当前时期</span>
+            <select class="select" id="period-select" aria-label="选择对话时期"></select>
+            <div class="chat-period-list" id="period-list"></div>
+          </div>
+          <div class="chat-prompts">
+            <span>如果不知道从哪开始</span>
+            <button class="prompt-chip" type="button" data-prompt="你最近怎么样？">你最近怎么样？</button>
+            <button class="prompt-chip" type="button" data-prompt="你为什么会做出那样的选择？">你为什么会做出那样的选择？</button>
+            <button class="prompt-chip" type="button" data-prompt="如果重来一次，你还会这样吗？">如果重来一次，你还会这样吗？</button>
+            <button class="prompt-chip" type="button" data-prompt="给我讲一件你记得的事。">给我讲一件你记得的事。</button>
+          </div>
+        </aside>
+
+        <section class="chat-sheet">
+          <div class="chat-head">
+            <div class="chat-head-title"><strong id="chat-title">与角色交谈</strong><small id="chat-subtitle">选择时期后开始对话</small></div>
+            <div class="chat-head-meta">
+              <span class="tag" id="chat-mode-tag">快速交谈</span>
+              <span class="tag tag-forest" id="chat-period-tag">时期未选择</span>
+            </div>
+          </div>
+          <div class="chat-log" id="messages" aria-live="polite"></div>
+          <div class="chat-composer">
+            <div class="chat-tools">
+              <div class="chat-tools-left">
+                <label class="mode-select">回答模式
+                  <select class="select" id="chat-mode">
+                    <option value="quick">快速</option>
+                    <option value="deep">深入</option>
+                    <option value="auto">自动</option>
+                  </select>
+                </label>
+                <label class="switch-label"><span class="switch"><input type="checkbox" id="web-mode"></span>联网补充</label>
+              </div>
+              <div class="chat-tools-right"><span class="inline-note" id="chat-period-note">先完成时期画像</span></div>
+            </div>
+            <form class="chat-form" id="chat-form">
+              <textarea class="chat-input" id="chat-input" rows="2" placeholder="问问他，现在在想什么……" aria-label="对话输入"></textarea>
+              <button class="btn btn-primary" id="send-button" type="submit">发送 <span aria-hidden="true">→</span></button>
+            </form>
+            <div class="chat-foot"><span class="chat-status" id="chat-status"><i class="status-dot"></i><span>尚未就绪</span></span><span id="trace-display">模型与流程状态会在回答后显示</span></div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <footer class="page-foot"><span>STORYROLE / 角色对话</span><span>QUICK / DEEP / AUTO · EVIDENCE-BOUND</span></footer>
+  </main>
+  <script src="/static/studio.js"></script>
+  <script src="/static/chat.js"></script>
+</body>
+</html>

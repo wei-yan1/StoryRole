@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>图片生成 · StoryRole</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%230f1815'/><rect x='13' y='16' width='38' height='32' fill='none' stroke='%23c3a15e' stroke-width='2'/><circle cx='25' cy='26' r='4' fill='%23c3a15e'/><path d='m16 42 12-12 8 8 7-6 8 10' fill='none' stroke='%23c3a15e' stroke-width='2'/></svg>">
+  <link rel="stylesheet" href="/static/studio.css">
+  <link rel="stylesheet" href="/static/studio-pages.css">
+</head>
+<body class="app-body" data-page="media-image" data-media="image">
+  <aside class="rail" id="rail"></aside>
+  <main class="page-shell">
+    <header class="page-head">
+      <div class="page-head-copy">
+        <div class="eyebrow">05.01 / 图片生成</div>
+        <h1>把一段场景，变成一张画。</h1>
+        <p class="lede">写清楚你想看见什么：地点、人物、光线、材质。结果会保存在工作区媒体目录。</p>
+      </div>
+      <div class="page-head-actions"><a class="btn btn-ghost" href="/media">← 返回多模态</a></div>
+    </header>
+
+    <div class="page-body tool-body">
+      <div class="tool-layout">
+        <section class="panel tool-main">
+          <div class="panel-head"><div><span class="section-kicker">画面 / IMAGE</span><h2>描述这张图</h2><p>越具体，越接近你脑子里的那一幕。</p></div><span class="tag">TEXT → IMAGE</span></div>
+          <div class="panel-body">
+            <div class="tool-form">
+              <label class="field"><span>画面描述</span><textarea class="textarea" id="image-prompt" placeholder="例如：雪原上的巨大射电望远镜，黄昏，玫瑰色云层，前景有一个穿军大衣的人影，电影感，广角"></textarea></label>
+              <label class="field"><span>画幅</span><select class="select" id="image-size"><option value="1024x1024">方形 / 1024 × 1024</option><option value="1280x720">横向 / 1280 × 720</option><option value="720x1280">竖向 / 720 × 1280</option></select></label>
+              <button class="btn btn-primary" id="image-generate" type="button"><span>生成图片</span> <span aria-hidden="true">→</span></button>
+            </div>
+            <p class="import-status" id="image-status">描述里可以写“中文对白”“夜景”“纸张质感”等具体要求。</p>
+          </div>
+          <div class="panel-foot"><span class="inline-note">生成结果不会自动写入角色档案。</span><span class="tag">ASYNC / MEDIA</span></div>
+        </section>
+
+        <aside class="tool-side">
+          <div class="media-model-strip"><div><strong>出图模型</strong><small>由后端路由</small></div><div class="model-chips" id="model-chips"></div><span class="tag" id="model-status">读取中…</span></div>
+          <section class="panel tool-result hidden" id="image-result">
+            <div class="panel-head"><div><span class="section-kicker">结果 / OUTPUT</span><h2>已生成</h2></div><a class="btn btn-ghost btn-sm" id="image-download" target="_blank" rel="noopener">下载图片</a></div>
+            <div class="panel-body result-media"><img id="image-preview" alt="生成的图片"><div class="result-meta" id="image-meta"></div></div>
+          </section>
+          <div class="tool-aside-note"><strong>一句提示</strong><p>如果是小说场景图，把“时代、地点、天气、镜头距离”写进描述；如果是人物图，避免把参考图当成真人照片上传。</p></div>
+        </aside>
+      </div>
+    </div>
+
+    <footer class="page-foot"><span>STORYROLE / 图片生成</span><span>PROMPT → IMAGE → MEDIA</span></footer>
+  </main>
+  <script src="/static/studio.js"></script>
+  <script src="/static/media-tool.js"></script>
+</body>
+</html>

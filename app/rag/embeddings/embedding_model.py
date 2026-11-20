@@ -126,6 +126,37 @@ def create_dashscope_embeddings(
             trace_id=trace_id,
         )
 
+    if provider in {"openai", "maas", "gateway"}:
+        from app.core.config.model_catalog import gateway
+
+        selected_model = model or os.getenv("MODEL_EMBEDDING") or "qwen3.7-text-embedding"
+        try:
+            from langchain_openai import OpenAIEmbeddings
+        except ImportError as error:
+            raise RuntimeError(
+                "langchain-openai is required for gateway embeddings. "
+                "Install project dependencies first."
+            ) from error
+        base_url, api_key = gateway()
+        if not base_url or not api_key:
+            raise RuntimeError("gateway embeddings need OPENAI_BASE_URL and OPENAI_API_KEY")
+        backend = OpenAIEmbeddings(
+            model=selected_model,
+            base_url=base_url,
+            api_key=api_key,
+            check_embedding_ctx_length=False,
+        )
+        if not use_cache:
+            return backend
+        from app.rag.embeddings.cached import CachedEmbeddings
+        return CachedEmbeddings(
+            backend,
+            provider="openai",
+            model=selected_model,
+            model_version=os.getenv("MODEL_EMBEDDING_VERSION", ""),
+            trace_id=trace_id,
+        )
+
     api_key = dashscope_api_key or os.getenv("DASHSCOPE_API_KEY")
     if not api_key:
         message = "DASHSCOPE_API_KEY is required to build DashScope embeddings."

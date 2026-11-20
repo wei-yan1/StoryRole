@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StoryRole · 进入档案室</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%230f1815'/><path d='M18 20h18v24H18zM36 20h10v24h-10z' fill='none' stroke='%23c3a15e' stroke-width='2'/></svg>">
+  <link rel="stylesheet" href="/static/studio.css">
+</head>
+<body class="auth-page">
+  <main class="auth-shell">
+    <section class="auth-visual" aria-label="StoryRole 档案室">
+      <img src="/static/assets/login-background.jpg" alt="雪原上的巨大射电望远镜">
+      <div class="auth-visual-content">
+        <div class="auth-brand"><span class="brand-seal">叙</span><span>STORYROLE / 小说角色档案室</span></div>
+        <div class="auth-visual-copy">
+          <div class="eyebrow">A PRIVATE READING ROOM</div>
+          <h1>故事结束之后，<br><span>他们还在说话。</span></h1>
+          <p>保存一段原文，建立人物档案，辨认他处在哪一段人生。然后坐下来，听他用当时的记忆回答你。</p>
+        </div>
+        <div class="auth-visual-foot"><span>原文 · 人格 · 时序</span><span>STORYROLE / 01</span></div>
+      </div>
+    </section>
+
+    <section class="auth-form-side">
+      <div class="auth-form-wrap">
+        <div class="eyebrow" id="auth-kicker">欢迎回来</div>
+        <h2 class="auth-title" id="auth-title">进入你的档案室</h2>
+        <p class="auth-desc" id="auth-description">继续上次留下的小说与角色。</p>
+        <form class="auth-form" id="auth-form" novalidate>
+          <label class="field" for="username"><span>用户名</span><input class="input" id="username" name="username" autocomplete="username" minlength="2" maxlength="64" required placeholder="输入用户名"></label>
+          <label class="field" for="password"><span>密码</span><input class="input" id="password" name="password" type="password" autocomplete="current-password" minlength="8" maxlength="128" required placeholder="至少 8 位字符"></label>
+          <label class="field hidden" id="confirm-field" for="password-confirm"><span>确认密码</span><input class="input" id="password-confirm" type="password" autocomplete="new-password" minlength="8" maxlength="128" placeholder="再次输入密码"></label>
+          <button class="btn btn-primary btn-wide auth-submit" id="submit-button" type="submit"><span>进入档案室</span><b aria-hidden="true">↗</b></button>
+          <p class="auth-message" id="message" role="status" aria-live="polite"></p>
+        </form>
+        <button class="auth-switch" id="switch-mode" type="button">还没有账号？创建一个</button>
+        <p class="auth-note">账号与小说档案保存在当前 StoryRole 数据库中。这里的角色回答只使用小说原文与当前时期的可见证据。</p>
+      </div>
+    </section>
+  </main>
+  <script src="/static/login.js"></script>
+</body>
+</html>

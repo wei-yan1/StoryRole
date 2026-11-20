@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#121613">
+  <link rel="icon" href="/static/app/favicon.svg" type="image/svg+xml">
+  <title>语音 · StoryRole</title>
+  <link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar" id="sidebar"></aside>
+    <main class="main">
+      <div class="page">
+        <header class="page-header">
+          <div>
+            <a class="chat-back" href="/tools" id="back-link"></a>
+            <h1 class="page-title" style="font-size:34px">语音</h1>
+            <p class="page-desc">把文字读出来，或者把一段录音变成可编辑的文字。</p>
+          </div>
+        </header>
+        <div class="card tool-panel">
+          <div class="segmented tool-tabs" id="voice-tabs">
+            <button type="button" class="is-current" data-mode="tts">文字转语音</button>
+            <button type="button" data-mode="asr">语音转文字</button>
+          </div>
+          <div id="tts-panel">
+            <h2>文字转语音</h2>
+            <p class="lead">输入一段话，选择一个声音。适合做旁白、试听或角色台词。</p>
+            <div class="tool-form">
+              <div class="field"><label class="field-label" for="tts-text">文本</label><textarea class="textarea" id="tts-text" maxlength="5000" placeholder="输入要朗读的文本…"></textarea></div>
+              <div class="row" style="align-items:flex-end">
+                <div class="field" style="flex:1"><label class="field-label" for="tts-voice">声音</label><select class="select" id="tts-voice"><option value="Cherry">Cherry · 温和女声</option><option value="Serena">Serena · 沉稳女声</option><option value="Ethan">Ethan · 明亮男声</option><option value="Chelsie">Chelsie · 轻柔女声</option></select></div>
+                <button class="btn btn-primary" type="button" id="tts-send">生成语音</button>
+              </div>
+              <p class="note-line" id="tts-status"></p>
+              <div class="hidden" id="tts-result">
+                <audio id="tts-audio" controls style="width:100%"></audio>
+                <div class="row" style="margin-top:7px"><span class="result-meta" id="tts-meta"></span><span class="spacer"></span><a class="btn btn-sm" id="tts-download" target="_blank" rel="noopener">打开音频</a></div>
+              </div>
+            </div>
+          </div>
+          <div id="asr-panel" class="hidden">
+            <h2>语音转文字</h2>
+            <p class="lead">上传一段录音，提取逐字稿。支持常见音频格式。</p>
+            <div class="tool-form">
+              <label class="upload-zone" for="asr-file">
+                <input id="asr-file" type="file" accept="audio/mpeg,audio/wav,audio/mp4,audio/ogg,audio/x-m4a">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m17 8-5-5-5 5"/><path d="M12 3v12"/></svg>
+                <span class="upload-zone-copy" id="asr-file-label">选择音频文件</span>
+              </label>
+              <div class="row" style="align-items:flex-end">
+                <div class="field" style="flex:1"><label class="field-label" for="asr-language">语言</label><select class="select" id="asr-language"><option value="zh">中文</option><option value="en">English</option><option value="auto">自动识别</option></select></div>
+                <button class="btn btn-primary" type="button" id="asr-send">转写音频</button>
+              </div>
+              <p class="note-line" id="asr-status"></p>
+              <div class="hidden" id="asr-result">
+                <div class="result-box" id="asr-text"></div>
+                <div class="row" style="margin-top:7px"><span class="result-meta" id="asr-meta"></span><span class="spacer"></span><button class="btn btn-sm" type="button" id="asr-copy">复制</button></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="/static/app/common.js"></script>
+  <script src="/static/app/tool-voice.js"></script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>调用监控 · StoryRole</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%230f1815'/><path d='M8 34h10l6-18 10 34 6-20h16' fill='none' stroke='%23c3a15e' stroke-width='2'/><path d='M8 50h48' stroke='%23c3a15e' stroke-width='1'/></svg>">
+  <link rel="stylesheet" href="/static/studio.css">
+  <link rel="stylesheet" href="/static/studio-pages.css">
+</head>
+<body class="app-body" data-page="models">
+  <aside class="rail" id="rail"></aside>
+  <main class="page-shell">
+    <header class="page-head">
+      <div class="page-head-copy">
+        <div class="eyebrow">06 / 调用监控</div>
+        <h1>哪里慢，哪里贵，哪里失败。</h1>
+        <p class="lede">先看异常与成本，再看趋势。这里的数据来自真实的模型调用与流水线记录，每 30 秒刷新一次。</p>
+      </div>
+      <div class="page-head-actions">
+        <span class="tag" id="period">最近 14 天</span>
+        <button class="btn btn-ghost" id="refresh" type="button">刷新数据</button>
+        <a class="btn btn-primary" href="/media">多模态工作台</a>
+      </div>
+    </header>
+
+    <div class="page-body models-body">
+      <p class="import-status error hidden" id="error"></p>
+
+      <section class="model-hero">
+        <div class="model-summary">
+          <div><span class="section-kicker">运行态势 / PULSE</span><h2 id="summary-title">正在读取调用记录…</h2><p id="summary-copy">正在汇总模型调用、流水线和缓存数据。</p></div>
+          <div class="model-summary-foot"><span id="updated">等待更新</span><span>刷新间隔 30s</span><span>AMBIENT / LOCAL</span></div>
+        </div>
+        <div class="metric-grid" id="totals"></div>
+      </section>
+
+      <div class="dashboard-grid">
+        <section class="panel chart-panel">
+          <div class="panel-head">
+            <div><span class="section-kicker">趋势 / CONSUMPTION</span><h2>近 14 日调用</h2><p>顶部指标只看当前账号；柱状图取全局每日汇总，两者口径不同。</p></div>
+            <div class="chart-legend"><span><i></i>调用</span><span><i class="alt"></i>token</span></div>
+          </div>
+          <div class="panel-body"><div class="bar-chart" id="daily"></div></div>
+          <div class="panel-foot"><span class="inline-note">柱状图为全局每日汇总；顶部指标为当前账号。</span><span class="tag">DAILY</span></div>
+        </section>
+
+        <div class="stack">
+          <section class="panel">
+            <div class="panel-head"><div><span class="section-kicker">缓存 / CACHE</span><h2>Embedding 缓存</h2></div><span class="tag">VECTOR</span></div>
+            <div class="panel-body" id="cache"></div>
+          </section>
+          <section class="panel">
+            <div class="panel-head"><div><span class="section-kicker">角色 / AGENTS</span><h2>调用分布</h2></div><span class="tag">A2A</span></div>
+            <div class="panel-body agent-grid" id="agents"></div>
+          </section>
+        </div>
+      </div>
+
+      <div class="dashboard-grid">
+        <section class="panel">
+          <div class="panel-head"><div><span class="section-kicker">流水线 / PIPELINE</span><h2>阶段耗时</h2><p>把一次导入或对话拆开到每个阶段。</p></div><span class="tag" id="pipeline-window">最近 14 天</span></div>
+          <div class="panel-body stage-list" id="pipeline-stages"></div>
+        </section>
+        <section class="panel">
+          <div class="panel-head"><div><span class="section-kicker">流程 / RUNS</span><h2>最近流程</h2></div><span class="tag">LATEST</span></div>
+          <div class="panel-body" id="pipeline-runs"></div>
+        </section>
+      </div>
+
+      <section class="panel">
+        <div class="panel-head"><div><span class="section-kicker">明细 / RECENT CALLS</span><h2>最近调用</h2><p>每一条都保留模型、状态、token、延迟与费用。</p></div><span class="tag">RAW</span></div>
+        <div class="panel-body table-wrap">
+          <table class="data-table recent-table">
+            <colgroup><col style="width:17%"><col style="width:23%"><col style="width:17%"><col style="width:12%"><col style="width:11%"><col style="width:10%"><col style="width:10%"></colgroup>
+            <thead><tr><th>时间</th><th>Agent / 操作</th><th>模型</th><th>状态</th><th>Tokens</th><th>延迟</th><th>费用</th></tr></thead>
+            <tbody id="recent"></tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+
+    <footer class="page-foot"><span>STORYROLE / 调用监控</span><span>OBSERVABILITY · 14 DAYS</span></footer>
+  </main>
+  <script src="/static/studio.js"></script>
+  <script src="/static/models-v2.js"></script>
+</body>
+</html>

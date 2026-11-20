@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>设置 · StoryRole</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%230f1815'/><path d='M16 22h32M16 32h20M16 42h32' stroke='%23c3a15e' stroke-width='2'/><circle cx='42' cy='32' r='4' fill='%230f1815' stroke='%23c3a15e' stroke-width='2'/></svg>">
+  <link rel="stylesheet" href="/static/studio.css">
+  <link rel="stylesheet" href="/static/studio-pages.css">
+</head>
+<body class="app-body" data-page="settings">
+  <aside class="rail" id="rail"></aside>
+  <main class="page-shell">
+    <header class="page-head">
+      <div class="page-head-copy">
+        <div class="eyebrow">07 / 设置</div>
+        <h1>把工作区，调成你的样子。</h1>
+        <p class="lede">模型、索引与运行策略都在这里。密钥字段留空表示保持原值，不会把已保存的密钥显示出来。</p>
+      </div>
+      <div class="page-head-actions"><a class="btn btn-ghost" href="/models">调用监控</a><button class="btn btn-ghost" id="reload-settings" type="button">重新读取</button><button class="btn btn-primary" id="save-settings-top" type="submit" form="settings-form" disabled>保存设置</button></div>
+    </header>
+
+    <div class="page-body">
+      <form id="settings-form">
+        <div class="settings-body">
+          <nav class="settings-nav" id="settings-nav" aria-label="设置分组"></nav>
+          <div class="settings-main">
+            <div class="settings-empty" id="settings-loading">正在读取设置…</div>
+            <div id="settings-groups"></div>
+            <div class="settings-save-bar">
+              <span class="save-status" id="status">读取后修改，保存会立即生效。</span>
+              <button class="btn btn-primary" id="save-settings" type="submit">保存设置 <span aria-hidden="true">→</span></button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <footer class="page-foot"><span>STORYROLE / 设置</span><span>CONFIGURATION · LOCAL WORKSPACE</span></footer>
+  </main>
+  <script src="/static/studio.js"></script>
+  <script src="/static/settings-v2.js"></script>
+</body>
+</html>

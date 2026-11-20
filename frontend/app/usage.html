@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f2e7">
+  <link rel="icon" href="/static/app/favicon.svg" type="image/svg+xml">
+  <title>用量 · StoryRole</title>
+  <link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar" id="sidebar"></aside>
+    <main class="main">
+      <div class="page usage-page">
+        <header class="page-header">
+          <div>
+            <p class="shelf-kicker">模型账单</p>
+            <h1 class="page-title">用量</h1>
+            <p class="page-desc">按任务环节整理当前账号的真实模型调用。对话、场景、人设、工具和检索分开统计，不再混在一起。</p>
+          </div>
+          <div class="header-actions">
+            <select class="select" id="usage-range" aria-label="统计范围">
+              <option value="7">近 7 天</option>
+              <option value="30" selected>近 30 天</option>
+              <option value="90">近 90 天</option>
+            </select>
+          </div>
+        </header>
+
+        <section class="usage-overview" aria-labelledby="usage-overview-title">
+          <div class="usage-overview-head">
+            <h2 id="usage-overview-title">总览</h2>
+            <span id="usage-period">正在读取…</span>
+          </div>
+          <div class="usage-overview-grid" id="usage-overview">
+            <div class="usage-stat"><span class="usage-stat-label">模型调用</span><strong class="usage-stat-value" id="stat-calls">—</strong><span class="usage-stat-sub" id="stat-calls-sub"></span></div>
+            <div class="usage-stat"><span class="usage-stat-label">Token</span><strong class="usage-stat-value" id="stat-tokens">—</strong><span class="usage-stat-sub" id="stat-tokens-sub"></span></div>
+            <div class="usage-stat"><span class="usage-stat-label">预估费用</span><strong class="usage-stat-value" id="stat-cost">—</strong><span class="usage-stat-sub">当前账号实际调用</span></div>
+            <div class="usage-stat"><span class="usage-stat-label">P95 延迟</span><strong class="usage-stat-value" id="stat-latency">—</strong><span class="usage-stat-sub" id="stat-latency-sub"></span></div>
+          </div>
+        </section>
+
+        <section class="usage-stage-section" aria-labelledby="usage-stage-title">
+          <div class="section-head usage-section-head">
+            <div><h2 class="section-title" id="usage-stage-title">按任务环节</h2><p class="section-desc">同一个环节的调用放在一起，方便判断钱和时间花在哪里。</p></div>
+            <span class="usage-unit">调用次数 / Token / 费用 / 延迟</span>
+          </div>
+          <div class="stage-grid" id="stage-grid">
+            <div class="skeleton" style="height:128px"></div>
+            <div class="skeleton" style="height:128px"></div>
+          </div>
+        </section>
+
+        <div class="usage-detail-grid">
+          <section class="card card-pad usage-trend" aria-labelledby="usage-trend-title">
+            <div class="section-head"><h2 class="section-title" id="usage-trend-title">调用趋势</h2><span class="pill" id="daily-note">—</span></div>
+            <div class="sparkline usage-sparkline" id="daily-chart" style="height:96px"></div>
+            <div class="usage-trend-axis"><span class="faint" id="daily-start"></span><span class="faint">今天</span></div>
+          </section>
+          <section class="card card-pad usage-agents" aria-labelledby="usage-agents-title">
+            <div class="section-head"><h2 class="section-title" id="usage-agents-title">细分操作</h2><span class="faint">最多 12 项</span></div>
+            <div id="agent-bars"><div class="skeleton" style="height:90px"></div></div>
+          </section>
+        </div>
+
+        <section class="card card-pad usage-recent" aria-labelledby="usage-recent-title">
+          <div class="section-head"><div><h2 class="section-title" id="usage-recent-title">最近调用</h2><p class="section-desc">每条记录只属于一个任务环节。</p></div><span class="faint">最多显示 12 条</span></div>
+          <div class="recent-table-wrap" id="recent-table-wrap">
+            <table class="data-table usage-table" id="recent-table">
+              <colgroup><col style="width:15%"><col style="width:23%"><col style="width:22%"><col style="width:14%"><col style="width:10%"><col style="width:16%"></colgroup>
+              <thead><tr><th>任务环节</th><th>具体操作</th><th>模型</th><th>Token</th><th>耗时</th><th>时间</th></tr></thead>
+              <tbody><tr><td colspan="6"><div class="skeleton" style="height:80px"></div></td></tr></tbody>
+            </table>
+          </div>
+          <div class="empty-state hidden" id="usage-empty" style="min-height:200px;margin-top:12px">
+            <h3>这个范围内还没有调用</h3>
+            <p>去开始一段对话，或使用一次工具。这里会自动记录当前账号的真实调用。</p>
+            <a class="btn btn-primary" href="/">去书架</a>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+  <script src="/static/app/common.js"></script>
+  <script src="/static/app/usage.js"></script>
+</body>
+</html>

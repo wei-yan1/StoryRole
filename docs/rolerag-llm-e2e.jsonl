@@ -1,0 +1,5 @@
+{"character": "陆知微", "cutoff": 6, "question": "你还记得沈砚被逐出山门那天吗", "route": "recall", "style_ok": true, "style_score": 1.0, "attempts": 1, "chars": 11, "text": "记得，玄真逐沈砚下山。", "latency_ms": 2319}
+{"character": "陆知微", "cutoff": 6, "question": "沈砚为什么斩了赵七", "route": "probe", "style_ok": true, "style_score": 1.0, "attempts": 2, "chars": 9, "text": "沈砚斩赵七，因不明", "latency_ms": 13899}
+{"character": "陆知微", "cutoff": 2, "question": "沈砚为什么斩了赵七", "route": "reject", "style_ok": true, "style_score": 1.0, "attempts": 1, "chars": 7, "text": "我不知道此事。", "latency_ms": 1136}
+{"character": "玄真", "cutoff": 6, "question": "你还记得沈砚隐瞒陆知微那件事吗", "route": "reject", "style_ok": true, "style_score": 1.0, "attempts": 1, "chars": 19, "text": "不知道。沈砚瞒了陆知微什么，我没听说。", "latency_ms": 801}
+{"character": "陆知微", "cutoff": 6, "question": "你怎么看阿波罗登月", "route": "reject", "style_ok": true, "style_score": 1.0, "attempts": 1, "chars": 7, "text": "我不知道这事。", "latency_ms": 1055}

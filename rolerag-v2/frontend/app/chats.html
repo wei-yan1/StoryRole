@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#121613">
+  <link rel="icon" href="/static/app/favicon.svg" type="image/svg+xml">
+  <title>对话 · StoryRole</title>
+  <link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar" id="sidebar"></aside>
+    <main class="main">
+      <div class="page">
+        <header class="page-header">
+          <div>
+            <h1 class="page-title">对话</h1>
+            <p class="page-desc">从上次停下的地方继续。每个角色都有自己的记忆、语气和正在发生的关系。</p>
+          </div>
+          <div class="header-actions">
+            <a class="btn btn-primary btn-lg" href="/chats/new"><span id="new-chat-icon"></span>新对话</a>
+          </div>
+        </header>
+
+        <div class="filters">
+          <div class="search-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+            <input class="input" id="conversation-search" placeholder="搜索角色、资料或对话内容" aria-label="搜索对话">
+          </div>
+          <span class="pill pill-mint pill-dot" id="inbox-stat">正在加载</span>
+        </div>
+
+        <div class="inbox-layout">
+          <section aria-labelledby="conversation-list-title">
+            <div class="section-head">
+              <h2 class="section-title" id="conversation-list-title">最近对话</h2>
+              <span class="section-link" id="conversation-count"></span>
+            </div>
+            <div class="inbox-list" id="conversation-list">
+              <div class="skeleton" style="height:78px"></div>
+              <div class="skeleton" style="height:78px"></div>
+              <div class="skeleton" style="height:78px"></div>
+            </div>
+          </section>
+          <aside class="inbox-side">
+            <div class="card">
+              <div class="card-pad">
+                <div class="section-head">
+                  <h2 class="section-title">最近角色</h2>
+                  <a class="section-link" href="/characters">全部</a>
+                </div>
+                <div id="recent-characters"><div class="skeleton" style="height:52px"></div><div class="skeleton" style="height:52px;margin-top:8px"></div></div>
+                <div class="divider" style="margin:14px 0"></div>
+                <p class="note-line" id="inbox-note"></p>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="/static/app/common.js"></script>
+  <script src="/static/app/chats.js"></script>
+</body>
+</html>

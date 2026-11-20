@@ -1,0 +1,242 @@
+{
+  "generated_at": "2026-11-16T13:11:33.228205+00:00",
+  "passed": true,
+  "pytest": {
+    "passed": true,
+    "returncode": 0,
+    "summary": "132 passed in 1.01s",
+    "output_tail": [
+      "........................................................................ [ 54%]",
+      "............................................................             [100%]",
+      "132 passed in 1.01s"
+    ]
+  },
+  "eval_set": {
+    "available": true,
+    "passed": true,
+    "path": "D:\\AgentCode\\two\\docs\\agent-harness-eval.jsonl",
+    "total": 10,
+    "counts": {
+      "behavior": 5,
+      "quick_probe": 4,
+      "deep_probe": 1
+    },
+    "missing": {},
+    "ids": [
+      "behavior.pressure_savior",
+      "behavior.relation_gap",
+      "behavior.late_period_identity",
+      "behavior.emotion_without_forced_novel_recall",
+      "behavior.decision_continuity",
+      "quick.greeting",
+      "quick.pressure_savior",
+      "quick.fact_boundary",
+      "quick.decision_continuity",
+      "deep.late_period_reflection"
+    ]
+  },
+  "behavior": {
+    "available": true,
+    "runtime": "role_subject_v3",
+    "passed": true,
+    "reviewed": 5,
+    "accepted": 5,
+    "acceptance_rate": 1.0,
+    "avg_persona_score": 1.0,
+    "avg_latency_ms": 4851.5,
+    "path": "D:\\AgentCode\\two\\docs\\rolerag-persona-behavior.json",
+    "failures": [],
+    "harness_checks": [
+      {
+        "name": "pressure_savior",
+        "harness_stop_reason": "review_accepted",
+        "structure_passed": true,
+        "continuity": {
+          "required": false
+        }
+      },
+      {
+        "name": "relation_gap",
+        "harness_stop_reason": "review_accepted",
+        "structure_passed": true,
+        "continuity": {
+          "required": false
+        }
+      },
+      {
+        "name": "late_period_identity",
+        "harness_stop_reason": "review_accepted",
+        "structure_passed": true,
+        "continuity": {
+          "required": false
+        }
+      },
+      {
+        "name": "emotion_without_forced_novel_recall",
+        "harness_stop_reason": "review_accepted",
+        "structure_passed": true,
+        "continuity": {
+          "required": false
+        }
+      },
+      {
+        "name": "decision_continuity",
+        "harness_stop_reason": "review_accepted",
+        "structure_passed": true,
+        "continuity": {
+          "required": true,
+          "turn_count": 2,
+          "episode_count": 2,
+          "prior_episode_ids": [
+            "episode-1-a4f6290309"
+          ],
+          "change_from_previous": "continue",
+          "expected_continuity": "continue"
+        }
+      }
+    ]
+  },
+  "deep_subject_probe": {
+    "available": true,
+    "passed": true,
+    "case_id": "deep.late_period_reflection",
+    "case_name": "late_period_reflection",
+    "checks": {
+      "http_200": true,
+      "action_order": true,
+      "role_cognition_real": true,
+      "role_cognition_absorbed": true,
+      "experience_recorded": true,
+      "review_accepted": true,
+      "persona_score": true,
+      "no_critical_fallback": true,
+      "late_period_detail": true
+    },
+    "cognition_backend": "aliyun_maas",
+    "latency_ms": 63734.1,
+    "path": "D:\\AgentCode\\two\\docs\\role-subject-deep-probe.json"
+  },
+  "profile_alignment": {
+    "available": false,
+    "reason": "STORYROLE_ALIGNMENT_CHECK!=1"
+  },
+  "agent_harness_probe": {
+    "available": true,
+    "passed": true,
+    "runtime": "agent_harness_v3_quick",
+    "generated_at": "2026-11-16T13:11:24Z",
+    "case_count": 4,
+    "cases": [
+      {
+        "name": "greeting",
+        "status": "review_accepted",
+        "runtime": "agent_harness",
+        "actions": [
+          "plan_turn",
+          "understand_event",
+          "decide",
+          "assemble_context",
+          "express",
+          "review",
+          "learn",
+          "stop"
+        ],
+        "degradations": [
+          "harness_context_trimmed"
+        ],
+        "continuity": {
+          "turn_count": 1,
+          "episode_count": 1,
+          "prior_episode_ids": [],
+          "change_from_previous": "new"
+        }
+      },
+      {
+        "name": "pressure_savior",
+        "status": "review_accepted",
+        "runtime": "agent_harness",
+        "actions": [
+          "plan_turn",
+          "understand_event",
+          "cognition",
+          "decide",
+          "assemble_context",
+          "express",
+          "review",
+          "learn",
+          "stop"
+        ],
+        "degradations": [
+          "harness_context_trimmed"
+        ],
+        "continuity": {
+          "turn_count": 1,
+          "episode_count": 1,
+          "prior_episode_ids": [],
+          "change_from_previous": "new"
+        }
+      },
+      {
+        "name": "fact_boundary",
+        "status": "review_accepted",
+        "runtime": "agent_harness",
+        "actions": [
+          "plan_turn",
+          "understand_event",
+          "recall_role",
+          "timeline_guard",
+          "cognition",
+          "decide",
+          "assemble_context",
+          "express",
+          "review",
+          "learn",
+          "stop"
+        ],
+        "degradations": [
+          "harness_context_trimmed"
+        ],
+        "continuity": {
+          "turn_count": 1,
+          "episode_count": 1,
+          "prior_episode_ids": [],
+          "change_from_previous": "new"
+        }
+      },
+      {
+        "name": "decision_continuity",
+        "status": "review_accepted",
+        "runtime": "agent_harness",
+        "actions": [
+          "plan_turn",
+          "understand_event",
+          "recall_role",
+          "recall_user_memory",
+          "timeline_guard",
+          "cognition",
+          "decide",
+          "assemble_context",
+          "express",
+          "review",
+          "learn",
+          "stop"
+        ],
+        "degradations": [
+          "harness_context_trimmed"
+        ],
+        "continuity": {
+          "turn_count": 2,
+          "episode_count": 2,
+          "prior_episode_ids": [
+            "episode-1-35e5c27383"
+          ],
+          "change_from_previous": "continue"
+        }
+      }
+    ],
+    "path": "D:\\AgentCode\\two\\docs\\agent-harness-live-probe.json"
+  },
+  "real_eval": "skipped",
+  "cost_note": "behavior corpus is small; acceptance_rate below 0.5 would be a loss",
+  "next_step": "continue"
+}

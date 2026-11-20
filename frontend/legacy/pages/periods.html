@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>时期画像 · StoryRole</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%230f1815'/><path d='M18 10v44M18 22h22M18 34h22M18 46h22' fill='none' stroke='%23c3a15e' stroke-width='2'/><circle cx='18' cy='22' r='3' fill='%23c3a15e'/><circle cx='18' cy='34' r='3' fill='%23c3a15e'/><circle cx='18' cy='46' r='3' fill='%23c3a15e'/></svg>">
+  <link rel="stylesheet" href="/static/studio.css">
+  <link rel="stylesheet" href="/static/studio-pages.css">
+</head>
+<body class="app-body" data-page="periods">
+  <aside class="rail" id="rail"></aside>
+  <main class="page-shell">
+    <header class="page-head">
+      <div class="page-head-copy">
+        <div class="eyebrow">03 / 时期画像</div>
+        <h1>他活在哪一段人生里？</h1>
+        <p class="lede">时期不是标签，而是角色记得什么、相信什么、会如何回答你的边界。先看时间线，再决定这一段的画像。</p>
+      </div>
+      <div class="page-head-actions">
+        <a class="btn btn-ghost" href="/characters">角色档案</a>
+        <a class="btn btn-primary hidden" id="chat-next" href="/chat">开始对话 <span aria-hidden="true">→</span></a>
+      </div>
+    </header>
+
+    <div class="page-body period-body">
+      <div class="empty-state panel empty-state-fill" id="no-context" style="padding:28px 24px;display:none">
+        <strong>还没有可辨认的角色。</strong>
+        <p>时期必须附着在一个角色身上。先选小说并建立人物，再回到这里。</p>
+        <div class="action-row"><a class="btn btn-ghost btn-sm" href="/novels">小说档案</a><a class="btn btn-primary btn-sm" href="/characters">建立人物</a></div>
+        <div class="empty-path">
+          <div><span>01</span><b>先有原文</b><small>TXT / Markdown 入档，建立可检索的章节。</small></div>
+          <div><span>02</span><b>再有人物</b><small>从原文候选里认出一个名字，生成女娲档案。</small></div>
+          <div><span>03</span><b>最后分时期</b><small>回到这里，把人物放回他活过的那段人生。</small></div>
+        </div>
+      </div>
+
+      <div class="period-layout" id="period-layout">
+        <section class="panel period-timeline-panel">
+          <div class="panel-head">
+            <div><span class="section-kicker">时间线 / TIMELINE</span><h2 id="period-character-name">角色时期</h2><p id="period-character-note">先确认时期范围，再生成画像。</p></div>
+            <div class="period-head-actions">
+              <button class="btn btn-ghost btn-sm" id="analyze-periods" type="button">AI 判断范围</button>
+              <button class="btn btn-accent btn-sm" id="add-period" type="button">＋ 添加时期</button>
+            </div>
+          </div>
+          <div class="panel-body">
+            <div class="period-timeline" id="period-timeline"></div>
+            <div class="analysis-note" id="period-analysis"></div>
+            <p class="period-status" id="period-status">选择一个时期，编辑名称与章节范围。</p>
+          </div>
+          <div class="panel-foot"><span class="inline-note">AI 建议不会直接覆盖你正在编辑的时期。</span><button class="btn btn-quiet btn-sm" id="open-trace" type="button">查看处理记录</button></div>
+        </section>
+
+        <aside class="panel period-editor-panel">
+          <div class="panel-head">
+            <div><span class="section-kicker">编辑 / EDIT</span><h2>时期设置</h2><p>名称与范围都会进入角色画像。</p></div>
+            <span class="tag" id="period-selected-tag">未选择</span>
+          </div>
+          <div class="panel-body">
+            <div id="period-editor"></div>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <footer class="page-foot"><span>STORYROLE / 时期画像</span><span>PERIOD → PERSONA → CHAT</span></footer>
+  </main>
+
+  <div class="drawer" id="trace-drawer" aria-hidden="true">
+    <div class="drawer-head">
+      <div><span class="section-kicker">流程记录 / TRACE</span><h2>画像处理记录</h2><p class="inline-note">每个时期的女娲调用、阶段与耗时。</p></div>
+      <button class="modal-close" id="close-trace" type="button" aria-label="关闭">×</button>
+    </div>
+    <div class="drawer-body" id="trace-list"></div>
+  </div>
+
+  <script src="/static/studio.js"></script>
+  <script src="/static/periods.js"></script>
+</body>
+</html>

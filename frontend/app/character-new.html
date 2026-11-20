@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#121613">
+  <link rel="icon" href="/static/app/favicon.svg" type="image/svg+xml">
+  <title>新建角色 · StoryRole</title>
+  <link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar" id="sidebar"></aside>
+    <main class="main">
+      <div class="page narrow">
+        <header class="page-header">
+          <div>
+            <a class="chat-back" href="/characters" id="back-to-characters"></a>
+            <h1 class="page-title" style="font-size:34px">新建角色</h1>
+            <p class="page-desc">角色不是凭空生成的。先选一本小说，输入一个在小说里出现过的名字，我们会从原文中整理出他的身份与场景。</p>
+          </div>
+        </header>
+
+        <div class="card card-pad">
+          <div class="field">
+            <label class="field-label" for="source-select">选择小说</label>
+            <select class="select" id="source-select"><option value="">正在读取小说…</option></select>
+            <p class="field-hint" id="source-hint">小说决定角色能知道什么。还没有小说？先从书架新增一本。</p>
+          </div>
+          <div class="divider" style="margin:20px 0"></div>
+          <div class="field">
+            <label class="field-label" for="character-name">角色姓名</label>
+            <div class="row" style="align-items:stretch">
+              <input class="input" id="character-name" maxlength="120" placeholder="输入小说中出现过的名字">
+              <button class="btn btn-primary" type="button" id="create-character">创建角色</button>
+            </div>
+            <p class="field-hint">如果名字在小说中找不到，系统不会创建空壳角色。请先核对内容或换一个名字。</p>
+          </div>
+          <div class="section-head" style="margin-top:22px"><h2 class="section-title">这本小说已有的角色</h2><span class="faint" style="font-size:10px">点击可直接填入</span></div>
+          <div class="prompt-chips" id="existing-names" style="justify-content:flex-start;margin-top:0"></div>
+          <p class="error-text" id="create-error" style="margin-top:14px"></p>
+        </div>
+
+        <div class="source-note" style="margin-top:16px">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/></svg>
+          <span>创建完成后，下一步是准备场景人设。场景决定角色在每个阶段知道什么，也是开始对话前的最后一步。</span>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="/static/app/common.js"></script>
+  <script src="/static/app/character-new.js"></script>
+</body>
+</html>

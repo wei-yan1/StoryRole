@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f2e7">
+  <link rel="icon" href="/static/app/favicon.svg" type="image/svg+xml">
+  <title>新增小说 · StoryRole</title>
+  <link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar" id="sidebar"></aside>
+    <main class="main">
+      <div class="page novel-create-page">
+        <nav class="novel-breadcrumb" aria-label="面包屑">
+          <a href="/">书架</a><span>/</span><span>新增小说</span>
+        </nav>
+        <header class="page-header import-header">
+          <div>
+            <p class="shelf-kicker">把一本书放上书架</p>
+            <h1 class="page-title">新增小说</h1>
+            <p class="page-desc">导入小说原文，系统会从中整理角色、场景和人设。之后从书架进入这本书，选择角色开始对话。</p>
+          </div>
+        </header>
+
+        <div class="import-layout">
+          <section class="import-card">
+            <div class="field">
+              <label class="field-label" for="source-name">小说名称</label>
+              <input class="input input-lg" id="source-name" maxlength="80" placeholder="例如：三体 / 我的故事设定">
+              <p class="field-hint">这会显示在书架上，也可以之后重命名。</p>
+            </div>
+
+            <label class="drag-area import-drop" for="source-files" id="drop-area">
+              <input id="source-files" type="file" multiple accept=".txt,.md,.markdown">
+              <span class="import-drop-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m17 8-5-5-5 5"/><path d="M12 3v12"/></svg></span>
+              <span class="drag-title">把小说文本拖到这里</span>
+              <span class="drag-hint">支持 TXT / Markdown，可一次选择多个文件</span>
+              <div class="file-list" id="file-list"></div>
+            </label>
+
+            <div class="import-form-foot">
+              <span class="note-line">文件只作为角色背景，不会出现在对话界面。</span>
+              <button class="btn btn-primary btn-lg" type="button" id="upload-button">导入到书架</button>
+            </div>
+            <p class="error-text" id="upload-error"></p>
+          </section>
+
+          <aside class="import-guide">
+            <div class="import-guide-head">
+              <span class="import-guide-index">01 — 03</span>
+              <h2>导入之后</h2>
+            </div>
+            <div class="import-step">
+              <span class="import-step-num">01</span>
+              <div><strong>解析原文</strong><p>系统会在后台拆分文本，整理可检索的片段和出现过的角色。</p></div>
+            </div>
+            <div class="import-step">
+              <span class="import-step-num">02</span>
+              <div><strong>建立角色</strong><p>在小说页添加名字，系统会从原文核对并建立角色，而不是凭空生成。</p></div>
+            </div>
+            <div class="import-step">
+              <span class="import-step-num">03</span>
+              <div><strong>开始对话</strong><p>为角色准备一个场景人设，然后从书架进入角色，开始真正的对话。</p></div>
+            </div>
+            <div class="import-guide-note">导入完成后会自动回到这本书的页面；解析期间可以离开，任务会在后台继续。</div>
+          </aside>
+        </div>
+
+        <section class="import-tips" aria-labelledby="import-tips-title">
+          <div class="section-head">
+            <h2 class="section-title" id="import-tips-title">导入前看一眼</h2>
+            <span class="shelf-count">文本越完整，角色越稳</span>
+          </div>
+          <div class="import-tips-grid">
+            <article class="import-tip">
+              <span class="import-tip-index">01</span>
+              <h3>一本小说一个文件</h3>
+              <p>同一本书的章节放在一起，角色、场景和对话才会归到同一本小说下。</p>
+            </article>
+            <article class="import-tip">
+              <span class="import-tip-index">02</span>
+              <h3>保留章节标题</h3>
+              <p>章节名和明显的段落分隔，有助于后续整理时间线与场景边界。</p>
+            </article>
+            <article class="import-tip">
+              <span class="import-tip-index">03</span>
+              <h3>使用 UTF-8 文本</h3>
+              <p>避免乱码；导入后还可以在小说页继续补充角色和设定。</p>
+            </article>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+  <script src="/static/app/common.js"></script>
+  <script src="/static/app/novel-new.js"></script>
+</body>
+</html>

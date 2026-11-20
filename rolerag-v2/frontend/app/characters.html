@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#121613">
+  <link rel="icon" href="/static/app/favicon.svg" type="image/svg+xml">
+  <title>角色 · StoryRole</title>
+  <link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar" id="sidebar"></aside>
+    <main class="main">
+      <div class="page">
+        <header class="page-header">
+          <div>
+            <h1 class="page-title">角色</h1>
+            <p class="page-desc">每个角色都从一份资料中长出来。打开一个角色，查看他的人设、经历过的场景，或者直接开始对话。</p>
+          </div>
+          <div class="header-actions">
+            <a class="btn btn-primary btn-lg" href="/characters/new" id="new-character-button">新建角色</a>
+          </div>
+        </header>
+
+        <div class="filters">
+          <div class="search-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+            <input class="input" id="character-search" placeholder="搜索角色名或资料名" aria-label="搜索角色">
+          </div>
+          <select class="select" id="source-filter" aria-label="按资料筛选"><option value="">全部资料</option></select>
+          <span class="pill pill-mint pill-dot" id="character-stat">正在加载</span>
+        </div>
+
+        <div class="character-grid" id="character-grid">
+          <div class="skeleton" style="height:215px"></div>
+          <div class="skeleton" style="height:215px"></div>
+          <div class="skeleton" style="height:215px"></div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="/static/app/common.js"></script>
+  <script src="/static/app/characters.js"></script>
+</body>
+</html>

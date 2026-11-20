@@ -113,7 +113,7 @@ class BM25Scorer:
 
 
 class DashScopeReranker:
-    """Cross-Encoder reranker backed by qwen3-rerank."""
+    """Cross-Encoder reranker backed by qwen3.7-text-rerank."""
 
     def __init__(
         self,
@@ -121,7 +121,7 @@ class DashScopeReranker:
         dashscope_api_key: str | None = None,
         trace_id: str | None = None,
     ) -> None:
-        self.model = model or os.getenv("DASHSCOPE_RERANK_MODEL", "qwen3-rerank")
+        self.model = model or os.getenv("DASHSCOPE_RERANK_MODEL", "qwen3.7-text-rerank")
         self.dashscope_api_key = dashscope_api_key or os.getenv("DASHSCOPE_API_KEY")
         self.trace_id = trace_id
         if not self.dashscope_api_key:

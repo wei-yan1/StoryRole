@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>语音工作台 · StoryRole</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%230f1815'/><path d='M20 38V26M26 44V20M32 48V16M38 42V22M44 36V28' stroke='%23c3a15e' stroke-width='2' stroke-linecap='round'/></svg>">
+  <link rel="stylesheet" href="/static/studio.css">
+  <link rel="stylesheet" href="/static/studio-pages.css">
+</head>
+<body class="app-body" data-page="media-voice" data-media="voice">
+  <aside class="rail" id="rail"></aside>
+  <main class="page-shell">
+    <header class="page-head">
+      <div class="page-head-copy">
+        <div class="eyebrow">05.03 / 语音</div>
+        <h1>让声音进来，也让声音出去。</h1>
+        <p class="lede">一侧把文字合成语音，一侧把录音转写成文字。两者都不写入角色对话记忆，只作为工作区结果。</p>
+      </div>
+      <div class="page-head-actions"><a class="btn btn-ghost" href="/media">← 返回多模态</a></div>
+    </header>
+
+    <div class="page-body tool-body">
+      <div class="tool-layout">
+        <div class="tool-main stack">
+          <section class="panel">
+            <div class="panel-head"><div><span class="section-kicker">合成 / TEXT TO SPEECH</span><h2>把文字读出来</h2><p>适合先试听角色对白的气口与节奏。</p></div><span class="tag">TTS</span></div>
+            <div class="panel-body">
+              <div class="tool-form">
+                <label class="field"><span>朗读文本</span><textarea class="textarea" id="tts-text" placeholder="例如：山门外下着细雨，我没有回头。"></textarea></label>
+                <div class="field-row">
+                  <label class="field"><span>音色</span><select class="select" id="tts-voice"><option value="Cherry" selected>Cherry · 女声</option><option value="Ethan">Ethan · 男声</option></select></label>
+                  <div class="field" style="align-content:end"><button class="btn btn-primary" id="tts-send" type="button"><span>合成语音</span> <span aria-hidden="true">→</span></button></div>
+                </div>
+              </div>
+              <p class="import-status" id="tts-status">语音会保存在项目媒体目录。</p>
+              <div class="panel tool-result hidden" id="tts-result" style="margin-top:14px">
+                <div class="panel-head"><div><span class="section-kicker">结果 / OUTPUT</span><h2>试听</h2></div><a class="btn btn-ghost btn-sm" id="tts-download" target="_blank" rel="noopener">下载音频</a></div>
+                <div class="panel-body result-media"><audio id="tts-audio" controls></audio><div class="result-meta" id="tts-meta"></div></div>
+              </div>
+            </div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-head"><div><span class="section-kicker">转写 / SPEECH TO TEXT</span><h2>把录音变成文字</h2><p>上传一段音频，得到可复制、可继续翻译的文本。</p></div><span class="tag">ASR</span></div>
+            <div class="panel-body">
+              <div class="tool-form">
+                <label class="file-drop"><input id="asr-file" type="file" accept=".wav,.mp3,.m4a,.ogg,.flac"><span class="file-icon">＋</span><span class="file-drop-copy"><strong id="asr-file-label">选择一段音频</strong><small>WAV / MP3 / M4A / OGG / FLAC · 最大 25MB</small></span></label>
+                <div class="field-row">
+                  <label class="field"><span>语言</span><select class="select" id="asr-language"><option value="中文" selected>中文</option><option value="English">English</option></select></label>
+                  <div class="field" style="align-content:end"><button class="btn btn-primary" id="asr-send" type="button"><span>转写音频</span> <span aria-hidden="true">→</span></button></div>
+                </div>
+              </div>
+              <p class="import-status" id="asr-status">上传后开始转写。</p>
+              <div class="panel tool-result hidden" id="asr-result" style="margin-top:14px">
+                <div class="panel-head"><div><span class="section-kicker">结果 / OUTPUT</span><h2>转写文本</h2></div><a class="btn btn-ghost btn-sm" href="/media/translate">去翻译 →</a></div>
+                <div class="panel-body"><p class="result-text" id="asr-text"></p><div class="result-meta" id="asr-meta"></div></div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <aside class="tool-side">
+          <div class="media-model-strip"><div><strong>语音模型</strong><small>合成 / 转写分别路由</small></div><div class="model-chips" id="model-chips"></div><span class="tag" id="model-status">读取中…</span></div>
+          <div class="tool-aside-note"><strong>试听建议</strong><p>合成语音适合做对白草稿；正式入库前，建议人工听一遍断句和重音。</p></div>
+          <div class="tool-aside-note"><strong>转写建议</strong><p>录音尽量靠近声源、减少背景音乐。方言或多人重叠说话时，转写结果需要人工校对。</p></div>
+        </aside>
+      </div>
+    </div>
+
+    <footer class="page-foot"><span>STORYROLE / 语音</span><span>TTS / ASR · WORKSPACE MEDIA</span></footer>
+  </main>
+  <script src="/static/studio.js"></script>
+  <script src="/static/media-tool.js"></script>
+</body>
+</html>

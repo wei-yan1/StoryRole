@@ -1,0 +1,32 @@
+[
+  {
+    "pair": 1,
+    "A": "flat",
+    "B": "rolerag",
+    "route": "reject"
+  },
+  {
+    "pair": 2,
+    "A": "flat",
+    "B": "rolerag",
+    "route": "reject"
+  },
+  {
+    "pair": 3,
+    "A": "rolerag",
+    "B": "flat",
+    "route": "recall"
+  },
+  {
+    "pair": 4,
+    "A": "flat",
+    "B": "rolerag",
+    "route": "reject"
+  },
+  {
+    "pair": 5,
+    "A": "rolerag",
+    "B": "flat",
+    "route": "reject"
+  }
+]

@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#121613">
+  <link rel="icon" href="/static/app/favicon.svg" type="image/svg+xml">
+  <title>新对话 · StoryRole</title>
+  <link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar" id="sidebar"></aside>
+    <main class="main">
+      <div class="new-chat-page">
+        <header class="page-header">
+          <div>
+            <a class="chat-back" href="/chats" id="back-to-chats"></a>
+            <h1 class="page-title" style="font-size:34px">开始新对话</h1>
+            <p class="page-desc">从左边选一个角色，右边会展开场景和输入框。选好后就可以直接说话。</p>
+          </div>
+        </header>
+
+        <div class="new-chat-layout">
+          <section class="card character-panel" aria-labelledby="pick-character-title">
+            <div class="panel-head">
+              <div><h2 id="pick-character-title">角色</h2><p>你的角色库</p></div>
+              <a class="btn btn-sm" href="/characters">全部</a>
+            </div>
+            <div class="character-list" id="character-picker">
+              <div class="skeleton" style="height:52px"></div>
+              <div class="skeleton" style="height:52px"></div>
+              <div class="skeleton" style="height:52px"></div>
+            </div>
+          </section>
+
+          <section class="card new-chat-stage" id="new-chat-stage">
+            <div class="stage-placeholder" id="stage-placeholder">
+              <span class="stage-orb"></span>
+              <span class="empty-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 20l1-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6A8.38 8.38 0 0 1 11.5 3h1a8.5 8.5 0 0 1 8.5 8.5Z"/></svg></span>
+              <h2>选一个角色</h2>
+              <p>选中后，这里会显示可以聊的场景和第一句话的输入框。每个场景都是一段独立的记忆。</p>
+              <div class="row" style="margin-top:20px" id="stage-placeholder-actions"><a class="btn btn-primary" href="/characters/new">创建角色</a><a class="btn" href="/characters">角色库</a></div>
+            </div>
+
+            <div id="stage-content" class="hidden">
+              <div class="stage-head">
+                <span id="stage-avatar"></span>
+                <div class="stage-head-copy"><h2 id="stage-name">角色</h2><span id="stage-meta"></span></div>
+                <a class="btn btn-sm" id="stage-link" href="/characters">角色主页</a>
+              </div>
+              <div class="stage-section">
+                <div class="section-head"><label>对话场景</label><span class="faint" style="font-size:10px">决定对方记得什么</span></div>
+                <div class="scene-chips" id="scene-picker"></div>
+                <p class="note-line" id="scene-note" style="margin-top:10px"></p>
+              </div>
+              <div class="stage-section">
+                <div class="section-head"><label>第一句话</label><span class="faint" style="font-size:10px">Enter 发送 · Shift + Enter 换行</span></div>
+                <div class="prompt-chips" id="prompt-chips" style="justify-content:flex-start;margin-top:0"></div>
+                <div class="new-chat-compose">
+                  <div class="composer">
+                    <textarea id="first-message" maxlength="4000" placeholder="写下你想说的第一句话…" aria-label="第一句话"></textarea>
+                    <div class="composer-bottom">
+                      <select class="select" id="new-chat-mode" aria-label="回答方式">
+                        <option value="quick">快速交谈</option>
+                        <option value="deep">深入分析</option>
+                      </select>
+                      <label class="note-line" style="cursor:pointer"><input type="checkbox" id="new-chat-web" style="accent-color:var(--accent)"> 联网补充</label>
+                      <span class="composer-hint">Enter 发送</span>
+                      <button class="composer-send" type="button" id="first-send" aria-label="发送"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.4 20.4 21 12 3.4 3.6l.1 6.6L15 12 3.5 13.8l-.1 6.6Z"/></svg></button>
+                    </div>
+                  </div>
+                  <p class="chat-error" id="new-chat-error" role="alert"></p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="/static/app/common.js"></script>
+  <script src="/static/app/chat-new.js"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#121613">
+  <link rel="icon" href="/static/app/favicon.svg" type="image/svg+xml">
+  <title>资料 · StoryRole</title>
+  <link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar" id="sidebar"></aside>
+    <main class="main">
+      <div class="page">
+        <header class="page-header">
+          <div>
+            <h1 class="page-title">资料</h1>
+            <p class="page-desc">资料是角色的背景，不是对话的首页。导入文本，系统会从中整理角色、场景和人设。</p>
+          </div>
+          <div class="header-actions">
+            <label class="btn btn-primary btn-lg" for="source-file-top">导入资料</label>
+            <input id="source-file-top" type="file" multiple class="hidden" accept=".txt,.md,.markdown">
+          </div>
+        </header>
+
+        <div class="two-column">
+          <section>
+            <div class="section-head"><h2 class="section-title">我的资料</h2><span class="faint" style="font-size:10px" id="source-count"></span></div>
+            <div class="source-list" id="source-list">
+              <div class="skeleton" style="height:74px"></div>
+              <div class="skeleton" style="height:74px"></div>
+              <div class="skeleton" style="height:74px"></div>
+            </div>
+          </section>
+
+          <aside class="card card-pad" style="position:sticky;top:24px">
+            <h2 class="section-title">导入一份新资料</h2>
+            <p class="lead" style="margin-top:6px;color:var(--ink-2);font-size:11px;line-height:1.7">支持纯文本与 Markdown。文件只会用来建立角色，不会出现在对话界面。</p>
+            <div class="field" style="margin-top:16px">
+              <label class="field-label" for="source-name">资料名称</label>
+              <input class="input" id="source-name" maxlength="80" placeholder="例如：我的故事设定">
+            </div>
+            <label class="drag-area" for="source-files" id="drop-area" style="margin-top:12px">
+              <input id="source-files" type="file" multiple accept=".txt,.md,.markdown">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m17 8-5-5-5 5"/><path d="M12 3v12"/></svg>
+              <span class="drag-title">选择文件或拖到这里</span>
+              <span class="drag-hint">TXT / Markdown，可多选</span>
+              <div class="file-list" id="file-list"></div>
+            </label>
+            <button class="btn btn-primary" type="button" id="upload-button" style="width:100%;margin-top:12px">开始导入</button>
+            <p class="error-text" id="upload-error" style="margin-top:10px"></p>
+            <div class="divider" style="margin:16px 0"></div>
+            <p class="note-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/></svg><span>导入完成后，到角色页输入名字创建角色。</span></p>
+          </aside>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="/static/app/common.js"></script>
+  <script src="/static/app/library.js"></script>
+</body>
+</html>
